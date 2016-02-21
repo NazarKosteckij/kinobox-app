@@ -24,5 +24,7 @@
     "phonegap-plugin-push",
     "ionic-plugin-deploy"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }
