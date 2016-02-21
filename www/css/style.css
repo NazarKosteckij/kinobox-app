@@ -1,0 +1,38 @@
+
+.btn{
+  background: #d75151;
+  vertical-align: middle;
+  font-weight: bold;
+  display: inline-block;
+
+}
+input.form{
+  background: #1a2125;
+  border: 3px solid white;
+}
+
+.form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+  display: block;
+  line-height: 40px;
+  font-size: 25px;
+  text-decoration: blink;
+  color: #fff;
+  margin: 10px auto;
+  width: 85%;
+  height: 50px;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 50px;
+}
+
+
+.center{
+  text-align: center;
+}
+.has-header {
+  top: 0px;
+}
+.overflow-scroll{
+  background: #1a2125;
+}
