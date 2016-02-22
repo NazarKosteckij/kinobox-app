@@ -16,9 +16,8 @@ $form-line-height:                      $font-size;
 $small-diff:                            15px;
 
 $medium-diff:                           15px;
-$large-diff:                            30px;
-$largest-diff:                          60px;
-
+$large-diff:                            50px;
+$largest-diff:                          70px;
 
 
 $font-size-medium:                      $font-size + $medium-diff;
@@ -74,11 +73,11 @@ $MAIN_COLOR:                            #d75151;
 }
 
 @media  (max-width: $SCREEN-LARGEST) and (min-width: $SCREEN-LARGE) {
-  $diff: 50px;
+  $diff: $large-diff;
   @import "./myStyles/responsive";
 }
 
 @media  (min-width: $SCREEN-LARGEST){
-  $diff: 70px;
+  $diff: $largest-diff;
   @import "./myStyles/responsive";
 }
