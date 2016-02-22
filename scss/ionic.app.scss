@@ -23,7 +23,19 @@ $MAIN_BACKGROUND_COLOR:                 #1a2125;
 $MAIN_COLOR:                            #d75151;
 $bar-height: 0px;
 
-$base-background-color:$MAIN_BACKGROUND_COLOR;
+
+$button-positive-bg:                    $MAIN_COLOR;
+$button-positive-active-bg:             #ae4e4e;
+$button-positive-text:                  #fff;
+
+$base-background-color:                 $MAIN_BACKGROUND_COLOR;
   // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+
+/** OVERLOAD IONIC POPUP MESSAGE**/
+
+.button.button-positive {
+ border-radius: 45px;
+ padding-left: 0px;
+}

@@ -19,7 +19,6 @@ input.form{
   width: 80%;
   text-align: center;
   height: $form-height;
-  padding-left: $form-height;
-  padding-right: $form-height;
+  padding: $form-padding;
   border-radius: $form-height;
 }
