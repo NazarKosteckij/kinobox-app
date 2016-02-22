@@ -9,14 +9,14 @@
             <h3 class="title">Авторизація</h3>
             <div>
                 <label >
-                    <input class="form" type="email" placeholder="Логін">
+                    <input ng-model="data.username" class="form" type="email" placeholder="Логін">
                 </label>
                 <label >
-                    <input class="form" type="password" placeholder="Пароль">
+                    <input ng-model="data.password" class="form" type="password" placeholder="Пароль">
                 </label>
             </div>
             <div class="spacer" style="height: 40px;"></div>
-            <a ui-sref="page1" class="form btn">Вхід</a>
+            <a ng-click="login(data)" class="form btn">Вхід as {{data.username}}</a>
         </form>
     </ion-content>
 </ion-view>

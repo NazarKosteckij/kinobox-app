@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngMockE2E'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,6 +20,19 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
 })
-.run(function($httpBackend){
-  $httpBackend.whenGET(/templates\/\w+.*/).passThrough();
+//Angular mocks
+/*.run(function($httpBackend){
+  $httpBackend.whenGET(/templates\/\w+.*!/).passThrough();
+  $httpBackend.whenPOST(/https:\/\/kinobox.in.ua\/.*!/).passThrough();
+  $httpBackend.whenGET(/https:\/\/kinobox.in.ua\/.*!/).passThrough();
+
+})*/
+
+.constant('AUTH_EVENTS', {
+  notAuthenticated: 'auth-not-authenticated',
+  notAuthorized: 'auth-not-authorized'
 })
+
+.constant('USER_ROLES', {
+  public: 'public_role'
+});

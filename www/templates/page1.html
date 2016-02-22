@@ -13,6 +13,7 @@
         <h2>UserName</h2>
         <h4>150</h4>
         <a ui-sref="game" class="button button-stable button-block ">Гра</a>
-        <a ui-sref="login" class="button button-light button-icon button-block button-small icon ion-android-exit"></a>
+        <a ng-click="logout()" class="button button-light button-icon button-block button-small icon ion-android-exit"></a>
+        {{response}}
     </ion-content>
 </ion-view>
