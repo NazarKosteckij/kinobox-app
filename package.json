@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "bower": "^1.3.3",
-    "gulp-util": "^2.2.14",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-util": "^3.0.7",
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
@@ -26,5 +28,19 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazarKosteckij/kinobox-app.git"
+  },
+  "author": "Nazar Kostetskyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NazarKosteckij/kinobox-app/issues"
+  },
+  "homepage": "https://github.com/NazarKosteckij/kinobox-app#readme"
 }

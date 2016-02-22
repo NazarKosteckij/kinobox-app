@@ -1,0 +1,17 @@
+.form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+
+  line-height: $form-line-height + $diff;
+  margin: $form-margin + $diff auto;
+
+  font-size: $font-size + $diff;
+  height: $form-height + $diff;
+  padding-left: $form-height + $diff;
+  padding-right: $form-height + $diff;
+  border-radius: $form-height + $diff;
+}
+
+.title{
+  font-size: $font-size + $diff;
+  margin-bottom: $form-margin-bottom + $diff;
+  margin-top: $form-margin-top + $diff;
+}

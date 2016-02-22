@@ -1,38 +1,88 @@
-
-.btn{
+/****** screen sizes ******/
+/***** COLORS ******/
+.btn {
   background: #d75151;
   vertical-align: middle;
-  font-weight: bold;
-  display: inline-block;
+  display: inline-block; }
 
-}
-input.form{
+input.form {
   background: #1a2125;
-  border: 3px solid white;
-}
+  border: 2px solid white; }
 
-.form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+.form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
-  line-height: 40px;
-  font-size: 25px;
+  line-height: 20px;
+  font-size: 20px;
   text-decoration: blink;
   color: #fff;
   margin: 10px auto;
-  width: 85%;
-  height: 50px;
+  width: 80%;
   text-align: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 50px;
-}
+  height: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 40px; }
 
+.title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #d75151;
+  margin-top: 10px; }
 
-.center{
-  text-align: center;
-}
+.center {
+  text-align: center; }
+
 .has-header {
-  top: 0px;
-}
-.overflow-scroll{
-  background: #1a2125;
-}
+  top: 0px; }
+
+.overflow-scroll {
+  background: #1a2125; }
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px; } }
+
+/****** MEDIUM SCREEN ******/
+@media (max-width: 719px) and (min-width: 480px) {
+  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    line-height: 35px;
+    margin: 25px auto;
+    font-size: 35px;
+    height: 55px;
+    padding-left: 55px;
+    padding-right: 55px;
+    border-radius: 55px; }
+  .title {
+    font-size: 35px;
+    margin-bottom: 25px;
+    margin-top: 25px; } }
+
+@media (max-width: 1200px) and (min-width: 719px) {
+  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    line-height: 70px;
+    margin: 60px auto;
+    font-size: 70px;
+    height: 90px;
+    padding-left: 90px;
+    padding-right: 90px;
+    border-radius: 90px; }
+  .title {
+    font-size: 70px;
+    margin-bottom: 60px;
+    margin-top: 60px; } }
+
+@media (min-width: 1200px) {
+  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    line-height: 90px;
+    margin: 80px auto;
+    font-size: 90px;
+    height: 110px;
+    padding-left: 110px;
+    padding-right: 110px;
+    border-radius: 110px; }
+  .title {
+    font-size: 90px;
+    margin-bottom: 80px;
+    margin-top: 80px; } }

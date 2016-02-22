@@ -1,0 +1,84 @@
+$form-border-size:                      2px;
+$form-height:                           40px;
+
+$form-margin:                           10px;
+$form-margin-bottom:                    10px;
+$form-margin-top:                       10px;
+
+$font-size:                             20px;
+$font-color:                            #fff;
+
+$form-line-height:                      $font-size;
+
+
+
+
+$small-diff:                            15px;
+
+$medium-diff:                           15px;
+$large-diff:                            30px;
+$largest-diff:                          60px;
+
+
+
+$font-size-medium:                      $font-size + $medium-diff;
+$border-size-large:                     $form-border-size;
+$border-size-small:                     $form-border-size;
+$font-size-small:                       $font-size;
+
+/****** screen sizes ******/
+$SCREEN-SMALL:                          320px;
+$SCREEN-MEDIUM:                         480px;
+$SCREEN-LARGE:                          719px;
+$SCREEN-LARGEST:                        1200px;
+
+
+/***** COLORS ******/
+$MAIN_BACKGROUND_COLOR:                 #1a2125;
+$MAIN_COLOR:                            #d75151;
+
+@import "./myStyles/forms-and-buttons";
+
+.title{
+  font-size: $font-size;
+  margin-bottom: $form-margin-bottom;
+  color: $MAIN_COLOR;
+  margin-top: $form-margin-top;
+}
+
+.center{
+  text-align: center;
+}
+
+.has-header {
+  top: 0px;
+}
+.overflow-scroll{
+  background: $MAIN_BACKGROUND_COLOR;
+}
+
+@media (max-width: $SCREEN-SMALL) {
+
+  .title{
+    font-size: $font-size-small;
+    margin-bottom: $form-margin-bottom;
+    margin-top: $form-margin-top;
+  }
+
+}
+
+/****** MEDIUM SCREEN ******/
+@media  (max-width: $SCREEN-LARGE) and (min-width: $SCREEN-MEDIUM) {
+  $diff: $medium-diff;
+  @import "./myStyles/responsive";
+}
+
+@media  (max-width: $SCREEN-LARGEST) and (min-width: $SCREEN-LARGE) {
+  $diff: 50px;
+  @import "./myStyles/responsive";
+}
+
+@media  (min-width: $SCREEN-LARGEST){
+  $diff: 70px;
+  @import "./myStyles/responsive";
+}
