@@ -8,12 +8,14 @@
             <button class="button button-light button-block ">Рос</button>
         </div>
         <div style="text-align:center;">
-            <img src="img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg" width="100px" height="100px">
+            <img class="avatar"   ng-src="{{('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) || 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}" width="100px" height="100px">
         </div>
-        <h2>UserName</h2>
-        <h4>150</h4>
-        <a ui-sref="game" class="button button-stable button-block ">Гра</a>
+        <div class="center">
+          <h1>{{user.name}}</h1>
+          <h4>{{user.balance}}</h4>
+        </div>
+        <a ui-sref="game" class="form btn">Гра</a>
         <a ng-click="logout()" class="button button-light button-icon button-block button-small icon ion-android-exit"></a>
-        {{response}}
+        {{user}}
     </ion-content>
 </ion-view>

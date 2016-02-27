@@ -18,8 +18,8 @@ $form-line-height:                      $font-size;
 $small-diff:                            15px;
 
 $medium-diff:                           15px;
-$large-diff:                            50px;
-$largest-diff:                          70px;
+$large-diff:                            40px;
+$largest-diff:                          60px;
 
 
 $font-size-medium:                      $font-size + $medium-diff;
@@ -68,6 +68,13 @@ $MAIN_COLOR:                            #d75151;
 
 }
 
+input.ng-invalid{
+  border: solid #ffdad4;
+}
+//input.ng-invalid-email{
+//  border:  solid #ffdad4;
+//}
+
 /****** MEDIUM SCREEN ******/
 @media  (max-width: $SCREEN-LARGE) and (min-width: $SCREEN-MEDIUM) {
   $diff: $medium-diff;
@@ -81,5 +88,6 @@ $MAIN_COLOR:                            #d75151;
 
 @media  (min-width: $SCREEN-LARGEST){
   $diff: $largest-diff;
+  $font-size: $font-size - 10;
   @import "./myStyles/responsive";
 }

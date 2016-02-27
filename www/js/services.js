@@ -2,6 +2,28 @@ angular.module('app.services', [])
 
 .factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
   return {
+    request: function (request) {
+
+      console.log(request);
+      return request;
+    },
+    response: function (response){
+
+      console.log(response);
+      if(response.url === "https://kinobox.in.ua/api/getUserData") {
+        response.data.status = "success";
+        response.data.data = {
+          username: "dddd",
+          balance: -432,
+          img_profile_100: "d6229e62a83811a24da8b13b0fd23b6a.jpg",
+          img_profile_70: "2252963e23426d42dc1ce6583d2bbf91.jpg"
+        };
+
+        console.log("changed response");
+        console.log(response);
+      }
+      return response;
+    },
     responseError: function (response) {
       $rootScope.$broadcast({
         401: AUTH_EVENTS.notAuthenticated,
@@ -27,6 +49,7 @@ angular.module('app.services', [])
     var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
     if (token) {
       useCredentials(token);
+
       //$http.get("https://kinobox.in.ua/api/logout").then(function(result) {
       //  username = result.data.data.username;
       //});
@@ -39,15 +62,13 @@ angular.module('app.services', [])
   }
 
   function useCredentials(token) {
-    username = token.split('.')[0];
     isAuthenticated = true;
     authToken = token;
 
     role = USER_ROLES.public;
 
-    //TODO add access token
     // Set the token as header for your requests!
-    //$http.defaults.headers.common['X-Auth-Token'] = token;
+    $http.defaults.headers.common['X-Auth-Token'] = token;
   }
 
   function destroyUserCredentials() {
@@ -55,7 +76,7 @@ angular.module('app.services', [])
     username = '';
     isAuthenticated = false;
     //TODO add access token
-    //$http.defaults.headers.common['X-Auth-Token'] = undefined;
+    $http.defaults.headers.common['X-Auth-Token'] = undefined;
     window.localStorage.removeItem(LOCAL_TOKEN_KEY);
   }
 
@@ -66,7 +87,7 @@ angular.module('app.services', [])
 
       $http({
           method: 'POST',
-          url: "https://kinobox.in.ua/api/login",
+          url: "https://kinobox.in.ua/api/access_token",
           data:  {
             username: name,
             password: password
@@ -81,16 +102,18 @@ angular.module('app.services', [])
               return str.join("&");
             }
           })
-        .then(function(data){
-          console.log(data.data);
-          if(data.data.status === 'error'){
-            reject('Login Failed.');
+        .then(function(respose){
+          console.log(respose.data);
+          if(respose.data.status === 'error'){
+            reject('Перевірте правельність вводу.');
           } else
-          if(data.data.status === 'success'){
-            resolve('Login success.');
+          if(respose.data.status === 'success' || respose.data.status === 'already_logged'){
+            resolve('Вхід виконано.');
+            storeUserCredentials(respose.data.data.access_token);
+            console.log(respose.data);
           }
         }, function(error){
-          reject('Login Failed.');
+          reject('Немає зв\'язку із сервером.');
           console.log(error.data)
         });
 
@@ -99,9 +122,6 @@ angular.module('app.services', [])
   };
 
   var logout = function() {
-    $http.get("https://kinobox.in.ua/api/logout").then(function(result) {
-      console.log(result.data.status);
-    });
     destroyUserCredentials();
   };
 
@@ -122,4 +142,45 @@ angular.module('app.services', [])
     username: function() {return username;},
     role: function() {return role;}
   };
+})
+
+.service('ProfileService', function($q, $http, AuthService) {
+  var user = {
+    name : '',
+    balance : 0,
+    avatar: {
+      small : null,
+      medium : null
+    }
+  };
+
+
+  var loadUser = function () {
+    if(AuthService.isAuthenticated()) {
+      $http({
+        method: 'GET',
+        url:"https://kinobox.in.ua/api/getUserData"
+      }).then(function(response){
+        setCurrentUserFields(response.data.data);
+        console.log(user);
+      })
+    } else {
+
+    }
+  };
+
+
+  var setCurrentUserFields = function (userData) {
+    user.avatar.medium = userData.img_profile_100;
+    user.avatar.small = userData.img_profile_70;
+    user.balance = userData.balance;
+    user.name = userData.username;
+
+    console.log(user);
+  };
+
+  return {
+    user: user,
+    loadUser: loadUser
+  }
 })

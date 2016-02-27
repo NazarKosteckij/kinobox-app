@@ -31,39 +31,29 @@ angular.module('app.controllers', [])
  *
  ************************************
  */
-  .controller('page1Ctrl', function($scope, $state, $http, $ionicPopup, AuthService) {
-  $scope.logout = function() {
+.controller('page1Ctrl', function ($scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService) {
+  ProfileService.loadUser();
+  $scope.user = ProfileService.user;
+  console.log($scope.user);
+
+  $scope.logout = function () {
     AuthService.logout();
+    $ionicHistory.clearCache();
+    $ionicHistory.clearHistory();
+    $ionicHistory.nextViewOptions({
+      historyRoot: true
+    });
     console.log("loggedOut");
     $state.go('login');
   };
-
-  $scope.performValidRequest = function() {
-    $http.get('https://kinobox.in.ua/api/').then(
-      function(result) {
-        $scope.response = result;
-      });
-  };
-
-  $scope.performUnauthorizedRequest = function() {
-    $http.get('http://localhost:8100/notauthorized').then(
-      function(result) {
-        // No result here..
-      }, function(err) {
-        $scope.response = err;
-      });
-  };
-
-  $scope.performInvalidRequest = function() {
-    $http.get('http://localhost:8100/notauthenticated').then(
-      function(result) {
-        // No result here..
-      }, function(err) {
-        $scope.response = err;
-      });
-  };
 })
 
+/************************************
+ *
+ *         GAME PAGE
+ *
+ ************************************
+ */
 .controller('gameCtrl', function($scope) {
 
 })
@@ -76,19 +66,19 @@ angular.module('app.controllers', [])
  ************************************
  */
 .controller('loginCtrl', function($scope, $state, $ionicPopup, AuthService) {
-  $scope.data = {
-    username:'',
-    password:''
-  };
+  if(AuthService.isAuthenticated()){
+    $state.go('page1');
+  }
 
   $scope.login = function(data) {
     AuthService.login(data.username, data.password).then(function(authenticated) {
       $state.go('page1', {}, {reload: true});
       $scope.setCurrentUsername(data.username);
-    }, function(err) {
+    }, function(errorMessage) {
+      console.log(errorMessage);
       var alertPopup = $ionicPopup.alert({
-        title: 'Login failed!',
-        template: 'Please check your credentials!'
+        title: 'Упс!',
+        template: errorMessage
       });
     });
   };

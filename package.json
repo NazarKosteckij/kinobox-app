@@ -27,7 +27,8 @@
     "ionic-plugin-deploy"
   ],
   "cordovaPlatforms": [
-    "android"
+    "android",
+    "ios"
   ],
   "main": "gulpfile.js",
   "scripts": {
