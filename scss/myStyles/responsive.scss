@@ -5,8 +5,8 @@
 
   font-size: $font-size + $diff;
   height: $form-height + $diff;
-  padding-left: $form-height + $diff;
-  padding-right: $form-height + $diff;
+  padding-left: 2px + $diff;
+  padding-right: 2px + $diff;
   border-radius: $form-height + $diff;
 }
 

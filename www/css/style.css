@@ -11,8 +11,7 @@ input.form {
   border: 2px solid white; }
 
 .btn:hover {
-  background: #e84e4d;
-  text-shadow: 1px 1px black; }
+  background: #c85656; }
 
 .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
@@ -96,8 +95,8 @@ a.play-btn {
     margin: 11px auto;
     font-size: 21px;
     height: 41px;
-    padding-left: 41px;
-    padding-right: 41px;
+    padding-left: 3px;
+    padding-right: 3px;
     border-radius: 41px; }
   .title {
     font-size: 21px;
@@ -128,8 +127,8 @@ input.ng-invalid {
     margin: 20px auto;
     font-size: 30px;
     height: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
     border-radius: 50px; }
   .title {
     font-size: 30px;
@@ -157,8 +156,8 @@ input.ng-invalid {
     margin: 25px auto;
     font-size: 35px;
     height: 55px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 17px;
+    padding-right: 17px;
     border-radius: 55px; }
   .title {
     font-size: 35px;
@@ -185,8 +184,8 @@ input.ng-invalid {
     margin: 50px auto;
     font-size: 60px;
     height: 80px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 42px;
+    padding-right: 42px;
     border-radius: 80px; }
   .title {
     font-size: 60px;
@@ -213,8 +212,8 @@ input.ng-invalid {
     margin: 70px auto;
     font-size: 70px;
     height: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 62px;
+    padding-right: 62px;
     border-radius: 100px; }
   .title {
     font-size: 70px;

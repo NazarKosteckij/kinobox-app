@@ -21,13 +21,13 @@ $light:                           #111 !default;
 
 $MAIN_BACKGROUND_COLOR:                 #1a2125;
 $MAIN_COLOR:                            #d75151;
-$MAIN_COLOR-ACTIVE:                     #e84e4d;
+$MAIN_COLOR-ACTIVE:                     #d75151;
 
 $bar-height: 0px;
 
 
 $button-positive-bg:                    $MAIN_COLOR;
-$button-positive-active-bg:             #ae4e4e;
+$button-positive-active-bg:             $MAIN_COLOR-ACTIVE;
 $button-positive-text:                  #fff;
 
 $base-background-color:                 $MAIN_BACKGROUND_COLOR;
