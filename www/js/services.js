@@ -8,22 +8,10 @@ angular.module('app.services', [])
       return request;
     },
     response: function (response){
-
       console.log(response);
-      if(response.url === "https://kinobox.in.ua/api/getUserData") {
-        response.data.status = "success";
-        response.data.data = {
-          username: "dddd",
-          balance: -432,
-          img_profile_100: "d6229e62a83811a24da8b13b0fd23b6a.jpg",
-          img_profile_70: "2252963e23426d42dc1ce6583d2bbf91.jpg"
-        };
-
-        console.log("changed response");
-        console.log(response);
-      }
       return response;
     },
+
     responseError: function (response) {
       $rootScope.$broadcast({
         401: AUTH_EVENTS.notAuthenticated,
@@ -72,11 +60,11 @@ angular.module('app.services', [])
   }
 
   function destroyUserCredentials() {
-    authToken = undefined;
+    authToken = null;
     username = '';
     isAuthenticated = false;
     //TODO add access token
-    $http.defaults.headers.common['X-Auth-Token'] = undefined;
+    $http.defaults.headers.common['X-Auth-Token'] = null;
     window.localStorage.removeItem(LOCAL_TOKEN_KEY);
   }
 
@@ -117,7 +105,7 @@ angular.module('app.services', [])
           console.log(error.data)
         });
 
-      storeUserCredentials(name + '.accessToken');
+
     });
   };
 

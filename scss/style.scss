@@ -1,3 +1,6 @@
+$font-size:                             20px;
+$font-color:                            #fff;
+
 $form-border-size:                      2px;
 $form-height:                           40px;
 
@@ -5,18 +8,11 @@ $form-margin:                           10px;
 $form-margin-bottom:                    10px;
 $form-margin-top:                       10px;
 $form-padding:                          5px;
-
-
-$font-size:                             20px;
-$font-color:                            #fff;
-
 $form-line-height:                      $font-size;
 
+$play-btn-size:                         25vw;
 
-
-
-$small-diff:                            15px;
-
+$small-diff:                            10px;
 $medium-diff:                           15px;
 $large-diff:                            40px;
 $largest-diff:                          60px;
@@ -28,8 +24,8 @@ $border-size-small:                     $form-border-size;
 $font-size-small:                       $font-size;
 
 /****** screen sizes ******/
-$SCREEN-SMALL:                          320px;
-$SCREEN-MEDIUM:                         480px;
+$SCREEN-SMALL:                          319px;
+$SCREEN-MEDIUM:                         479px;
 $SCREEN-LARGE:                          719px;
 $SCREEN-LARGEST:                        1200px;
 
@@ -37,9 +33,25 @@ $SCREEN-LARGEST:                        1200px;
 /***** COLORS ******/
 $MAIN_BACKGROUND_COLOR:                 #1a2125;
 $MAIN_COLOR:                            #d75151;
+$MAIN_COLOR-ACTIVE:                     #e84e4d;
+
+/****** AVATAR *******/
+$avatar-size :                          20%;
 
 @import "./myStyles/forms-and-buttons";
 
+.spinner.spinner-calm {
+  stroke: #FFFFFF;
+  fill: #1a2125;
+}
+
+.spinner svg {
+  width: 100%;
+  height: 100%;
+}
+.red {
+  color: $MAIN_COLOR;
+}
 .title{
   font-size: $font-size;
   margin-bottom: $form-margin-bottom;
@@ -59,34 +71,33 @@ $MAIN_COLOR:                            #d75151;
 }
 
 @media (max-width: $SCREEN-SMALL) {
-
-  .title{
-    font-size: $font-size-small;
-    margin-bottom: $form-margin-bottom;
-    margin-top: $form-margin-top;
-  }
+  $diff: 1px;
+  @import "./myStyles/responsive";
 
 }
 
 input.ng-invalid{
   border: solid #ffdad4;
 }
-//input.ng-invalid-email{
-//  border:  solid #ffdad4;
-//}
 
 /****** MEDIUM SCREEN ******/
-@media  (max-width: $SCREEN-LARGE) and (min-width: $SCREEN-MEDIUM) {
+@media  (max-width: $SCREEN-MEDIUM) and (min-width: $SCREEN-SMALL + 1) {
+  $diff: $small-diff;
+  @import "./myStyles/responsive";
+}
+
+/****** MEDIUM SCREEN ******/
+@media  (max-width: $SCREEN-LARGE) and (min-width: $SCREEN-MEDIUM + 1) {
   $diff: $medium-diff;
   @import "./myStyles/responsive";
 }
 
-@media  (max-width: $SCREEN-LARGEST) and (min-width: $SCREEN-LARGE) {
+@media  (max-width: $SCREEN-LARGEST) and (min-width: $SCREEN-LARGE + 1) {
   $diff: $large-diff;
   @import "./myStyles/responsive";
 }
 
-@media  (min-width: $SCREEN-LARGEST){
+@media  (min-width: $SCREEN-LARGEST + 1){
   $diff: $largest-diff;
   $font-size: $font-size - 10;
   @import "./myStyles/responsive";

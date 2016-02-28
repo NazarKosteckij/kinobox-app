@@ -1,21 +1,24 @@
 <ion-view title="Головна">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="spacer" style="width: 283px; height: 10%;"></div>
         <div style="text-align:center;">
-            <img src="img/TjeKPmBTisVkm8Xx9QQQ_0t3nct5gQOiHuYYSZKmy_logo.png" width="70%" height="auto">
+            <img src="img/KlPrhNSGQYe5wqMKljIN_0t3nct5gQOiHuYYSZKmy_logo.png" width="70%" height="auto">
         </div>
-        <div class="button-bar">
-            <button class="button button-light button-block ">Укр</button>
-            <button class="button button-light button-block ">Рос</button>
+
+      <div class="spacer" style="width: 283px; height: 10%;"></div>
+        <div class="lang-bar">
+            <a class="form btn lag-button selected">Укр.</a>
+            <a class="form btn lag-button">Рус.</a>
         </div>
         <div style="text-align:center;">
-            <img class="avatar"   ng-src="{{('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) || 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}" width="100px" height="100px">
+            <img class="avatar"   ng-src="{{ user.avatar.medium ? ('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) : 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}" >
         </div>
         <div class="center">
-          <h1>{{user.name}}</h1>
-          <h4>{{user.balance}}</h4>
+          <h3 class="red">{{user.name}}</h3>
+          <h1 class="balance-block"><span class="title balance">{{user.balance}}</span> балів</h1>
         </div>
-        <a ui-sref="game" class="form btn">Гра</a>
-        <a ng-click="logout()" class="button button-light button-icon button-block button-small icon ion-android-exit"></a>
-        {{user}}
+        <div class="spacer" style="width: 283px; height: 5%;"></div>
+        <div class="center"><a ui-sref="game" class="center play-btn"><img class="play-btn-img" src="img/play-btn.png"><span>Гра</span></a></div>
+      <a ng-click="logout()" class="button button-light button-icon button-block button-small icon ion-android-exit"></a>
     </ion-content>
 </ion-view>

@@ -16,5 +16,12 @@
   margin-top: $form-margin-top + $diff;
 }
 
-$avatar-size : 25%;
+.balance {
+  font-size: $font-size + $diff * 2;
+}
+
+.balance-block {
+  font-size: $font-size/5 + $diff;
+}
+
 @import "profile";

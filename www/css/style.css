@@ -1,5 +1,6 @@
 /****** screen sizes ******/
 /***** COLORS ******/
+/****** AVATAR *******/
 .btn {
   background: #d75151;
   vertical-align: middle;
@@ -8,6 +9,10 @@
 input.form {
   background: #1a2125;
   border: 2px solid white; }
+
+.btn:hover {
+  background: #e84e4d;
+  text-shadow: 1px 1px black; }
 
 .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
@@ -21,6 +26,54 @@ input.form {
   height: 40px;
   padding: 5px;
   border-radius: 40px; }
+
+.avatar {
+  min-width: 60px;
+  max-width: 150px;
+  border-radius: 50%;
+  width: 20%; }
+
+.lang-bar {
+  position: absolute;
+  left: 20%; }
+
+/***** FORM VALIDATION ****/
+/***** PLAY BUTTON ******/
+.play-btn .play-btn-img {
+  min-width: 60px;
+  left: 6.25vw;
+  position: relative;
+  width: 25vw; }
+
+a.play-btn {
+  text-decoration: blink;
+  color: #FFF; }
+
+.play-btn span {
+  position: relative; }
+  @media screen and (max-width: 239px) {
+    .play-btn span {
+      bottom: 30px;
+      right: 36.36364px;
+      font-size: 15px;
+      min-font-size: 15px; } }
+  @media screen and (min-width: 240px) {
+    .play-btn span {
+      bottom: 12.5vw;
+      right: 15.15152vw;
+      font-size: 6.25vw;
+      min-font-size: 15px; } }
+
+.spinner.spinner-calm {
+  stroke: #FFFFFF;
+  fill: #1a2125; }
+
+.spinner svg {
+  width: 100%;
+  height: 100%; }
+
+.red {
+  color: #d75151; }
 
 .title {
   font-size: 20px;
@@ -37,14 +90,65 @@ input.form {
 .overflow-scroll {
   background: #1a2125; }
 
-@media (max-width: 320px) {
+@media (max-width: 319px) {
+  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    line-height: 21px;
+    margin: 11px auto;
+    font-size: 21px;
+    height: 41px;
+    padding-left: 41px;
+    padding-right: 41px;
+    border-radius: 41px; }
   .title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px; } }
+    font-size: 21px;
+    margin-bottom: 11px;
+    margin-top: 11px; }
+  .balance {
+    font-size: 22px; }
+  .balance-block {
+    font-size: 5px; }
+  .btn.lag-button.selected {
+    background: #d75151; }
+  .btn.lag-button {
+    background: #1a2125;
+    width: 50.5px;
+    height: 20.5px;
+    font-size: 10.5px;
+    padding: 1px;
+    margin: 5px auto;
+    line-height: 20.5px; } }
 
 input.ng-invalid {
   border: solid #ffdad4; }
+
+/****** MEDIUM SCREEN ******/
+@media (max-width: 479px) and (min-width: 320px) {
+  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    line-height: 30px;
+    margin: 20px auto;
+    font-size: 30px;
+    height: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 50px; }
+  .title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px; }
+  .balance {
+    font-size: 40px; }
+  .balance-block {
+    font-size: 14px; }
+  .btn.lag-button.selected {
+    background: #d75151; }
+  .btn.lag-button {
+    background: #1a2125;
+    width: 55px;
+    height: 25px;
+    font-size: 15px;
+    padding: 1px;
+    margin: 5px auto;
+    line-height: 25px; } }
 
 /****** MEDIUM SCREEN ******/
 @media (max-width: 719px) and (min-width: 480px) {
@@ -60,12 +164,22 @@ input.ng-invalid {
     font-size: 35px;
     margin-bottom: 25px;
     margin-top: 25px; }
-  .avatar {
-    border-radius: 50%;
-    height: 25%;
-    width: auto; } }
+  .balance {
+    font-size: 50px; }
+  .balance-block {
+    font-size: 19px; }
+  .btn.lag-button.selected {
+    background: #d75151; }
+  .btn.lag-button {
+    background: #1a2125;
+    width: 57.5px;
+    height: 27.5px;
+    font-size: 17.5px;
+    padding: 1px;
+    margin: 5px auto;
+    line-height: 27.5px; } }
 
-@media (max-width: 1200px) and (min-width: 719px) {
+@media (max-width: 1200px) and (min-width: 720px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     line-height: 60px;
     margin: 50px auto;
@@ -78,12 +192,22 @@ input.ng-invalid {
     font-size: 60px;
     margin-bottom: 50px;
     margin-top: 50px; }
-  .avatar {
-    border-radius: 50%;
-    height: 25%;
-    width: auto; } }
+  .balance {
+    font-size: 100px; }
+  .balance-block {
+    font-size: 44px; }
+  .btn.lag-button.selected {
+    background: #d75151; }
+  .btn.lag-button {
+    background: #1a2125;
+    width: 70px;
+    height: 40px;
+    font-size: 30px;
+    padding: 1px;
+    margin: 5px auto;
+    line-height: 40px; } }
 
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     line-height: 80px;
     margin: 70px auto;
@@ -96,7 +220,17 @@ input.ng-invalid {
     font-size: 70px;
     margin-bottom: 70px;
     margin-top: 70px; }
-  .avatar {
-    border-radius: 50%;
-    height: 25%;
-    width: auto; } }
+  .balance {
+    font-size: 130px; }
+  .balance-block {
+    font-size: 62px; }
+  .btn.lag-button.selected {
+    background: #d75151; }
+  .btn.lag-button {
+    background: #1a2125;
+    width: 80px;
+    height: 50px;
+    font-size: 35px;
+    padding: 1px;
+    margin: 5px auto;
+    line-height: 40px; } }

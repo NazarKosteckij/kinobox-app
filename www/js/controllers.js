@@ -70,16 +70,26 @@ angular.module('app.controllers', [])
     $state.go('page1');
   }
 
+  $scope.processingRequest = false;
+
   $scope.login = function(data) {
-    AuthService.login(data.username, data.password).then(function(authenticated) {
-      $state.go('page1', {}, {reload: true});
-      $scope.setCurrentUsername(data.username);
-    }, function(errorMessage) {
-      console.log(errorMessage);
-      var alertPopup = $ionicPopup.alert({
-        title: 'Упс!',
-        template: errorMessage
+    if (data.username !== '' && data.password !== '') {
+      $scope.processingRequest = true;
+      AuthService.login(data.username, data.password)
+      .then(function(authenticated) {
+        $state.go('page1', {}, {reload: true, historyRoot: true});
+        $scope.setCurrentUsername(data.username);
+        $scope.processingRequest = false;
+      }, function(errorMessage) {
+        console.log(errorMessage);
+        var alertPopup = $ionicPopup.alert({
+          title: 'Упс!',
+          template: errorMessage
+        });
+        $scope.processingRequest = false;
       });
-    });
+    } else {
+      //TODO add validation error message
+    }
   };
 })

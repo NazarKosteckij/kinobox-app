@@ -21,6 +21,8 @@ $light:                           #111 !default;
 
 $MAIN_BACKGROUND_COLOR:                 #1a2125;
 $MAIN_COLOR:                            #d75151;
+$MAIN_COLOR-ACTIVE:                     #e84e4d;
+
 $bar-height: 0px;
 
 
@@ -29,6 +31,7 @@ $button-positive-active-bg:             #ae4e4e;
 $button-positive-text:                  #fff;
 
 $base-background-color:                 $MAIN_BACKGROUND_COLOR;
+
   // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
@@ -38,4 +41,24 @@ $base-background-color:                 $MAIN_BACKGROUND_COLOR;
 .button.button-positive {
  border-radius: 45px;
  padding-left: 0px;
+}
+
+/*****  POPUP WINDOW ******/
+//.popup-container .popup {
+//  width: 70% !important;
+//  height: 35% !important;
+//}
+//
+//.popup-body {
+//  height: 100%;
+//  font-size: 7vw;
+//  line-height: 6vw;
+//}
+
+
+ion-view {
+  min-width: 240px;
+}
+.button.button-light {
+  color: #FFF;
 }

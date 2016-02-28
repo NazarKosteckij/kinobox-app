@@ -1,21 +1,21 @@
 <ion-view title="Вхід">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <div class="spacer" style="width: 283px; height: 53px;"></div>
+        <div class="spacer" style="width: 283px; height: 11%;"></div>
         <div style="text-align:center;">
             <img src="img/KlPrhNSGQYe5wqMKljIN_0t3nct5gQOiHuYYSZKmy_logo.png" width="70%" height="auto">
         </div>
-        <form class="center list">
-            <div class="spacer" style="width: 283px; height: 26px;"></div>
-            <h3 class="title">Авторизація</h3>
+        <div class="spacer" style="width: 283px; height: 10%;"></div>
+        <form class="center list" novalidate>
+          <h3 class="title">Авторизація</h3>
             <div>
-                <label >
-                    <input ng-model="data.username"  class="form" type="email" placeholder="Логін">
+                <label>
+                    <input ng-model="data.username"  class="form" type="email" placeholder="Логін" required>
                 </label>
-                <label >
-                    <input ng-model="data.password" class="form" type="password" placeholder="Пароль">
+                <label>
+                    <input ng-model="data.password" class="form" type="password" placeholder="Пароль" required>
                 </label>
             </div>
-            <a ng-click="login(data)" class="form btn">Вхід</a>
+            <a ng-click="login(data)" class="form btn"><ion-process-spinner processing="processingRequest" css-class="spinner-calm" spinner="crescent">Увійти</ion-process-spinner></a>
         </form>
     </ion-content>
 </ion-view>

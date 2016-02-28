@@ -1,5 +1,14 @@
-.avatar {
-  border-radius: 50%;
-  height: $avatar-size;
-  width: auto;
+.btn.lag-button.selected {
+  background:$MAIN_COLOR;
+}
+
+.btn.lag-button {
+  background: $MAIN_BACKGROUND_COLOR;
+  $small-btn-diff : $diff/2;
+  width: 50px + $small-btn-diff;
+  height: $form-height/2 + $small-btn-diff;
+  font-size: $font-size/2 + $small-btn-diff;
+  padding: 1px;
+  margin: $form-margin/2 auto;
+  line-height: $font-size + $small-btn-diff;
 }
