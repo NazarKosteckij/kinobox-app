@@ -1,0 +1,81 @@
+$timer-height: 8vw;
+$image-bloc-bg-color: #14191b;
+.game .countdown-timer {
+  height: $timer-height;
+  background: $MAIN_COLOR;
+}
+
+.game .image-block {
+  background-color: $image-bloc-bg-color;
+  max-height: 50%;
+}
+
+.game .image-block .main-image {
+  width: 100%;
+  height: auto;
+}
+
+table.buttons-bar {
+  padding: 10px;
+  width: 100%;
+}
+
+.form.small {
+  background-color: $image-bloc-bg-color;
+  padding: 1vw;
+  height: 10vw;
+  font-size: 5vw;
+  margin: 2vw auto;
+  min-height: 25px;
+  min-font-size: 13px;
+  width: 30vw;
+  line-height: 1px;
+}
+
+table.buttons-bar {
+  margin: 1vw 0;
+  width: 100%;
+}
+
+table.buttons-bar tr {
+  width: 100%;
+}
+
+/******* PROGRESS BAR **********/
+
+.progress-bar {
+  width: 100%;
+
+  height: auto;
+}
+
+.progress-bar .progress {
+  text-align: center;
+  width: 99vw;
+  height: 10vw;
+}
+
+.progress-bar .progress .point {
+  font-size: 15vw;
+  color: $MAIN_COLOR-DISABLED;
+}
+
+.progress-bar .progress .point.correct {
+  color: #01ff8d;
+}
+
+.progress-bar .progress .point.incorrect {
+  color: $MAIN_COLOR;
+}
+
+/********* VARIANTS  *********/
+a.variant {
+  height: 25vw;
+  color: #fff;
+  background: $MAIN_BACKGROUND_COLOR;
+}
+a.variant .item {
+  background-color: $MAIN_BACKGROUND_COLOR;
+  height: 12vw;
+  border-style: none;
+}

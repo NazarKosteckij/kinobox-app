@@ -1,8 +1,73 @@
 /****** screen sizes ******/
 /***** COLORS ******/
 /****** AVATAR *******/
+.game .countdown-timer {
+  height: 8vw;
+  background: #f45454; }
+
+.game .image-block {
+  background-color: #14191b;
+  max-height: 50%; }
+
+.game .image-block .main-image {
+  width: 100%;
+  height: auto; }
+
+table.buttons-bar {
+  padding: 10px;
+  width: 100%; }
+
+.form.small {
+  background-color: #14191b;
+  padding: 1vw;
+  height: 10vw;
+  font-size: 5vw;
+  margin: 2vw auto;
+  min-height: 25px;
+  min-font-size: 13px;
+  width: 30vw;
+  line-height: 1px; }
+
+table.buttons-bar {
+  margin: 1vw 0;
+  width: 100%; }
+
+table.buttons-bar tr {
+  width: 100%; }
+
+/******* PROGRESS BAR **********/
+.progress-bar {
+  width: 100%;
+  height: auto; }
+
+.progress-bar .progress {
+  text-align: center;
+  width: 99vw;
+  height: 10vw; }
+
+.progress-bar .progress .point {
+  font-size: 15vw;
+  color: #1a2125; }
+
+.progress-bar .progress .point.correct {
+  color: #01ff8d; }
+
+.progress-bar .progress .point.incorrect {
+  color: #f45454; }
+
+/********* VARIANTS  *********/
+a.variant {
+  height: 25vw;
+  color: #fff;
+  background: #1a2125; }
+
+a.variant .item {
+  background-color: #1a2125;
+  height: 12vw;
+  border-style: none; }
+
 .btn {
-  background: #d75151;
+  background: #f45454;
   vertical-align: middle;
   display: inline-block; }
 
@@ -12,6 +77,10 @@ input.form {
 
 .btn:hover {
   background: #c85656; }
+
+.form.disabled {
+  color: #1a2125;
+  border: #1a2125 solid; }
 
 .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
@@ -72,12 +141,12 @@ a.play-btn {
   height: 100%; }
 
 .red {
-  color: #d75151; }
+  color: #f45454; }
 
 .title {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #d75151;
+  color: #f45454;
   margin-top: 10px; }
 
 .center {
@@ -107,7 +176,7 @@ a.play-btn {
   .balance-block {
     font-size: 5px; }
   .btn.lag-button.selected {
-    background: #d75151; }
+    background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
     width: 50.5px;
@@ -139,7 +208,7 @@ input.ng-invalid {
   .balance-block {
     font-size: 14px; }
   .btn.lag-button.selected {
-    background: #d75151; }
+    background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
     width: 55px;
@@ -168,7 +237,7 @@ input.ng-invalid {
   .balance-block {
     font-size: 19px; }
   .btn.lag-button.selected {
-    background: #d75151; }
+    background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
     width: 57.5px;
@@ -196,7 +265,7 @@ input.ng-invalid {
   .balance-block {
     font-size: 44px; }
   .btn.lag-button.selected {
-    background: #d75151; }
+    background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
     width: 70px;
@@ -224,7 +293,7 @@ input.ng-invalid {
   .balance-block {
     font-size: 62px; }
   .btn.lag-button.selected {
-    background: #d75151; }
+    background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
     width: 80px;

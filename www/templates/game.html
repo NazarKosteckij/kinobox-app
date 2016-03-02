@@ -1,19 +1,35 @@
 <ion-view title="Гра">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <h4>00:15</h4>
-        <div style="text-align:center;">
-            <img src="img/QxFjRuetSd2ikFx0gOBa_JiaWtdpQRbCU7VrLuRyW_56c4a13c1c711_1455726908.jpg" width="100%" height="auto">
+    <ion-content overflow-scroll="true" padding="false" class="has-header">
+        <div class="game">
+          <div class="image-block">
+            <div class="countdown-timer">
+            </div>
+            <div class="center main-image">
+                <img ng-src="{{curentSlide.image}}" width="100%" height="auto">
+            </div>
+            <table class="buttons-bar">
+              <tr>
+                <td><input type="button" class="form small" value="50/50"/></td>
+                <td><input type="button" class="form small disabled " value="ще кадр"/></td>
+                <td><input type="button" class="form small" value="пропустити"/></td>
+              </tr>
+            </table>
+            <div class="progress-bar">
+              <table class="progress">
+                <tbody>
+                <tr>
+                  <td ng-repeat="slideData in slides track by $index" class="point"
+                      ng-class="slideData.submit ?
+                      {'correct' : slideData.correct,
+                       'incorrect' : !slideData.correct} : {}">•</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="answers">
+              <a ng-repeat="variant in curentSlide.variants track by $index" class="variant" ng-click="submit()" ><div class="item">{{variant}}</div></a>
+          </div>
         </div>
-        <div class="button-bar">
-            <button class="button button-stable button-block ">1</button>
-            <button class="button button-stable button-block ">2</button>
-            <button class="button button-stable button-block ">3</button>
-        </div>
-        <form class="list">
-            <ion-radio>Radio</ion-radio>
-            <ion-radio>Radio</ion-radio>
-            <ion-radio>Radio</ion-radio>
-            <ion-radio>Radio</ion-radio>
-        </form>
     </ion-content>
 </ion-view>

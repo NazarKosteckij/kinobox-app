@@ -1,9 +1,10 @@
-
+@import "game";
 .btn{
   background: $MAIN_COLOR;
   vertical-align: middle;
   display: inline-block;
 }
+
 input.form{
   background: $MAIN_BACKGROUND_COLOR;
   border: $form-border-size solid white;
@@ -12,6 +13,11 @@ input.form{
 .btn:hover {
   background: $MAIN_COLOR-ACTIVE;
   //text-shadow: 1px 1px black;
+}
+
+.form.disabled{
+  color: $MAIN_COLOR-DISABLED;
+  border: $MAIN_COLOR-DISABLED solid;
 }
 
 .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{

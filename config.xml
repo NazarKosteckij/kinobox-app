@@ -9,7 +9,6 @@
     </author>
   <content src="index.html"/>
   <access origin="*"/>
-  <preference name="AutoHideSplashScreen" value="false" />
   <preference name="Fullscreen" value="true"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
@@ -18,6 +17,8 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="AutoHideSplashScreen" value="false" />
+  <preference name="auto-hide-splash-screen" value="false" />
   <platform name="android">
     <icon src="resources/android/icon/android-icon-36x36.png" density="ldpi"/>
     <icon src="resources/android/icon/android-icon-48x48.png" density="mdpi"/>

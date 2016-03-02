@@ -32,8 +32,9 @@ $SCREEN-LARGEST:                        1200px;
 
 /***** COLORS ******/
 $MAIN_BACKGROUND_COLOR:                 #1a2125;
-$MAIN_COLOR:                            #d75151;
-$MAIN_COLOR-ACTIVE: #c85656;
+$MAIN_COLOR:                            #f45454; // old color d75151;
+$MAIN_COLOR-ACTIVE:                     #c85656;
+$MAIN_COLOR-DISABLED:                   $MAIN_BACKGROUND_COLOR;
 
 /****** AVATAR *******/
 $avatar-size :                          20%;
@@ -42,7 +43,7 @@ $avatar-size :                          20%;
 
 .spinner.spinner-calm {
   stroke: #FFFFFF;
-  fill: #1a2125;
+  fill: $MAIN_BACKGROUND_COLOR;
 }
 
 .spinner svg {
