@@ -27,8 +27,8 @@
               </table>
             </div>
           </div>
-          <div class="answers">
-              <a ng-repeat="variant in curentSlide.variants track by $index" class="variant" ng-click="submit()" ><div class="item">{{variant}}</div></a>
+          <div class="answers center">
+              <div ng-repeat="variant in curentSlide.variants track by $index" class="variant" ng-click="submit()" ><a class="item">{{variant}}</a></div>
           </div>
         </div>
     </ion-content>

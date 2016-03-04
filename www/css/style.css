@@ -5,9 +5,11 @@
   height: 8vw;
   background: #f45454; }
 
+.game {
+  height: 100%; }
+
 .game .image-block {
-  background-color: #14191b;
-  max-height: 50%; }
+  background-color: #14191b; }
 
 .game .image-block .main-image {
   width: 100%;
@@ -56,15 +58,25 @@ table.buttons-bar tr {
   color: #f45454; }
 
 /********* VARIANTS  *********/
-a.variant {
-  height: 25vw;
-  color: #fff;
+.variant {
+  height: 50%;
   background: #1a2125; }
 
-a.variant .item {
+.variant .item {
+  line-height: 8vw;
+  font-size: 9vw;
+  padding: 0;
+  margin: 2vw 0;
+  height: 100%;
+  color: #fff;
   background-color: #1a2125;
-  height: 12vw;
   border-style: none; }
+
+.variant .item.correct {
+  color: #01ff8d; }
+
+.variant .item.incorrect {
+  color: #f45454; }
 
 .btn {
   background: #f45454;

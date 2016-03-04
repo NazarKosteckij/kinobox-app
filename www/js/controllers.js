@@ -58,16 +58,17 @@ angular.module('app.controllers', [])
  ************************************
  */
 .controller('gameCtrl', function ($document, $log, $scope, $state) {
+  const SECONDS_PER_SLIDE = 5;
+  const TIMER_UPDATE_INTERVAL = 10;
+
   var _slideData = {
     image: 'https://kinobox.in.ua/frames/53b7b6e261a04_1404548834.jpg',
     variants: ['asdfa', 'asdfa', 'asfdas', 'asdfasf'],
     submit: false,
     correct: false
   };
-
-  const SECONDS_PER_SLIDE = 5;
-  const TIMER_UPDATE_INTERVAL = 10;
   var _remainingTimeMs = 0;
+  var _intervalId = 0;
 
   var _initTimer = function() {
     _remainingTimeMs = SECONDS_PER_SLIDE * 1000;
@@ -90,7 +91,7 @@ angular.module('app.controllers', [])
     $scope.slides = [];
 
     _initTimer();
-    setInterval(_updateTimer, TIMER_UPDATE_INTERVAL);
+    _intervalId = setInterval(_updateTimer, TIMER_UPDATE_INTERVAL);
 
     for (var i = 0; i < 10; i++) {
       $scope.slides[i] = _slideData;
@@ -112,8 +113,9 @@ angular.module('app.controllers', [])
       _initTimer();
       $scope.slideData = $scope.slides[$scope.curentSlideNumber - 1];
     } else {
+      _endGame();
       //TODO add popup with result of the game
-      $state.go('page1', {reload: true});
+      $state.go('page1', {reload: false});
     }
   };
 
@@ -128,8 +130,11 @@ angular.module('app.controllers', [])
 
   var _loadNextSlide = function () {
 
-  }
+  };
 
+  var _endGame = function() {
+    clearInterval(_intervalId);
+  }
 })
 
 
