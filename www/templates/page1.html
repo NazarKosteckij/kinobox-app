@@ -18,7 +18,7 @@
           <h1 class="balance-block"><span class="title balance">{{user.balance}}</span> балів</h1>
         </div>
         <div class="spacer" style="width: 283px; height: 5%;"></div>
-        <div class="center"><a ui-sref="game" class="center play-btn"><img class="play-btn-img" src="img/play-btn.png"><span>Гра</span></a></div>
+        <div class="center"><a ng-click="playBtn()" class="center play-btn"><img class="play-btn-img" src="img/play-btn.png"><span>Гра</span></a></div>
 
       <div class="spacer" style="width: 283px; height: 2vw;"></div>
       <a ng-click="logout()" class="button button-light button-icon button-block button-small icon ion-android-exit"></a>

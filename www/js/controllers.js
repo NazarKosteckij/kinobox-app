@@ -29,12 +29,37 @@ angular.module('app.controllers', [])
 
 
 /************************************
- *
- *         MAIN PAGE
- *
+ *                                  *
+ *            MAIN PAGE             *
+ *                                  *
  ************************************
  */
-.controller('page1Ctrl', function ( $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService) {
+.controller('page1Ctrl', function ( $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+  $scope.playBtn = function(){
+    GameService.isGameAllowed()
+      .then(function (gameStatus) {
+          if (gameStatus.allowed) {
+            $state.go("game", {reload: true});
+          } else {
+            //TODO maybe it will be better when move this transforming logic into service
+            var hours = gameStatus.timeToStart.hours;
+            var minutes = gameStatus.timeToStart.minutes < 10 ? '0' + gameStatus.timeToStart.minutes : gameStatus.timeToStart.minutes;
+            var seconds = gameStatus.timeToStart.seconds < 10 ? '0' + gameStatus.timeToStart.seconds : gameStatus.timeToStart.seconds;
+            $ionicPopup.alert({
+              title: 'Упс!',
+              template: 'Гра буде доступна через ' + hours + ':'
+              + minutes + ':' + seconds
+            });
+          }
+        },
+        function (error) {
+          $ionicPopup.alert({
+            title: 'Упс!',
+            template: 'Немає з\'вязку з сервером.'
+          });
+        });
+  };
+
   ProfileService.loadUser();
   $scope.user = ProfileService.user;
   console.log($scope.user);
@@ -57,7 +82,7 @@ angular.module('app.controllers', [])
  *
  ************************************
  */
-.controller('gameCtrl', function ($document, $log, $scope, $state) {
+.controller('gameCtrl', function ($document, $log, $scope, $state, GameService) {
   const SECONDS_PER_SLIDE = 5;
   const TIMER_UPDATE_INTERVAL = 10;
 
@@ -78,9 +103,9 @@ angular.module('app.controllers', [])
     if (_remainingTimeMs > TIMER_UPDATE_INTERVAL) {
       _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
       _render();
-      console.log(_remainingTimeMs/1000);
     } else {
       //TODO stop the timer
+      _loadNextSlide();
       console.log("Time limit reached");
     }
   };
@@ -104,8 +129,7 @@ angular.module('app.controllers', [])
       submit: true,
       correct: !(Math.random() + .5|0)
     };
-    _prepareNextSlide();
-    $scope.curentSlideNumber++;
+    _loadNextSlide();
   };
 
   var _prepareNextSlide = function () {
@@ -122,18 +146,22 @@ angular.module('app.controllers', [])
   var _isEndOfGame = function () {
     return $scope.curentSlideNumber >= 10;
   };
-  var _percentage = 100;
   var _render = function() {
-    console.log( $document.find(".countdown-timer"));
     document.getElementsByClassName("countdown-timer")[0].style = "width:" + (_remainingTimeMs/(SECONDS_PER_SLIDE * 1000) * 100) + "%";
   };
 
   var _loadNextSlide = function () {
+    $scope.curentSlideNumber ++;
+    _prepareNextSlide();
+  };
+
+  var _clearGameFields = function () {
 
   };
 
   var _endGame = function() {
     clearInterval(_intervalId);
+    _clearGameFields();
   }
 })
 

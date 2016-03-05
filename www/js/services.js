@@ -63,7 +63,6 @@ angular.module('app.services', [])
     authToken = null;
     username = '';
     isAuthenticated = false;
-    //TODO add access token
     $http.defaults.headers.common['X-Auth-Token'] = null;
     window.localStorage.removeItem(LOCAL_TOKEN_KEY);
   }
@@ -133,7 +132,7 @@ angular.module('app.services', [])
 })
 
 .service('ProfileService', function($q, $http, AuthService) {
-  var user = {
+  var _user = {
     name : '',
     balance : 0,
     avatar: {
@@ -143,14 +142,14 @@ angular.module('app.services', [])
   };
 
 
-  var loadUser = function () {
+  var _loadUser = function () {
     if(AuthService.isAuthenticated()) {
       $http({
         method: 'GET',
         url:"https://kinobox.in.ua/api/getUserData"
       }).then(function(response){
         setCurrentUserFields(response.data.data);
-        console.log(user);
+        console.log(_user);
       })
     } else {
 
@@ -159,16 +158,69 @@ angular.module('app.services', [])
 
 
   var setCurrentUserFields = function (userData) {
-    user.avatar.medium = userData.img_profile_100;
-    user.avatar.small = userData.img_profile_70;
-    user.balance = userData.balance;
-    user.name = userData.username;
+    _user.avatar.medium = userData.img_profile_100;
+    _user.avatar.small = userData.img_profile_70;
+    _user.balance = userData.balance;
+    _user.name = userData.username;
 
-    console.log(user);
+    console.log(_user);
   };
 
   return {
-    user: user,
-    loadUser: loadUser
+    user: _user,
+    loadUser: _loadUser
   }
 })
+
+.service('GameService', function($q, $http) {
+  const _time = {
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  };
+
+  const _gameStatus = {
+    allowed: false,
+    timeToStart: _time
+  };
+
+  var _convertToTime = function (secondsRemain) {
+    var time = _time;
+
+    const denominatorSec = 1;
+    const denominatorMin = 60 * denominatorSec;
+    const denominatorH = 60 * denominatorMin;
+
+    var hours = _integerDivision(secondsRemain, denominatorH);
+    var minutes = _integerDivision(secondsRemain - hours * denominatorH, denominatorMin);
+    var seconds = _integerDivision(secondsRemain - hours * denominatorH - minutes * denominatorMin, denominatorSec);
+
+    time.hours = hours;
+    time.minutes = minutes;
+    time.seconds = seconds;
+
+    return time;
+  };
+
+  var _integerDivision = function(x, y) {
+    return x/y>>0
+  };
+
+  var _isGameAllowed = function(){
+    return $q(function(resolve, reject) {
+      $http.get("https://kinobox.in.ua/api/startGame").then(function(response){
+        var startGame = _gameStatus;
+        startGame.allowed = response.data.status === "active";
+        startGame.timeToStart = startGame.allowed ? 0 : _convertToTime(response.data.data.remain);
+        startGame.timeToStart === 0 ? delete startGame.timeToStart : null ;
+        resolve(startGame);
+      })
+    })
+  };
+
+
+
+  return {
+    isGameAllowed: _isGameAllowed
+  }
+});
