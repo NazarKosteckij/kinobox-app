@@ -19,7 +19,7 @@ $incorrect-color:     $MAIN_COLOR;
   height: auto;
 }
 
-table.buttons-bar {
+.buttons-bar {
   padding: 10px;
   width: 100%;
 }
@@ -36,12 +36,12 @@ table.buttons-bar {
   line-height: 1px;
 }
 
-table.buttons-bar {
+.buttons-bar {
   margin: 1vw 0;
   width: 100%;
 }
 
-table.buttons-bar tr {
+.buttons-bar tr {
   width: 100%;
 }
 
@@ -55,13 +55,39 @@ table.buttons-bar tr {
 
 .progress-bar .progress {
   text-align: center;
-  width: 99vw;
-  height: 10vw;
+  width: 100%;
+  height: 10%;
 }
 
 .progress-bar .progress .point {
-  font-size: 15vw;
   color: $MAIN_COLOR-DISABLED;
+
+
+  @media screen and (max-width: 239px) {
+    font-size: $font-size * 2;
+    font-size: 15vw;
+  }
+  @media screen and (min-width: 240px) and (max-width: $SCREEN-SMALL + 2) {
+    font-size: $font-size * 3;
+    font-size: 15vw;
+  }
+  @media screen and (min-width: $SCREEN-SMALL + 2 )  and (max-width: $SCREEN-MEDIUM) {
+    font-size: $font-size * 4;
+    font-size: 15vw;
+  }
+  @media screen and (min-width: $SCREEN-MEDIUM)  and (max-width: $SCREEN-LARGE) {
+    font-size: $font-size * 5;
+    font-size: 15vw;
+  }
+  @media screen and (min-width: $SCREEN-LARGE )  and (max-width: $SCREEN-LARGEST) {
+    font-size: $font-size * 6;
+    font-size: 15vw;
+  }
+  @media screen and (min-width: $SCREEN-LARGEST) {
+    font-size: $font-size * 8;
+    font-size: 15vw;
+  }
+
 }
 
 .progress-bar .progress .point.correct {
@@ -77,9 +103,10 @@ table.buttons-bar tr {
   height: 50%;
   background: $MAIN_BACKGROUND_COLOR;
 }
+
 .variant .item {
   line-height: 8vw;
-  font-size: 9vw;
+  font-size: 6vw;
   padding: 0;
   margin: 2vw 0;
   height: 100%;

@@ -1,11 +1,15 @@
 angular.module('app.controllers', [])
 
-.controller('appCtrl',function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+.controller('appCtrl',function($scope, $ionicHistory, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
   $scope.username = AuthService.username();
   if(AuthService.isAuthenticated()){
     $state.go('page1', {reload: true});
+  } else {
+    $state.go('login', {reload: true});
   }
-
+  $scope.$on("$ionicView.afterLeave", function () {
+    $ionicHistory.clearCache();
+  });
   $scope.$on(AUTH_EVENTS.notAuthorized, function(event) {
     var alertPopup = $ionicPopup.alert({
       title: 'Unauthorized!',
@@ -82,18 +86,33 @@ angular.module('app.controllers', [])
  *
  ************************************
  */
-.controller('gameCtrl', function ($document, $log, $scope, $state, GameService) {
+.controller('gameCtrl', function ($document, $ionicPopup, $log, $scope, $state, GameService) {
   const SECONDS_PER_SLIDE = 5;
   const TIMER_UPDATE_INTERVAL = 10;
-
-  var _slideData = {
+  const _slideData = {
     image: 'https://kinobox.in.ua/frames/53b7b6e261a04_1404548834.jpg',
     variants: ['asdfa', 'asdfa', 'asfdas', 'asdfasf'],
     submit: false,
     correct: false
   };
+
+  var _currentSlideIndex = 0;
   var _remainingTimeMs = 0;
   var _intervalId = 0;
+
+  $scope.submit = function () {
+    if (!_isEndOfGame()) {
+      $scope.slides[_currentSlideIndex - 1] = {
+        // TODO temporary random! Delete it when game will be done!!!
+        submit: true,
+        correct: !(Math.random() + .5 | 0)
+      };
+
+    _loadNextSlide();
+    }  else {
+       setTimeout(_endGame, 1000);
+    }
+  };
 
   var _initTimer = function() {
     _remainingTimeMs = SECONDS_PER_SLIDE * 1000;
@@ -110,58 +129,63 @@ angular.module('app.controllers', [])
     }
   };
 
-  (function () {
-    $scope.curentSlide = _slideData;
-    $scope.curentSlideNumber = 1;
-    $scope.slides = [];
-
-    _initTimer();
-    _intervalId = setInterval(_updateTimer, TIMER_UPDATE_INTERVAL);
-
+  var _initProgressBar = function () {
     for (var i = 0; i < 10; i++) {
       $scope.slides[i] = _slideData;
     }
-  })();
-
-  $scope.submit = function () {
-    $scope.slides[$scope.curentSlideNumber - 1] = {
-      // TODO temporary random! Delete it when game will be done!!!
-      submit: true,
-      correct: !(Math.random() + .5|0)
-    };
-    _loadNextSlide();
   };
 
   var _prepareNextSlide = function () {
     if (!_isEndOfGame()) {
       _initTimer();
-      $scope.slideData = $scope.slides[$scope.curentSlideNumber - 1];
     } else {
       _endGame();
       //TODO add popup with result of the game
-      $state.go('page1', {reload: false});
     }
   };
 
   var _isEndOfGame = function () {
-    return $scope.curentSlideNumber >= 10;
+    return _currentSlideIndex > 9;
   };
   var _render = function() {
     document.getElementsByClassName("countdown-timer")[0].style = "width:" + (_remainingTimeMs/(SECONDS_PER_SLIDE * 1000) * 100) + "%";
   };
 
   var _loadNextSlide = function () {
-    $scope.curentSlideNumber ++;
     _prepareNextSlide();
+    $scope.curentSlide.image = Math.random() * 10 % 2 < 1 ? 'http://lorempixel.com/530/300/' : 'http://lorempixel.com/530/300/people';
+    $scope.curentSlide.variants[0] = Math.random();
+    $scope.curentSlide.variants[1] = Math.random();
+    $scope.curentSlide.variants[2] = Math.random();
+    $scope.curentSlide.variants[3] = Math.random();
+
+   // $scope.slides[_currentSlideIndex] = $scope.curentSlide;
+    _currentSlideIndex++;
   };
 
   var _clearGameFields = function () {
-
+    clearInterval(_intervalId);
+    _currentSlideIndex = 0;
+    _initProgressBar();
+    //$scope.curentSlide = {};
   };
 
   var _endGame = function() {
-    clearInterval(_intervalId);
+    $ionicPopup.alert({
+      title: 'Гра закінчена!',
+      template: 'Результат '
+    });
+    $state.go('page1', {reload: false});
     _clearGameFields();
+  };
+
+  $scope.init = function () {
+    $scope.curentSlide = _slideData;
+    $scope.slides = [];
+    _initProgressBar();
+    _initTimer();
+    _intervalId = setInterval(_updateTimer, TIMER_UPDATE_INTERVAL);
+    _loadNextSlide();
   }
 })
 

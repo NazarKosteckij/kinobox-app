@@ -214,7 +214,9 @@ angular.module('app.services', [])
         startGame.timeToStart = startGame.allowed ? 0 : _convertToTime(response.data.data.remain);
         startGame.timeToStart === 0 ? delete startGame.timeToStart : null ;
         resolve(startGame);
-      })
+      }, function(err) {
+        reject(err);
+      });
     })
   };
 

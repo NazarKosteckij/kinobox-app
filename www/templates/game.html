@@ -1,4 +1,4 @@
-<ion-view title="Гра">
+<ion-view title="Гра" ng-init="init()">
     <ion-content overflow-scroll="true" padding="false" class="has-header">
         <div class="game">
           <div class="image-block">
@@ -28,7 +28,10 @@
             </div>
           </div>
           <div class="answers center">
-              <div ng-repeat="variant in curentSlide.variants track by $index" class="variant" ng-click="submit()" ><a class="item">{{variant}}</a></div>
+              <div ng-repeat="variant in curentSlide.variants track by $index" class="variant" ng-click="submit()" >
+                <a ng-class="curentSlide.submit ?
+                      {'correct' : curentSlide.correct,
+                       'incorrect' : !curentSlide.correct} : {}" class="item balance-block">{{variant}}</a></div>
           </div>
         </div>
     </ion-content>

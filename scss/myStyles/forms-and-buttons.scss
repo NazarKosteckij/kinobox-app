@@ -58,11 +58,14 @@ input.form{
 
 /***** PLAY BUTTON ******/
 $play-btn-min-size: 60px;
+$play-btn-size-in-percents: 25%;
 
 .play-btn .play-btn-img {
   min-width: $play-btn-min-size;
+  left: $play-btn-size-in-percents/4;
   left: $play-btn-size/4;
   position: relative;
+  width: $play-btn-size-in-percents;
   width: $play-btn-size;
 }
 a.play-btn{
@@ -80,6 +83,9 @@ a.play-btn{
     min-font-size: $play-btn-min-size/4;
   }
  @media screen and (min-width: 240px) {
+    bottom: $play-btn-size-in-percents/2;
+    right: $play-btn-size-in-percents/1.65;
+    font-size: $play-btn-size-in-percents/4;
     bottom: $play-btn-size/2;
     right: $play-btn-size/1.65;
     font-size: $play-btn-size/4;
