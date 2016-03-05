@@ -87,7 +87,7 @@ angular.module('app.controllers', [])
  ************************************
  */
 .controller('gameCtrl', function ($document, $ionicPopup, $log, $scope, $state, GameService) {
-  const SECONDS_PER_SLIDE = 5;
+  const SECONDS_PER_SLIDE = 15;
   const TIMER_UPDATE_INTERVAL = 10;
   const _slideData = {
     image: 'https://kinobox.in.ua/frames/53b7b6e261a04_1404548834.jpg',
@@ -108,9 +108,10 @@ angular.module('app.controllers', [])
         correct: !(Math.random() + .5 | 0)
       };
 
-    _loadNextSlide();
+      _loadNextSlide();
     }  else {
-       setTimeout(_endGame, 1000);
+      clearInterval(_intervalId);
+      setTimeout(_endGame, 1000);
     }
   };
 
@@ -119,13 +120,15 @@ angular.module('app.controllers', [])
   };
 
   var _updateTimer = function () {
-    if (_remainingTimeMs > TIMER_UPDATE_INTERVAL) {
-      _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
-      _render();
-    } else {
-      //TODO stop the timer
-      _loadNextSlide();
-      console.log("Time limit reached");
+    if (_currentSlideIndex <= 10) {
+      if (_remainingTimeMs > TIMER_UPDATE_INTERVAL) {
+        _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
+        _render();
+      } else {
+        //TODO stop the timer
+        _loadNextSlide();
+        console.log("Time limit reached");
+      }
     }
   };
 
@@ -138,9 +141,6 @@ angular.module('app.controllers', [])
   var _prepareNextSlide = function () {
     if (!_isEndOfGame()) {
       _initTimer();
-    } else {
-      _endGame();
-      //TODO add popup with result of the game
     }
   };
 
@@ -153,13 +153,13 @@ angular.module('app.controllers', [])
 
   var _loadNextSlide = function () {
     _prepareNextSlide();
-    $scope.curentSlide.image = Math.random() * 10 % 2 < 1 ? 'http://lorempixel.com/530/300/' : 'http://lorempixel.com/530/300/people';
-    $scope.curentSlide.variants[0] = Math.random();
-    $scope.curentSlide.variants[1] = Math.random();
-    $scope.curentSlide.variants[2] = Math.random();
-    $scope.curentSlide.variants[3] = Math.random();
-
-   // $scope.slides[_currentSlideIndex] = $scope.curentSlide;
+    $scope.slides[_currentSlideIndex].image = Math.random() * 10 % 2 < 1 ? 'http://lorempixel.com/530/300/' : 'http://lorempixel.com/530/300/people';
+    $scope.slides[_currentSlideIndex].variants[0] = Math.random();
+    $scope.slides[_currentSlideIndex].variants[1] = Math.random();
+    $scope.slides[_currentSlideIndex].variants[2] = Math.random();
+    $scope.slides[_currentSlideIndex].variants[3] = Math.random();
+    $scope.$apply();
+    //$scope.slides[_currentSlideIndex] = $scope.curentSlide;
     _currentSlideIndex++;
   };
 
