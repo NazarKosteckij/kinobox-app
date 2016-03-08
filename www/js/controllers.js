@@ -38,7 +38,20 @@ angular.module('app.controllers', [])
  *                                  *
  ************************************
  */
-.controller('page1Ctrl', function ( $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+.controller('page1Ctrl', function ($window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+  function reloadThisStateOnly() {
+    $window.location.reload(true);
+  }
+
+  $scope.reload = reloadThisStateOnly;
+
+  function doOnOrientationChange()
+  {
+    reloadThisStateOnly();
+  }
+
+  window.addEventListener('orientationchange', doOnOrientationChange);
+
   $scope.playBtn = function(){
     GameService.isGameAllowed()
       .then(function (gameStatus) {

@@ -1,3 +1,10 @@
+function isPortraitOrientation(){
+  return Math.abs(window.screen.width) < Math.abs(window.screen.height);
+  //TODO (DEBUG ONLY) remove it
+  //return  !(Math.random() + .5 | 0);
+}
+
+
 angular.module('app.routes', [])
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -10,9 +17,9 @@ angular.module('app.routes', [])
 
 
 
-      .state('page1', {
+.state('page1', {
     url: '/main',
-    templateUrl: 'templates/page1.html',
+    templateUrl: function() { return isPortraitOrientation() ? 'templates/page1.html' : 'templates/main_landscape.html'},
     controller: 'page1Ctrl'
   })
 
