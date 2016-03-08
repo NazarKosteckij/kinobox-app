@@ -43,15 +43,4 @@
   font-size: $font-size * 0.65 + $diff;
 }
 
-
-.play-btn span {
-
-  $play-btn-min-size: 60px;
-  $play-btn-font-size: 20px;
-  $play-btn-size-in-percents: 25%;
-
-  font-size: $play-btn-font-size + $diff;
-  font-size: 7vw; ;
-}
-
 @import "profile";
