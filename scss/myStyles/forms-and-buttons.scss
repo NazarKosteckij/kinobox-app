@@ -58,6 +58,7 @@ input.form{
 
 /***** PLAY BUTTON ******/
 $play-btn-min-size: 60px;
+$play-btn-font-size: 25px;
 $play-btn-size-in-percents: 25%;
 
 .play-btn .play-btn-img {
@@ -73,22 +74,23 @@ a.play-btn{
   color: #FFF;
 }
 
+.logout {
+  position: absolute;
+  left: 45%;
+  bottom: 3%;
+}
+
 .play-btn span {
   position: relative;
-  @media screen and (max-width: 239px) {
-    $play-btn-size: $play-btn-min-size;
-    bottom: $play-btn-size/2;
-    right: $play-btn-size/1.65;
-    font-size: $play-btn-size/4;
-    min-font-size: $play-btn-min-size/4;
-  }
- @media screen and (min-width: 240px) {
-    bottom: $play-btn-size-in-percents/2;
-    right: $play-btn-size-in-percents/1.65;
-    font-size: $play-btn-size-in-percents/4;
-    bottom: $play-btn-size/2;
-    right: $play-btn-size/1.65;
-    font-size: $play-btn-size/4;
-    min-font-size: $play-btn-min-size/4;
- }
+  bottom: $play-btn-size-in-percents/2;
+  right: $play-btn-size-in-percents/1.65;
+  bottom: $play-btn-size/2;
+  right: $play-btn-size/1.65;
+  font-size: $play-btn-size/4;
+
+  bottom: $play-btn-size/2;
+  right: $play-btn-size/1.65;
+  font-size: $play-btn-size/4;
+  min-font-size: $play-btn-min-size/4;
+
 }

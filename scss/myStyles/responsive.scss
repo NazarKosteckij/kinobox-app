@@ -10,6 +10,20 @@
   border-radius: $form-height + $diff;
 }
 
+.form.small {
+  background-color: $image-bloc-bg-color;
+  padding: 1vw;
+  height: ($form-height + $diff)*0.65;
+  height: 10vw;
+  font-size:  ($font-size + $diff)*0.65;
+  font-size: 5vw;
+  margin: 2vw auto;
+  min-height: 25px;
+  min-font-size: 13px;
+  width: 100%;
+  line-height: 1px;
+}
+
 .title{
   font-size: $font-size + $diff;
   margin-bottom: $form-margin-bottom + $diff;
@@ -22,6 +36,22 @@
 
 .balance-block {
   font-size: $font-size/5 + $diff;
+}
+
+.variant .item {
+  line-height: 100%;
+  font-size: $font-size * 0.65 + $diff;
+}
+
+
+.play-btn span {
+
+  $play-btn-min-size: 60px;
+  $play-btn-font-size: 20px;
+  $play-btn-size-in-percents: 25%;
+
+  font-size: $play-btn-font-size + $diff;
+  font-size: 7vw; ;
 }
 
 @import "profile";

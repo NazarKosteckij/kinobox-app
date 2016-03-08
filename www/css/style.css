@@ -86,10 +86,8 @@
   background: #1a2125; }
 
 .variant .item {
-  line-height: 8vw;
-  font-size: 6vw;
   padding: 0;
-  margin: 2vw 0;
+  margin: 2% 0;
   height: 100%;
   color: #fff;
   background-color: #1a2125;
@@ -154,23 +152,22 @@ a.play-btn {
   text-decoration: blink;
   color: #FFF; }
 
+.logout {
+  position: absolute;
+  left: 45%;
+  bottom: 3%; }
+
 .play-btn span {
-  position: relative; }
-  @media screen and (max-width: 239px) {
-    .play-btn span {
-      bottom: 30px;
-      right: 36.36364px;
-      font-size: 15px;
-      min-font-size: 15px; } }
-  @media screen and (min-width: 240px) {
-    .play-btn span {
-      bottom: 12.5%;
-      right: 15.15152%;
-      font-size: 6.25%;
-      bottom: 12.5vw;
-      right: 15.15152vw;
-      font-size: 6.25vw;
-      min-font-size: 15px; } }
+  position: relative;
+  bottom: 12.5%;
+  right: 15.15152%;
+  bottom: 12.5vw;
+  right: 15.15152vw;
+  font-size: 6.25vw;
+  bottom: 12.5vw;
+  right: 15.15152vw;
+  font-size: 6.25vw;
+  min-font-size: 15px; }
 
 .spinner.spinner-calm {
   stroke: #FFFFFF;
@@ -207,6 +204,18 @@ a.play-btn {
     padding-left: 3px;
     padding-right: 3px;
     border-radius: 41px; }
+  .form.small {
+    background-color: #14191b;
+    padding: 1vw;
+    height: 26.65px;
+    height: 10vw;
+    font-size: 13.65px;
+    font-size: 5vw;
+    margin: 2vw auto;
+    min-height: 25px;
+    min-font-size: 13px;
+    width: 100%;
+    line-height: 1px; }
   .title {
     font-size: 21px;
     margin-bottom: 11px;
@@ -215,6 +224,12 @@ a.play-btn {
     font-size: 22px; }
   .balance-block {
     font-size: 5px; }
+  .variant .item {
+    line-height: 100%;
+    font-size: 14px; }
+  .play-btn span {
+    font-size: 21px;
+    font-size: 7vw; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -239,6 +254,18 @@ input.ng-invalid {
     padding-left: 12px;
     padding-right: 12px;
     border-radius: 50px; }
+  .form.small {
+    background-color: #14191b;
+    padding: 1vw;
+    height: 32.5px;
+    height: 10vw;
+    font-size: 19.5px;
+    font-size: 5vw;
+    margin: 2vw auto;
+    min-height: 25px;
+    min-font-size: 13px;
+    width: 100%;
+    line-height: 1px; }
   .title {
     font-size: 30px;
     margin-bottom: 20px;
@@ -247,6 +274,12 @@ input.ng-invalid {
     font-size: 40px; }
   .balance-block {
     font-size: 14px; }
+  .variant .item {
+    line-height: 100%;
+    font-size: 23px; }
+  .play-btn span {
+    font-size: 30px;
+    font-size: 7vw; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -268,6 +301,18 @@ input.ng-invalid {
     padding-left: 17px;
     padding-right: 17px;
     border-radius: 55px; }
+  .form.small {
+    background-color: #14191b;
+    padding: 1vw;
+    height: 35.75px;
+    height: 10vw;
+    font-size: 22.75px;
+    font-size: 5vw;
+    margin: 2vw auto;
+    min-height: 25px;
+    min-font-size: 13px;
+    width: 100%;
+    line-height: 1px; }
   .title {
     font-size: 35px;
     margin-bottom: 25px;
@@ -276,6 +321,12 @@ input.ng-invalid {
     font-size: 50px; }
   .balance-block {
     font-size: 19px; }
+  .variant .item {
+    line-height: 100%;
+    font-size: 28px; }
+  .play-btn span {
+    font-size: 35px;
+    font-size: 7vw; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -296,6 +347,18 @@ input.ng-invalid {
     padding-left: 42px;
     padding-right: 42px;
     border-radius: 80px; }
+  .form.small {
+    background-color: #14191b;
+    padding: 1vw;
+    height: 52px;
+    height: 10vw;
+    font-size: 39px;
+    font-size: 5vw;
+    margin: 2vw auto;
+    min-height: 25px;
+    min-font-size: 13px;
+    width: 100%;
+    line-height: 1px; }
   .title {
     font-size: 60px;
     margin-bottom: 50px;
@@ -304,6 +367,12 @@ input.ng-invalid {
     font-size: 100px; }
   .balance-block {
     font-size: 44px; }
+  .variant .item {
+    line-height: 100%;
+    font-size: 53px; }
+  .play-btn span {
+    font-size: 60px;
+    font-size: 7vw; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -324,6 +393,18 @@ input.ng-invalid {
     padding-left: 62px;
     padding-right: 62px;
     border-radius: 100px; }
+  .form.small {
+    background-color: #14191b;
+    padding: 1vw;
+    height: 65px;
+    height: 10vw;
+    font-size: 45.5px;
+    font-size: 5vw;
+    margin: 2vw auto;
+    min-height: 25px;
+    min-font-size: 13px;
+    width: 100%;
+    line-height: 1px; }
   .title {
     font-size: 70px;
     margin-bottom: 70px;
@@ -332,6 +413,12 @@ input.ng-invalid {
     font-size: 130px; }
   .balance-block {
     font-size: 62px; }
+  .variant .item {
+    line-height: 100%;
+    font-size: 66.5px; }
+  .play-btn span {
+    font-size: 80px;
+    font-size: 7vw; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
