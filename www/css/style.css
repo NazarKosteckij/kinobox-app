@@ -6,7 +6,7 @@
   background: #f45454; }
 
 .game {
-  height: 100%; }
+  height: 94%; }
 
 .game .image-block {
   background-color: #14191b; }
@@ -142,8 +142,6 @@ input.form {
 /***** PLAY BUTTON ******/
 .play-btn .play-btn-img {
   min-width: 60px;
-  left: 6.25%;
-  left: 6.25vw;
   position: relative;
   width: 25%;
   width: 25vw; }
@@ -153,9 +151,7 @@ a.play-btn {
   color: #FFF; }
 
 .logout {
-  position: absolute;
-  left: 45%;
-  bottom: 3%; }
+  top: 1%; }
 
 .play-btn span {
   position: relative;
@@ -219,10 +215,6 @@ a.play-btn {
   .variant .item {
     line-height: 100%;
     font-size: 14px; }
-  .play-btn span {
-    bottom: 35.5px;
-    right: 43.0303px;
-    font-size: 21px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -270,10 +262,6 @@ input.ng-invalid {
   .variant .item {
     line-height: 100%;
     font-size: 23px; }
-  .play-btn span {
-    bottom: 40px;
-    right: 48.48485px;
-    font-size: 30px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -318,10 +306,6 @@ input.ng-invalid {
   .variant .item {
     line-height: 100%;
     font-size: 28px; }
-  .play-btn span {
-    bottom: 42.5px;
-    right: 51.51515px;
-    font-size: 35px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -365,10 +349,6 @@ input.ng-invalid {
   .variant .item {
     line-height: 100%;
     font-size: 53px; }
-  .play-btn span {
-    bottom: 55px;
-    right: 66.66667px;
-    font-size: 60px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
@@ -412,10 +392,6 @@ input.ng-invalid {
   .variant .item {
     line-height: 100%;
     font-size: 66.5px; }
-  .play-btn span {
-    bottom: 65px;
-    right: 78.78788px;
-    font-size: 80px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {

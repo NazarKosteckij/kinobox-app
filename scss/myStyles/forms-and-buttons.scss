@@ -63,8 +63,6 @@ $play-btn-size-in-percents: 25%;
 
 .play-btn .play-btn-img {
   min-width: $play-btn-min-size;
-  left: $play-btn-size-in-percents/4;
-  left: $play-btn-size/4;
   position: relative;
   width: $play-btn-size-in-percents;
   width: $play-btn-size;
@@ -75,9 +73,7 @@ a.play-btn{
 }
 
 .logout {
-  position: absolute;
-  left: 45%;
-  bottom: 3%;
+  top: 1%;
 }
 
 .play-btn span {

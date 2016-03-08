@@ -176,7 +176,7 @@ angular.module('app.controllers', [])
     return _currentSlideIndex > 9;
   };
   var _render = function() {
-    document.getElementsByClassName("countdown-timer")[0].style = "width:" + (_remainingTimeMs/(SECONDS_PER_SLIDE * 1000) * 100) + "%";
+    document.getElementsByClassName("countdown-timer")[0].style = "width:" + (_remainingTimeMs/(SECONDS_PER_SLIDE * 10) ) + "%";
   };
 
   var _loadNextSlide = function () {

@@ -1,5 +1,5 @@
 function isPortraitOrientation(){
-  return Math.abs(window.screen.width) < Math.abs(window.screen.height);
+  return Math.abs(window.innerWidth) < Math.abs(window.innerHeight);
   //TODO (DEBUG ONLY) remove it
   //return  !(Math.random() + .5 | 0);
 }
