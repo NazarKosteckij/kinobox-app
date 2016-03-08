@@ -1,8 +1,8 @@
-$timer-height: 8vw;
+$timer-height: 4%;
 $image-bloc-bg-color: #14191b;
 $correct-color:       #01ff8d;
 $incorrect-color:     $MAIN_COLOR;
-.game .countdown-timer {
+.countdown-timer {
   height: $timer-height;
   background: $MAIN_COLOR;
 }

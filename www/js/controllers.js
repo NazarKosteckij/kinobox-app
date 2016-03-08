@@ -38,10 +38,15 @@ angular.module('app.controllers', [])
  *                                  *
  ************************************
  */
-.controller('page1Ctrl', function ($rootScope, $window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+.controller('page1Ctrl', function ($rootScope, $stateParams, $window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
 
   function reloadThisStateOnly() {
     $window.location.reload(true);
+    $state.transitionTo($state.current, $stateParams, {
+      reload: true,
+      inherit: false,
+      notify: true
+    });
   }
 
   $scope.reload = reloadThisStateOnly;
