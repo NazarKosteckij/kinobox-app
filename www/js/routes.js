@@ -34,6 +34,11 @@ angular.module('app.routes', [])
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
+  .state('bonus', {
+    url: '/bonus',
+    templateUrl: 'templates/bonus.html',
+    controller: 'bonusCtrl'
+  })
 
 $urlRouterProvider.otherwise('/login')
 

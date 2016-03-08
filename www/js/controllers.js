@@ -38,7 +38,8 @@ angular.module('app.controllers', [])
  *                                  *
  ************************************
  */
-.controller('page1Ctrl', function ($window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+.controller('page1Ctrl', function ($rootScope, $window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+
   function reloadThisStateOnly() {
     $window.location.reload(true);
   }
@@ -249,4 +250,19 @@ angular.module('app.controllers', [])
       //TODO add validation error message
     }
   };
+})
+
+
+
+/************************************
+ *
+ *         LOGIN PAGE
+ *
+ ************************************
+ */
+
+.controller('bonusCtrl', function($scope, $state){
+  $scope.ok = function () {
+    $state.go('page1');
+  }
 });
