@@ -86,7 +86,7 @@ angular.module('app.controllers', [])
  *
  ************************************
  */
-.controller('gameCtrl', function ($document, $ionicPopup, $log, $scope, $state, GameService) {
+.controller('gameCtrl', function ($document, $ionicPopup, $ionicPlatform, $log, $scope, $state, GameService) {
   const SECONDS_PER_SLIDE = 15;
   const TIMER_UPDATE_INTERVAL = 10;
   const _slideData = {
@@ -101,17 +101,18 @@ angular.module('app.controllers', [])
   var _intervalId = 0;
 
   $scope.submit = function () {
-    if (!_isEndOfGame()) {
+    if (_currentSlideIndex <= 10 && !$scope.slides[_currentSlideIndex - 1].submit  ) {
       $scope.slides[_currentSlideIndex - 1] = {
         // TODO temporary random! Delete it when game will be done!!!
         submit: true,
         correct: !(Math.random() + .5 | 0)
       };
-
-      _loadNextSlide();
-    }  else {
-      clearInterval(_intervalId);
-      setTimeout(_endGame, 1000);
+      if (!_isEndOfGame()) {
+        _loadNextSlide();
+      } else {
+        clearInterval(_intervalId);
+        setTimeout(_endGame, 1000);
+      }
     }
   };
 
@@ -125,10 +126,18 @@ angular.module('app.controllers', [])
         _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
         _render();
       } else {
-        //TODO stop the timer
-        _loadNextSlide();
-        console.log("Time limit reached");
+        if (_isEndOfGame()){
+          setTimeout(_endGame, 1000);
+          clearInterval(_intervalId);
+        } else {
+
+          $scope.$apply( _loadNextSlide());
+          console.log("Time limit reached");
+        }
       }
+    } else {
+      setTimeout(_endGame, 1000);
+      clearInterval(_intervalId);
     }
   };
 
@@ -158,7 +167,6 @@ angular.module('app.controllers', [])
     $scope.slides[_currentSlideIndex].variants[1] = Math.random();
     $scope.slides[_currentSlideIndex].variants[2] = Math.random();
     $scope.slides[_currentSlideIndex].variants[3] = Math.random();
-    $scope.$apply();
     //$scope.slides[_currentSlideIndex] = $scope.curentSlide;
     _currentSlideIndex++;
   };
@@ -171,12 +179,12 @@ angular.module('app.controllers', [])
   };
 
   var _endGame = function() {
+    _clearGameFields();
     $ionicPopup.alert({
       title: 'Гра закінчена!',
       template: 'Результат '
     });
     $state.go('page1', {reload: false});
-    _clearGameFields();
   };
 
   $scope.init = function () {
@@ -186,7 +194,12 @@ angular.module('app.controllers', [])
     _initTimer();
     _intervalId = setInterval(_updateTimer, TIMER_UPDATE_INTERVAL);
     _loadNextSlide();
-  }
+
+  };
+
+  $ionicPlatform.onHardwareBackButton(function () {
+    _endGame();
+  })
 })
 
 
