@@ -35,7 +35,7 @@
 }
 
 .balance-block {
-  font-size: $font-size/5 + $diff;
+  font-size: ($font-size + $diff)/1.8;
 }
 
 .variant .item {

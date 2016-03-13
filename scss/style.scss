@@ -1,4 +1,4 @@
-$font-size:                             20px;
+$font-size:                             15px;
 $font-color:                            #fff;
 
 $form-border-size:                      2px;
@@ -102,4 +102,14 @@ input.ng-invalid{
   $diff: $largest-diff;
   $font-size: $font-size - 10;
   @import "./myStyles/responsive";
+}
+
+.btn.lag-button{
+  font-weight: 300;
+}
+
+.btn.lag-button.landscape {
+  display: initial;
+  float: right;
+  margin: 0 3%;
 }

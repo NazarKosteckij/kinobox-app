@@ -51,27 +51,27 @@
   color: #1a2125; }
   @media screen and (max-width: 239px) {
     .progress-bar .progress .point {
-      font-size: 40px;
+      font-size: 30px;
       font-size: 15vw; } }
   @media screen and (min-width: 240px) and (max-width: 321px) {
     .progress-bar .progress .point {
-      font-size: 60px;
+      font-size: 45px;
       font-size: 15vw; } }
   @media screen and (min-width: 321px) and (max-width: 479px) {
     .progress-bar .progress .point {
-      font-size: 80px;
+      font-size: 60px;
       font-size: 15vw; } }
   @media screen and (min-width: 479px) and (max-width: 719px) {
     .progress-bar .progress .point {
-      font-size: 100px;
+      font-size: 75px;
       font-size: 15vw; } }
   @media screen and (min-width: 719px) and (max-width: 1200px) {
     .progress-bar .progress .point {
-      font-size: 120px;
+      font-size: 90px;
       font-size: 15vw; } }
   @media screen and (min-width: 1200px) {
     .progress-bar .progress .point {
-      font-size: 160px;
+      font-size: 120px;
       font-size: 15vw; } }
 
 .progress-bar .progress .point.correct {
@@ -117,8 +117,8 @@ input.form {
 
 .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
-  line-height: 25px;
-  font-size: 20px;
+  line-height: 20px;
+  font-size: 15px;
   text-decoration: blink;
   color: #fff;
   margin: 10px auto;
@@ -169,7 +169,7 @@ a.play-btn {
   background-color: #f45454; }
 
 .title {
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 10px;
   color: #f45454;
   margin-top: 10px; }
@@ -185,9 +185,9 @@ a.play-btn {
 
 @media (max-width: 319px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-    line-height: 26px;
+    line-height: 21px;
     margin: 11px auto;
-    font-size: 21px;
+    font-size: 16px;
     height: 41px;
     padding-left: 3px;
     padding-right: 3px;
@@ -197,7 +197,7 @@ a.play-btn {
     padding: 1vw;
     height: 26.65px;
     height: 10vw;
-    font-size: 13.65px;
+    font-size: 10.4px;
     font-size: 5vw;
     margin: 2vw auto;
     min-height: 25px;
@@ -205,26 +205,29 @@ a.play-btn {
     width: 100%;
     line-height: 1px; }
   .title {
-    font-size: 21px;
+    font-size: 16px;
     margin-bottom: 11px;
     margin-top: 11px; }
   .balance {
-    font-size: 22px; }
-  .balance-block {
-    font-size: 5px; }
+    font-size: 17px; }
+  .balance-block, .username {
+    font-size: 8.88889px; }
   .variant .item {
     line-height: 100%;
-    font-size: 14px; }
+    font-size: 10.75px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
-    width: 50.5px;
-    height: 20.5px;
-    font-size: 10.5px;
+    width: 55.55556px;
+    height: 20.55556px;
+    font-size: 8.05556px;
     padding: 1px;
     margin: 5px auto;
-    line-height: 20.5px; } }
+    line-height: 15.55556px; }
+  .username {
+    color: #f45454;
+    font-weight: 500; } }
 
 input.ng-invalid {
   border: solid #ffdad4; }
@@ -232,9 +235,9 @@ input.ng-invalid {
 /****** MEDIUM SCREEN ******/
 @media (max-width: 479px) and (min-width: 320px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-    line-height: 35px;
+    line-height: 30px;
     margin: 20px auto;
-    font-size: 30px;
+    font-size: 25px;
     height: 50px;
     padding-left: 12px;
     padding-right: 12px;
@@ -243,6 +246,53 @@ input.ng-invalid {
     background-color: #14191b;
     padding: 1vw;
     height: 32.5px;
+    height: 10vw;
+    font-size: 16.25px;
+    font-size: 5vw;
+    margin: 2vw auto;
+    min-height: 25px;
+    min-font-size: 13px;
+    width: 100%;
+    line-height: 1px; }
+  .title {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 20px; }
+  .balance {
+    font-size: 35px; }
+  .balance-block, .username {
+    font-size: 13.88889px; }
+  .variant .item {
+    line-height: 100%;
+    font-size: 19.75px; }
+  .btn.lag-button.selected {
+    background: #f45454; }
+  .btn.lag-button {
+    background: #1a2125;
+    width: 60.55556px;
+    height: 25.55556px;
+    font-size: 13.05556px;
+    padding: 1px;
+    margin: 5px auto;
+    line-height: 20.55556px; }
+  .username {
+    color: #f45454;
+    font-weight: 500; } }
+
+/****** MEDIUM SCREEN ******/
+@media (max-width: 719px) and (min-width: 480px) {
+  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    line-height: 35px;
+    margin: 25px auto;
+    font-size: 30px;
+    height: 55px;
+    padding-left: 17px;
+    padding-right: 17px;
+    border-radius: 55px; }
+  .form.small {
+    background-color: #14191b;
+    padding: 1vw;
+    height: 35.75px;
     height: 10vw;
     font-size: 19.5px;
     font-size: 5vw;
@@ -253,75 +303,34 @@ input.ng-invalid {
     line-height: 1px; }
   .title {
     font-size: 30px;
-    margin-bottom: 20px;
-    margin-top: 20px; }
-  .balance {
-    font-size: 40px; }
-  .balance-block {
-    font-size: 14px; }
-  .variant .item {
-    line-height: 100%;
-    font-size: 23px; }
-  .btn.lag-button.selected {
-    background: #f45454; }
-  .btn.lag-button {
-    background: #1a2125;
-    width: 55px;
-    height: 25px;
-    font-size: 15px;
-    padding: 1px;
-    margin: 5px auto;
-    line-height: 25px; } }
-
-/****** MEDIUM SCREEN ******/
-@media (max-width: 719px) and (min-width: 480px) {
-  .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-    line-height: 40px;
-    margin: 25px auto;
-    font-size: 35px;
-    height: 55px;
-    padding-left: 17px;
-    padding-right: 17px;
-    border-radius: 55px; }
-  .form.small {
-    background-color: #14191b;
-    padding: 1vw;
-    height: 35.75px;
-    height: 10vw;
-    font-size: 22.75px;
-    font-size: 5vw;
-    margin: 2vw auto;
-    min-height: 25px;
-    min-font-size: 13px;
-    width: 100%;
-    line-height: 1px; }
-  .title {
-    font-size: 35px;
     margin-bottom: 25px;
     margin-top: 25px; }
   .balance {
-    font-size: 50px; }
-  .balance-block {
-    font-size: 19px; }
+    font-size: 45px; }
+  .balance-block, .username {
+    font-size: 16.66667px; }
   .variant .item {
     line-height: 100%;
-    font-size: 28px; }
+    font-size: 24.75px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
-    width: 57.5px;
-    height: 27.5px;
-    font-size: 17.5px;
+    width: 63.33333px;
+    height: 28.33333px;
+    font-size: 15.83333px;
     padding: 1px;
     margin: 5px auto;
-    line-height: 27.5px; } }
+    line-height: 23.33333px; }
+  .username {
+    color: #f45454;
+    font-weight: 500; } }
 
 @media (max-width: 1200px) and (min-width: 720px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-    line-height: 65px;
+    line-height: 60px;
     margin: 50px auto;
-    font-size: 60px;
+    font-size: 55px;
     height: 80px;
     padding-left: 42px;
     padding-right: 42px;
@@ -331,7 +340,7 @@ input.ng-invalid {
     padding: 1vw;
     height: 52px;
     height: 10vw;
-    font-size: 39px;
+    font-size: 35.75px;
     font-size: 5vw;
     margin: 2vw auto;
     min-height: 25px;
@@ -339,32 +348,35 @@ input.ng-invalid {
     width: 100%;
     line-height: 1px; }
   .title {
-    font-size: 60px;
+    font-size: 55px;
     margin-bottom: 50px;
     margin-top: 50px; }
   .balance {
-    font-size: 100px; }
-  .balance-block {
-    font-size: 44px; }
+    font-size: 95px; }
+  .balance-block, .username {
+    font-size: 30.55556px; }
   .variant .item {
     line-height: 100%;
-    font-size: 53px; }
+    font-size: 49.75px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
-    width: 70px;
-    height: 40px;
-    font-size: 30px;
+    width: 77.22222px;
+    height: 42.22222px;
+    font-size: 29.72222px;
     padding: 1px;
     margin: 5px auto;
-    line-height: 40px; } }
+    line-height: 37.22222px; }
+  .username {
+    color: #f45454;
+    font-weight: 500; } }
 
 @media (min-width: 1201px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-    line-height: 85px;
+    line-height: 80px;
     margin: 70px auto;
-    font-size: 70px;
+    font-size: 65px;
     height: 100px;
     padding-left: 62px;
     padding-right: 62px;
@@ -374,7 +386,7 @@ input.ng-invalid {
     padding: 1vw;
     height: 65px;
     height: 10vw;
-    font-size: 45.5px;
+    font-size: 42.25px;
     font-size: 5vw;
     margin: 2vw auto;
     min-height: 25px;
@@ -382,23 +394,34 @@ input.ng-invalid {
     width: 100%;
     line-height: 1px; }
   .title {
-    font-size: 70px;
+    font-size: 65px;
     margin-bottom: 70px;
     margin-top: 70px; }
   .balance {
-    font-size: 130px; }
-  .balance-block {
-    font-size: 62px; }
+    font-size: 125px; }
+  .balance-block, .username {
+    font-size: 36.11111px; }
   .variant .item {
     line-height: 100%;
-    font-size: 66.5px; }
+    font-size: 63.25px; }
   .btn.lag-button.selected {
     background: #f45454; }
   .btn.lag-button {
     background: #1a2125;
-    width: 80px;
-    height: 50px;
-    font-size: 35px;
+    width: 88.33333px;
+    height: 53.33333px;
+    font-size: 35.83333px;
     padding: 1px;
     margin: 5px auto;
-    line-height: 40px; } }
+    line-height: 38.33333px; }
+  .username {
+    color: #f45454;
+    font-weight: 500; } }
+
+.btn.lag-button {
+  font-weight: 300; }
+
+.btn.lag-button.landscape {
+  display: initial;
+  float: right;
+  margin: 0 3%; }

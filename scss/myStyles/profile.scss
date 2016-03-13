@@ -4,11 +4,16 @@
 
 .btn.lag-button {
   background: $MAIN_BACKGROUND_COLOR;
-  $small-btn-diff : $diff/2;
-  width: 50px + $small-btn-diff;
+  $small-btn-diff : $diff/1.8;
+  width: 55px + $small-btn-diff;
   height: $form-height/2 + $small-btn-diff;
   font-size: $font-size/2 + $small-btn-diff;
   padding: 1px;
   margin: $form-margin/2 auto;
   line-height: $font-size + $small-btn-diff;
+}
+.username {
+  @extend .balance-block;
+  color: $MAIN_COLOR;
+  font-weight: 500;
 }
