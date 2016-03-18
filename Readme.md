@@ -32,10 +32,10 @@ Pre-requirements:
 >ionic serve
 
 ## Tips ##
-For debugin on device and google chrome devTolls: 
+For debugging on device and google chrome devTolls: 
 
  1. Install ADB ([info](http://developer.android.com/intl/ru/tools/help/adb.html)).
- 2. Allow remoute debuging on your device.  ([how to](http://developer.android.com/intl/ru/tools/help/adb.html)).
+ 2. Allow remote debugging on your device.  ([how to](http://developer.android.com/intl/ru/tools/help/adb.html)).
  3. Run application on the device 
 
 > $ ionic run android  -l -s -c
