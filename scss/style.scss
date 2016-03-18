@@ -39,7 +39,43 @@ $MAIN_COLOR-DISABLED:                   $MAIN_BACKGROUND_COLOR;
 /****** AVATAR *******/
 $avatar-size :                          20%;
 
+html {
+  font-weight: 300;
+}
+
+td .form.small{
+  padding: 10px;
+}
+
 @import "./myStyles/forms-and-buttons";
+
+.red {
+  background-color: $MAIN_COLOR;
+}
+
+.title.bonus {
+  font-weight: 400;
+  color: #9F3838;
+}
+
+.bonus.points {
+  color: #fff;
+}
+
+.bonus.text {
+  color: #fff;
+  @extend .title;
+}
+
+@media screen and (orientation: portrait){
+
+}
+.form.red {
+  background-color: $MAIN_COLOR;
+}
+.overflow-scroll.red {
+  background-color: $MAIN_COLOR;
+}
 
 .spinner.spinner-calm {
   stroke: #FFFFFF;
@@ -54,10 +90,16 @@ $avatar-size :                          20%;
   background-color: $MAIN_COLOR;
 }
 .title{
-  font-size: $font-size;
   margin-bottom: $form-margin-bottom;
   color: $MAIN_COLOR;
   margin-top: $form-margin-top;
+}
+
+.btn.lag-button.selected {
+  background:$MAIN_COLOR;
+}
+.btn.lag-button {
+  background: $MAIN_BACKGROUND_COLOR;
 }
 
 .center{

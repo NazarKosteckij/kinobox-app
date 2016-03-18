@@ -1,6 +1,12 @@
 /****** screen sizes ******/
 /***** COLORS ******/
 /****** AVATAR *******/
+html {
+  font-weight: 300; }
+
+td .form.small {
+  padding: 10px; }
+
 .countdown-timer {
   height: 4%;
   background: #f45454; }
@@ -21,16 +27,16 @@
 
 .form.small {
   background-color: #14191b;
+  padding: 10px;
   padding: 1vw;
-  height: 10vw;
-  font-size: 5vw;
+  margin: 10px auto;
   margin: 2vw auto;
   min-height: 25px;
   min-font-size: 13px;
-  width: 30vw;
   line-height: 1px; }
 
 .buttons-bar {
+  margin: 3px 0;
   margin: 1vw 0;
   width: 100%; }
 
@@ -130,7 +136,7 @@ input.form {
 
 .avatar {
   min-width: 60px;
-  max-width: 150px;
+  max-width: 200px;
   border-radius: 50%;
   width: 20%; }
 
@@ -157,6 +163,25 @@ a.play-btn {
   position: relative;
   min-font-size: 15px; }
 
+.red {
+  background-color: #f45454; }
+
+.title.bonus, .bonus.text {
+  font-weight: 400;
+  color: #9F3838; }
+
+.bonus.points {
+  color: #fff; }
+
+.bonus.text {
+  color: #fff; }
+
+.form.red {
+  background-color: #f45454; }
+
+.overflow-scroll.red {
+  background-color: #f45454; }
+
 .spinner.spinner-calm {
   stroke: #FFFFFF;
   fill: #1a2125; }
@@ -168,11 +193,16 @@ a.play-btn {
 .red {
   background-color: #f45454; }
 
-.title {
-  font-size: 15px;
+.title, .bonus.text {
   margin-bottom: 10px;
   color: #f45454;
   margin-top: 10px; }
+
+.btn.lag-button.selected {
+  background: #f45454; }
+
+.btn.lag-button {
+  background: #1a2125; }
 
 .center {
   text-align: center; }
@@ -194,33 +224,32 @@ a.play-btn {
     border-radius: 41px; }
   .form.small {
     background-color: #14191b;
-    padding: 1vw;
     height: 26.65px;
     height: 10vw;
     font-size: 10.4px;
-    font-size: 5vw;
-    margin: 2vw auto;
-    min-height: 25px;
-    min-font-size: 13px;
-    width: 100%;
-    line-height: 1px; }
-  .title {
+    font-size: 5vw; }
+  .title, .bonus.text {
     font-size: 16px;
+    font-size: 9vw;
     margin-bottom: 11px;
     margin-top: 11px; }
+  .bonus.points {
+    font-size: 64px;
+    font-size: 25vw; }
   .balance {
-    font-size: 17px; }
+    font-size: 17px;
+    font-size: 9vw; }
   .balance-block, .username {
+    color: #5a5a5a;
     font-size: 8.88889px; }
   .variant .item {
     line-height: 100%;
     font-size: 10.75px; }
-  .btn.lag-button.selected {
-    background: #f45454; }
   .btn.lag-button {
-    background: #1a2125;
-    width: 55.55556px;
+    width: 30%;
+    width: 10vw;
     height: 20.55556px;
+    height: auto;
     font-size: 8.05556px;
     padding: 1px;
     margin: 5px auto;
@@ -228,6 +257,9 @@ a.play-btn {
   .username {
     color: #f45454;
     font-weight: 500; } }
+  @media screen and (max-width: 319px) and (orientation: portrait) {
+    .username {
+      font-size: 6vw; } }
 
 input.ng-invalid {
   border: solid #ffdad4; }
@@ -244,33 +276,32 @@ input.ng-invalid {
     border-radius: 50px; }
   .form.small {
     background-color: #14191b;
-    padding: 1vw;
     height: 32.5px;
     height: 10vw;
     font-size: 16.25px;
-    font-size: 5vw;
-    margin: 2vw auto;
-    min-height: 25px;
-    min-font-size: 13px;
-    width: 100%;
-    line-height: 1px; }
-  .title {
+    font-size: 5vw; }
+  .title, .bonus.text {
     font-size: 25px;
+    font-size: 9vw;
     margin-bottom: 20px;
     margin-top: 20px; }
+  .bonus.points {
+    font-size: 100px;
+    font-size: 25vw; }
   .balance {
-    font-size: 35px; }
+    font-size: 35px;
+    font-size: 9vw; }
   .balance-block, .username {
+    color: #5a5a5a;
     font-size: 13.88889px; }
   .variant .item {
     line-height: 100%;
     font-size: 19.75px; }
-  .btn.lag-button.selected {
-    background: #f45454; }
   .btn.lag-button {
-    background: #1a2125;
-    width: 60.55556px;
+    width: 30%;
+    width: 10vw;
     height: 25.55556px;
+    height: auto;
     font-size: 13.05556px;
     padding: 1px;
     margin: 5px auto;
@@ -278,6 +309,9 @@ input.ng-invalid {
   .username {
     color: #f45454;
     font-weight: 500; } }
+  @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: portrait) {
+    .username {
+      font-size: 6vw; } }
 
 /****** MEDIUM SCREEN ******/
 @media (max-width: 719px) and (min-width: 480px) {
@@ -291,33 +325,32 @@ input.ng-invalid {
     border-radius: 55px; }
   .form.small {
     background-color: #14191b;
-    padding: 1vw;
     height: 35.75px;
     height: 10vw;
     font-size: 19.5px;
-    font-size: 5vw;
-    margin: 2vw auto;
-    min-height: 25px;
-    min-font-size: 13px;
-    width: 100%;
-    line-height: 1px; }
-  .title {
+    font-size: 5vw; }
+  .title, .bonus.text {
     font-size: 30px;
+    font-size: 9vw;
     margin-bottom: 25px;
     margin-top: 25px; }
+  .bonus.points {
+    font-size: 120px;
+    font-size: 25vw; }
   .balance {
-    font-size: 45px; }
+    font-size: 45px;
+    font-size: 9vw; }
   .balance-block, .username {
+    color: #5a5a5a;
     font-size: 16.66667px; }
   .variant .item {
     line-height: 100%;
     font-size: 24.75px; }
-  .btn.lag-button.selected {
-    background: #f45454; }
   .btn.lag-button {
-    background: #1a2125;
-    width: 63.33333px;
+    width: 30%;
+    width: 10vw;
     height: 28.33333px;
+    height: auto;
     font-size: 15.83333px;
     padding: 1px;
     margin: 5px auto;
@@ -325,6 +358,9 @@ input.ng-invalid {
   .username {
     color: #f45454;
     font-weight: 500; } }
+  @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: portrait) {
+    .username {
+      font-size: 6vw; } }
 
 @media (max-width: 1200px) and (min-width: 720px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -337,33 +373,32 @@ input.ng-invalid {
     border-radius: 80px; }
   .form.small {
     background-color: #14191b;
-    padding: 1vw;
     height: 52px;
     height: 10vw;
     font-size: 35.75px;
-    font-size: 5vw;
-    margin: 2vw auto;
-    min-height: 25px;
-    min-font-size: 13px;
-    width: 100%;
-    line-height: 1px; }
-  .title {
+    font-size: 5vw; }
+  .title, .bonus.text {
     font-size: 55px;
+    font-size: 9vw;
     margin-bottom: 50px;
     margin-top: 50px; }
+  .bonus.points {
+    font-size: 220px;
+    font-size: 25vw; }
   .balance {
-    font-size: 95px; }
+    font-size: 95px;
+    font-size: 9vw; }
   .balance-block, .username {
+    color: #5a5a5a;
     font-size: 30.55556px; }
   .variant .item {
     line-height: 100%;
     font-size: 49.75px; }
-  .btn.lag-button.selected {
-    background: #f45454; }
   .btn.lag-button {
-    background: #1a2125;
-    width: 77.22222px;
+    width: 30%;
+    width: 10vw;
     height: 42.22222px;
+    height: auto;
     font-size: 29.72222px;
     padding: 1px;
     margin: 5px auto;
@@ -371,6 +406,9 @@ input.ng-invalid {
   .username {
     color: #f45454;
     font-weight: 500; } }
+  @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: portrait) {
+    .username {
+      font-size: 6vw; } }
 
 @media (min-width: 1201px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -383,33 +421,32 @@ input.ng-invalid {
     border-radius: 100px; }
   .form.small {
     background-color: #14191b;
-    padding: 1vw;
     height: 65px;
     height: 10vw;
     font-size: 42.25px;
-    font-size: 5vw;
-    margin: 2vw auto;
-    min-height: 25px;
-    min-font-size: 13px;
-    width: 100%;
-    line-height: 1px; }
-  .title {
+    font-size: 5vw; }
+  .title, .bonus.text {
     font-size: 65px;
+    font-size: 9vw;
     margin-bottom: 70px;
     margin-top: 70px; }
+  .bonus.points {
+    font-size: 260px;
+    font-size: 25vw; }
   .balance {
-    font-size: 125px; }
+    font-size: 125px;
+    font-size: 9vw; }
   .balance-block, .username {
+    color: #5a5a5a;
     font-size: 36.11111px; }
   .variant .item {
     line-height: 100%;
     font-size: 63.25px; }
-  .btn.lag-button.selected {
-    background: #f45454; }
   .btn.lag-button {
-    background: #1a2125;
-    width: 88.33333px;
+    width: 30%;
+    width: 10vw;
     height: 53.33333px;
+    height: auto;
     font-size: 35.83333px;
     padding: 1px;
     margin: 5px auto;
@@ -417,6 +454,9 @@ input.ng-invalid {
   .username {
     color: #f45454;
     font-weight: 500; } }
+  @media screen and (min-width: 1201px) and (orientation: portrait) {
+    .username {
+      font-size: 6vw; } }
 
 .btn.lag-button {
   font-weight: 300; }

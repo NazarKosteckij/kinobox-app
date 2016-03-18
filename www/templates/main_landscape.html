@@ -3,11 +3,11 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header" style="padding: 2% 5%;">
         <div class="spacer" style="    height: 10px;    height: 3%;"></div>
         <div style="overflow: auto;">
-            <div style="width: 50%; float: left;">
+            <div style="width: 60%; float: left;">
               <img src="img/KlPrhNSGQYe5wqMKljIN_0t3nct5gQOiHuYYSZKmy_logo.png" style="width: inherit; margin: 0 5px; margin: 0 0.5vw;" >
             </div>
           <div class="spacer" style="height: 10px;    height: 1.1%;"></div>
-          <div   style="">
+          <div   style="overflow: hidden;">
             <a class="form btn lag-button landscape">Рус.</a>
             <a class="form btn lag-button landscape selected">Укр.</a>
           </div>
@@ -16,7 +16,7 @@
       <div class="center" style="width: 100%; display: inline-grid;">
         <img class="avatar"   ng-src="{{ user.avatar.medium ? ('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) : 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}"
              style=" display:block ; float: left;  height: 100%;">
-        <div class="" style="width: 50%; margin: 0 auto;  text-align: left; padding-left: 1%;  float: left;">
+        <div class="" style="width: 50%; margin: 0 auto;  text-align: left; padding-left: 4%;  float: left;">
           <h1 class="username ng-binding">{{user.name}}</h1>
           <h1 class="balance-block"><span class="title balance ng-binding">{{user.balance}}</span> балів</h1>
         </div>

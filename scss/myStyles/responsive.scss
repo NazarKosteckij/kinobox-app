@@ -12,29 +12,31 @@
 
 .form.small {
   background-color: $image-bloc-bg-color;
-  padding: 1vw;
   height: ($form-height + $diff)*0.65;
   height: 10vw;
   font-size:  ($font-size + $diff)*0.65;
   font-size: 5vw;
-  margin: 2vw auto;
-  min-height: 25px;
-  min-font-size: 13px;
-  width: 100%;
-  line-height: 1px;
 }
 
 .title{
   font-size: $font-size + $diff;
+  font-size: 9vw;
   margin-bottom: $form-margin-bottom + $diff;
   margin-top: $form-margin-top + $diff;
 }
 
+.bonus.points {
+  font-size: ($font-size + $diff) * 4;
+  font-size: 25vw;
+}
+
 .balance {
   font-size: $font-size + $diff * 2;
+  font-size: 9vw;
 }
 
 .balance-block {
+  color: #5a5a5a;
   font-size: ($font-size + $diff)/1.8;
 }
 

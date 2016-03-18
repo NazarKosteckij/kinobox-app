@@ -26,17 +26,17 @@ $incorrect-color:     $MAIN_COLOR;
 
 .form.small {
   background-color: $image-bloc-bg-color;
+  padding: 10px;
   padding: 1vw;
-  height: 10vw;
-  font-size: 5vw;
+  margin: 10px auto;
   margin: 2vw auto;
   min-height: 25px;
   min-font-size: 13px;
-  width: 30vw;
   line-height: 1px;
 }
 
 .buttons-bar {
+  margin: 3px 0;
   margin: 1vw 0;
   width: 100%;
 }

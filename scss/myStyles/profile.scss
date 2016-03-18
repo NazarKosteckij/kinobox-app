@@ -1,12 +1,9 @@
-.btn.lag-button.selected {
-  background:$MAIN_COLOR;
-}
-
 .btn.lag-button {
-  background: $MAIN_BACKGROUND_COLOR;
   $small-btn-diff : $diff/1.8;
-  width: 55px + $small-btn-diff;
+  width: 30%;
+  width: 10vw;
   height: $form-height/2 + $small-btn-diff;
+  height: auto;
   font-size: $font-size/2 + $small-btn-diff;
   padding: 1px;
   margin: $form-margin/2 auto;
@@ -16,4 +13,7 @@
   @extend .balance-block;
   color: $MAIN_COLOR;
   font-weight: 500;
+  @media screen and (orientation: portrait){
+    font-size: 6vw;
+  }
 }
