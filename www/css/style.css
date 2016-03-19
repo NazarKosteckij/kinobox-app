@@ -113,6 +113,12 @@ td .form.small {
 input.form {
   background: #1a2125;
   border: 2px solid white; }
+  @media (max-width: 479px) and (min-width: 320px) {
+    input.form {
+      border: 1px solid white; } }
+  @media (max-width: 319px) {
+    input.form {
+      border: 0px solid white; } }
 
 .btn:hover {
   background: #c85656; }
@@ -130,9 +136,9 @@ input.form {
   margin: 10px auto;
   width: 80%;
   text-align: center;
-  height: 40px;
+  height: 35px;
   padding: 5px;
-  border-radius: 40px; }
+  border-radius: 35px; }
 
 .avatar {
   min-width: 60px;
@@ -218,13 +224,24 @@ a.play-btn {
     line-height: 21px;
     margin: 11px auto;
     font-size: 16px;
-    height: 41px;
+    height: 36px;
     padding-left: 3px;
     padding-right: 3px;
-    border-radius: 41px; }
+    border-radius: 36px; } }
+  @media (max-width: 319px) and (orientation: landscape) {
+    .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+      line-height: 20.5px;
+      margin: 10.5px auto;
+      font-size: 15.5px;
+      height: 35.5px;
+      padding-left: 2.5px;
+      padding-right: 2.5px;
+      border-radius: 35.5px; } }
+
+@media (max-width: 319px) {
   .form.small {
     background-color: #14191b;
-    height: 26.65px;
+    height: 23.4px;
     height: 10vw;
     font-size: 10.4px;
     font-size: 5vw; }
@@ -232,7 +249,13 @@ a.play-btn {
     font-size: 16px;
     font-size: 9vw;
     margin-bottom: 11px;
-    margin-top: 11px; }
+    margin-top: 11px; } }
+  @media (max-width: 319px) and (orientation: landscape) {
+    .title, .bonus.text {
+      font-size: 8px;
+      font-size: 4.5vw; } }
+
+@media (max-width: 319px) {
   .bonus.points {
     font-size: 64px;
     font-size: 25vw; }
@@ -248,7 +271,7 @@ a.play-btn {
   .btn.lag-button {
     width: 30%;
     width: 10vw;
-    height: 20.55556px;
+    height: 18.05556px;
     height: auto;
     font-size: 8.05556px;
     padding: 1px;
@@ -261,22 +284,30 @@ a.play-btn {
     .username {
       font-size: 6vw; } }
 
-input.ng-invalid {
-  border: solid #ffdad4; }
-
 /****** MEDIUM SCREEN ******/
 @media (max-width: 479px) and (min-width: 320px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     line-height: 30px;
     margin: 20px auto;
     font-size: 25px;
-    height: 50px;
+    height: 45px;
     padding-left: 12px;
     padding-right: 12px;
-    border-radius: 50px; }
+    border-radius: 45px; } }
+  @media (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
+    .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+      line-height: 25px;
+      margin: 15px auto;
+      font-size: 20px;
+      height: 40px;
+      padding-left: 7px;
+      padding-right: 7px;
+      border-radius: 40px; } }
+
+@media (max-width: 479px) and (min-width: 320px) {
   .form.small {
     background-color: #14191b;
-    height: 32.5px;
+    height: 29.25px;
     height: 10vw;
     font-size: 16.25px;
     font-size: 5vw; }
@@ -284,7 +315,13 @@ input.ng-invalid {
     font-size: 25px;
     font-size: 9vw;
     margin-bottom: 20px;
-    margin-top: 20px; }
+    margin-top: 20px; } }
+  @media (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
+    .title, .bonus.text {
+      font-size: 12.5px;
+      font-size: 4.5vw; } }
+
+@media (max-width: 479px) and (min-width: 320px) {
   .bonus.points {
     font-size: 100px;
     font-size: 25vw; }
@@ -300,7 +337,7 @@ input.ng-invalid {
   .btn.lag-button {
     width: 30%;
     width: 10vw;
-    height: 25.55556px;
+    height: 23.05556px;
     height: auto;
     font-size: 13.05556px;
     padding: 1px;
@@ -319,13 +356,24 @@ input.ng-invalid {
     line-height: 35px;
     margin: 25px auto;
     font-size: 30px;
-    height: 55px;
+    height: 50px;
     padding-left: 17px;
     padding-right: 17px;
-    border-radius: 55px; }
+    border-radius: 50px; } }
+  @media (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
+    .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+      line-height: 27.5px;
+      margin: 17.5px auto;
+      font-size: 22.5px;
+      height: 42.5px;
+      padding-left: 9.5px;
+      padding-right: 9.5px;
+      border-radius: 42.5px; } }
+
+@media (max-width: 719px) and (min-width: 480px) {
   .form.small {
     background-color: #14191b;
-    height: 35.75px;
+    height: 32.5px;
     height: 10vw;
     font-size: 19.5px;
     font-size: 5vw; }
@@ -333,7 +381,13 @@ input.ng-invalid {
     font-size: 30px;
     font-size: 9vw;
     margin-bottom: 25px;
-    margin-top: 25px; }
+    margin-top: 25px; } }
+  @media (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
+    .title, .bonus.text {
+      font-size: 15px;
+      font-size: 4.5vw; } }
+
+@media (max-width: 719px) and (min-width: 480px) {
   .bonus.points {
     font-size: 120px;
     font-size: 25vw; }
@@ -349,7 +403,7 @@ input.ng-invalid {
   .btn.lag-button {
     width: 30%;
     width: 10vw;
-    height: 28.33333px;
+    height: 25.83333px;
     height: auto;
     font-size: 15.83333px;
     padding: 1px;
@@ -367,13 +421,24 @@ input.ng-invalid {
     line-height: 60px;
     margin: 50px auto;
     font-size: 55px;
-    height: 80px;
+    height: 75px;
     padding-left: 42px;
     padding-right: 42px;
-    border-radius: 80px; }
+    border-radius: 75px; } }
+  @media (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
+    .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+      line-height: 40px;
+      margin: 30px auto;
+      font-size: 35px;
+      height: 55px;
+      padding-left: 22px;
+      padding-right: 22px;
+      border-radius: 55px; } }
+
+@media (max-width: 1200px) and (min-width: 720px) {
   .form.small {
     background-color: #14191b;
-    height: 52px;
+    height: 48.75px;
     height: 10vw;
     font-size: 35.75px;
     font-size: 5vw; }
@@ -381,7 +446,13 @@ input.ng-invalid {
     font-size: 55px;
     font-size: 9vw;
     margin-bottom: 50px;
-    margin-top: 50px; }
+    margin-top: 50px; } }
+  @media (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
+    .title, .bonus.text {
+      font-size: 27.5px;
+      font-size: 4.5vw; } }
+
+@media (max-width: 1200px) and (min-width: 720px) {
   .bonus.points {
     font-size: 220px;
     font-size: 25vw; }
@@ -397,7 +468,7 @@ input.ng-invalid {
   .btn.lag-button {
     width: 30%;
     width: 10vw;
-    height: 42.22222px;
+    height: 39.72222px;
     height: auto;
     font-size: 29.72222px;
     padding: 1px;
@@ -415,13 +486,24 @@ input.ng-invalid {
     line-height: 80px;
     margin: 70px auto;
     font-size: 65px;
-    height: 100px;
+    height: 95px;
     padding-left: 62px;
     padding-right: 62px;
-    border-radius: 100px; }
+    border-radius: 95px; } }
+  @media (min-width: 1201px) and (orientation: landscape) {
+    .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+      line-height: 50px;
+      margin: 40px auto;
+      font-size: 35px;
+      height: 65px;
+      padding-left: 32px;
+      padding-right: 32px;
+      border-radius: 65px; } }
+
+@media (min-width: 1201px) {
   .form.small {
     background-color: #14191b;
-    height: 65px;
+    height: 61.75px;
     height: 10vw;
     font-size: 42.25px;
     font-size: 5vw; }
@@ -429,7 +511,13 @@ input.ng-invalid {
     font-size: 65px;
     font-size: 9vw;
     margin-bottom: 70px;
-    margin-top: 70px; }
+    margin-top: 70px; } }
+  @media (min-width: 1201px) and (orientation: landscape) {
+    .title, .bonus.text {
+      font-size: 32.5px;
+      font-size: 4.5vw; } }
+
+@media (min-width: 1201px) {
   .bonus.points {
     font-size: 260px;
     font-size: 25vw; }
@@ -445,7 +533,7 @@ input.ng-invalid {
   .btn.lag-button {
     width: 30%;
     width: 10vw;
-    height: 53.33333px;
+    height: 50.83333px;
     height: auto;
     font-size: 35.83333px;
     padding: 1px;

@@ -37,7 +37,8 @@ For debugging on device and google chrome devTolls:
  1. Install ADB ([info](http://developer.android.com/intl/ru/tools/help/adb.html)).
  2. Allow remote debugging on your device.  ([how to](http://developer.android.com/intl/ru/tools/help/adb.html)).
  3. Run application on the device 
-
+ 4. Configure device in your google chrome ([google chrome](chrome://inspect/#devices)) 
+ 
 > $ ionic run android  -l -s -c
 
  - [--livereload|-l] .......  Live Reload app dev files from the device
