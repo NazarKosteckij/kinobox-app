@@ -46,10 +46,17 @@ input.form{
   min-width: 60px;
   max-width: 200px;
   border-radius: 50%;
-  width: $avatar-size;
+  width: 20%;
+  @media (orientation: portrait) {
+    width: $avatar-size vw;
+  }
+  @media (orientation: landscape) {
+    width: $avatar-size vh;
+  }
 }
 
 .lang-bar {
+  padding: 2% 0;
   position: absolute;
   left: 20%;
 }

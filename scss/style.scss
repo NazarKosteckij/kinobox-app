@@ -33,11 +33,12 @@ $SCREEN-LARGEST:                        1200px;
 /***** COLORS ******/
 $MAIN_BACKGROUND_COLOR:                 #1a2125;
 $MAIN_COLOR:                            #f45454; // old color d75151;
-$MAIN_COLOR-ACTIVE:                     #c85656;
+$MAIN_ALTERNATIVE_COLOR:                #993737;
+$MAIN_COLOR-ACTIVE: #ed4a44;
 $MAIN_COLOR-DISABLED:                   $MAIN_BACKGROUND_COLOR;
 
 /****** AVATAR *******/
-$avatar-size :                          20%;
+$avatar-size :                          30;
 
 html {
   font-weight: 300;
@@ -52,6 +53,9 @@ td .form.small{
 .red {
   background-color: $MAIN_COLOR;
 }
+.alternative.text{
+  color: $MAIN_ALTERNATIVE_COLOR;
+}
 
 .title.bonus {
   font-weight: 400;
@@ -63,7 +67,7 @@ td .form.small{
 }
 
 .bonus.text {
-  color: #fff;
+  color: #fff !important;
   @extend .title;
 }
 

@@ -121,7 +121,7 @@ input.form {
       border: 0px solid white; } }
 
 .btn:hover {
-  background: #c85656; }
+  background: #ed4a44; }
 
 .form.disabled {
   color: #1a2125;
@@ -145,8 +145,15 @@ input.form {
   max-width: 200px;
   border-radius: 50%;
   width: 20%; }
+  @media (orientation: portrait) {
+    .avatar {
+      width: 30 vw; } }
+  @media (orientation: landscape) {
+    .avatar {
+      width: 30 vh; } }
 
 .lang-bar {
+  padding: 2% 0;
   position: absolute;
   left: 20%; }
 
@@ -172,6 +179,9 @@ a.play-btn {
 .red {
   background-color: #f45454; }
 
+.alternative.text {
+  color: #993737; }
+
 .title.bonus, .bonus.text {
   font-weight: 400;
   color: #9F3838; }
@@ -180,7 +190,7 @@ a.play-btn {
   color: #fff; }
 
 .bonus.text {
-  color: #fff; }
+  color: #fff !important; }
 
 .form.red {
   background-color: #f45454; }
@@ -259,30 +269,57 @@ a.play-btn {
   .bonus.points {
     font-size: 64px;
     font-size: 25vw; }
-  .balance {
-    font-size: 17px;
-    font-size: 9vw; }
-  .balance-block, .username {
-    color: #5a5a5a;
-    font-size: 8.88889px; }
   .variant .item {
     line-height: 100%;
-    font-size: 10.75px; }
+    font-size: 10.75px; } }
+
+@media (max-width: 319px) and (orientation: portrait) {
   .btn.lag-button {
-    width: 30%;
-    width: 10vw;
+    width: 46.66667px;
+    width: 15vw;
     height: 18.05556px;
     height: auto;
     font-size: 8.05556px;
-    padding: 1px;
+    font-size: 4.5vw;
     margin: 5px auto;
-    line-height: 15.55556px; }
+    line-height: 15.55556px;
+    padding: 10%; } }
+
+@media (max-width: 319px) and (orientation: landscape) {
+  .btn.lag-button {
+    width: auto;
+    height: 18.05556px;
+    height: auto;
+    font-size: 8.05556px;
+    font-size: 5vh;
+    margin: 5px auto;
+    line-height: 15.55556px;
+    padding: 1% 3%; } }
+
+@media (max-width: 319px) {
+  .balance {
+    font-size: 64px; } }
+  @media screen and (max-width: 319px) and (orientation: portrait) {
+    .balance {
+      font-size: 12vw; } }
+  @media screen and (max-width: 319px) and (orientation: landscape) {
+    .balance {
+      font-size: 12vh; } }
+
+@media (max-width: 319px) {
+  .balance-block, .username {
+    color: #5a5a5a;
+    font-size: 8.88889px; }
   .username {
     color: #f45454;
-    font-weight: 500; } }
+    font-weight: 500;
+    font-size: 16.11111px; } }
   @media screen and (max-width: 319px) and (orientation: portrait) {
     .username {
-      font-size: 6vw; } }
+      font-size: 7vw; } }
+  @media screen and (max-width: 319px) and (orientation: landscape) {
+    .username {
+      font-size: 7vh; } }
 
 /****** MEDIUM SCREEN ******/
 @media (max-width: 479px) and (min-width: 320px) {
@@ -325,30 +362,57 @@ a.play-btn {
   .bonus.points {
     font-size: 100px;
     font-size: 25vw; }
-  .balance {
-    font-size: 35px;
-    font-size: 9vw; }
-  .balance-block, .username {
-    color: #5a5a5a;
-    font-size: 13.88889px; }
   .variant .item {
     line-height: 100%;
-    font-size: 19.75px; }
+    font-size: 19.75px; } }
+
+@media (max-width: 479px) and (min-width: 320px) and (orientation: portrait) {
   .btn.lag-button {
-    width: 30%;
-    width: 10vw;
+    width: 61.66667px;
+    width: 15vw;
     height: 23.05556px;
     height: auto;
     font-size: 13.05556px;
-    padding: 1px;
+    font-size: 4.5vw;
     margin: 5px auto;
-    line-height: 20.55556px; }
+    line-height: 20.55556px;
+    padding: 10%; } }
+
+@media (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
+  .btn.lag-button {
+    width: auto;
+    height: 23.05556px;
+    height: auto;
+    font-size: 13.05556px;
+    font-size: 5vh;
+    margin: 5px auto;
+    line-height: 20.55556px;
+    padding: 1% 3%; } }
+
+@media (max-width: 479px) and (min-width: 320px) {
+  .balance {
+    font-size: 100px; } }
+  @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: portrait) {
+    .balance {
+      font-size: 12vw; } }
+  @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
+    .balance {
+      font-size: 12vh; } }
+
+@media (max-width: 479px) and (min-width: 320px) {
+  .balance-block, .username {
+    color: #5a5a5a;
+    font-size: 13.88889px; }
   .username {
     color: #f45454;
-    font-weight: 500; } }
+    font-weight: 500;
+    font-size: 26.11111px; } }
   @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: portrait) {
     .username {
-      font-size: 6vw; } }
+      font-size: 7vw; } }
+  @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
+    .username {
+      font-size: 7vh; } }
 
 /****** MEDIUM SCREEN ******/
 @media (max-width: 719px) and (min-width: 480px) {
@@ -391,30 +455,57 @@ a.play-btn {
   .bonus.points {
     font-size: 120px;
     font-size: 25vw; }
-  .balance {
-    font-size: 45px;
-    font-size: 9vw; }
-  .balance-block, .username {
-    color: #5a5a5a;
-    font-size: 16.66667px; }
   .variant .item {
     line-height: 100%;
-    font-size: 24.75px; }
+    font-size: 24.75px; } }
+
+@media (max-width: 719px) and (min-width: 480px) and (orientation: portrait) {
   .btn.lag-button {
-    width: 30%;
-    width: 10vw;
+    width: 70px;
+    width: 15vw;
     height: 25.83333px;
     height: auto;
     font-size: 15.83333px;
-    padding: 1px;
+    font-size: 4.5vw;
     margin: 5px auto;
-    line-height: 23.33333px; }
+    line-height: 23.33333px;
+    padding: 10%; } }
+
+@media (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
+  .btn.lag-button {
+    width: auto;
+    height: 25.83333px;
+    height: auto;
+    font-size: 15.83333px;
+    font-size: 5vh;
+    margin: 5px auto;
+    line-height: 23.33333px;
+    padding: 1% 3%; } }
+
+@media (max-width: 719px) and (min-width: 480px) {
+  .balance {
+    font-size: 120px; } }
+  @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: portrait) {
+    .balance {
+      font-size: 12vw; } }
+  @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
+    .balance {
+      font-size: 12vh; } }
+
+@media (max-width: 719px) and (min-width: 480px) {
+  .balance-block, .username {
+    color: #5a5a5a;
+    font-size: 16.66667px; }
   .username {
     color: #f45454;
-    font-weight: 500; } }
+    font-weight: 500;
+    font-size: 31.66667px; } }
   @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: portrait) {
     .username {
-      font-size: 6vw; } }
+      font-size: 7vw; } }
+  @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
+    .username {
+      font-size: 7vh; } }
 
 @media (max-width: 1200px) and (min-width: 720px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -456,30 +547,57 @@ a.play-btn {
   .bonus.points {
     font-size: 220px;
     font-size: 25vw; }
-  .balance {
-    font-size: 95px;
-    font-size: 9vw; }
-  .balance-block, .username {
-    color: #5a5a5a;
-    font-size: 30.55556px; }
   .variant .item {
     line-height: 100%;
-    font-size: 49.75px; }
+    font-size: 49.75px; } }
+
+@media (max-width: 1200px) and (min-width: 720px) and (orientation: portrait) {
   .btn.lag-button {
-    width: 30%;
-    width: 10vw;
+    width: 111.66667px;
+    width: 15vw;
     height: 39.72222px;
     height: auto;
     font-size: 29.72222px;
-    padding: 1px;
+    font-size: 4.5vw;
     margin: 5px auto;
-    line-height: 37.22222px; }
+    line-height: 37.22222px;
+    padding: 10%; } }
+
+@media (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
+  .btn.lag-button {
+    width: auto;
+    height: 39.72222px;
+    height: auto;
+    font-size: 29.72222px;
+    font-size: 5vh;
+    margin: 5px auto;
+    line-height: 37.22222px;
+    padding: 1% 3%; } }
+
+@media (max-width: 1200px) and (min-width: 720px) {
+  .balance {
+    font-size: 220px; } }
+  @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: portrait) {
+    .balance {
+      font-size: 12vw; } }
+  @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
+    .balance {
+      font-size: 12vh; } }
+
+@media (max-width: 1200px) and (min-width: 720px) {
+  .balance-block, .username {
+    color: #5a5a5a;
+    font-size: 30.55556px; }
   .username {
     color: #f45454;
-    font-weight: 500; } }
+    font-weight: 500;
+    font-size: 59.44444px; } }
   @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: portrait) {
     .username {
-      font-size: 6vw; } }
+      font-size: 7vw; } }
+  @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
+    .username {
+      font-size: 7vh; } }
 
 @media (min-width: 1201px) {
   .form, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -521,30 +639,57 @@ a.play-btn {
   .bonus.points {
     font-size: 260px;
     font-size: 25vw; }
-  .balance {
-    font-size: 125px;
-    font-size: 9vw; }
-  .balance-block, .username {
-    color: #5a5a5a;
-    font-size: 36.11111px; }
   .variant .item {
     line-height: 100%;
-    font-size: 63.25px; }
+    font-size: 63.25px; } }
+
+@media (min-width: 1201px) and (orientation: portrait) {
   .btn.lag-button {
-    width: 30%;
-    width: 10vw;
+    width: 115px;
+    width: 15vw;
     height: 50.83333px;
     height: auto;
     font-size: 35.83333px;
-    padding: 1px;
+    font-size: 4.5vw;
     margin: 5px auto;
-    line-height: 38.33333px; }
+    line-height: 38.33333px;
+    padding: 10%; } }
+
+@media (min-width: 1201px) and (orientation: landscape) {
+  .btn.lag-button {
+    width: auto;
+    height: 50.83333px;
+    height: auto;
+    font-size: 35.83333px;
+    font-size: 5vh;
+    margin: 5px auto;
+    line-height: 38.33333px;
+    padding: 1% 3%; } }
+
+@media (min-width: 1201px) {
+  .balance {
+    font-size: 260px; } }
+  @media screen and (min-width: 1201px) and (orientation: portrait) {
+    .balance {
+      font-size: 12vw; } }
+  @media screen and (min-width: 1201px) and (orientation: landscape) {
+    .balance {
+      font-size: 12vh; } }
+
+@media (min-width: 1201px) {
+  .balance-block, .username {
+    color: #5a5a5a;
+    font-size: 36.11111px; }
   .username {
     color: #f45454;
-    font-weight: 500; } }
+    font-weight: 500;
+    font-size: 71.66667px; } }
   @media screen and (min-width: 1201px) and (orientation: portrait) {
     .username {
-      font-size: 6vw; } }
+      font-size: 7vw; } }
+  @media screen and (min-width: 1201px) and (orientation: landscape) {
+    .username {
+      font-size: 7vh; } }
 
 .btn.lag-button {
   font-weight: 300; }
