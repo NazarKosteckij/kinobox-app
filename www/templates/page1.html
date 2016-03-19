@@ -1,26 +1,28 @@
 <ion-view title="Головна">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <div class="spacer" style="width: 283px; height: 5%;"></div>
+        <div class="spacer " style="width: 283px; height: 5%;"></div>
         <div style="text-align:center;">
             <img src="img/KlPrhNSGQYe5wqMKljIN_0t3nct5gQOiHuYYSZKmy_logo.png" width="70%" height="auto">
         </div>
 
-      <div class="spacer" style="width: 100%; height: 10%;"></div>
+      <div class="spacer hide-on-small" style="width: 100%; height: 10%;"></div>
         <div class="lang-bar">
             <a class="form btn lag-button selected">УКР</a>
             <a class="form btn lag-button">РУС</a>
         </div>
+      <div class="spacer" style="width: 283px; height: 2%;"></div>
         <div style="text-align:center;">
             <img class="avatar"   ng-src="{{ user.avatar.medium ? ('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) : 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}" >
         </div>
-        <div class="center">
+      <div class="spacer" style="width: 283px; height: 2%;"></div>
+      <div class="center">
           <h1 class="username">{{user.name}}</h1>
           <h1 class="balance-block"><span class="title balance">{{user.balance}}</span> бали</h1>
         </div>
         <div class="spacer" style="width: 283px; height: 5%;"></div>
         <div class="center"><a ng-click="playBtn()" class="center play-btn button button-icon button-small"><img class="play-btn-img" src="img/play-btn.png"></a></div>
 
-      <div class="spacer" style="width: 283px; height: 2%;"></div>
-      <a ng-click="logout()" class="logout button button-light button-icon button-block button-small"> <img src="img/log-out.png" class="logout-icon"  style="height:2rem; height: 7vw;"></a>
+      <div class="spacer hide-on-small" style="width: 283px; height: 4%;"></div>
+      <a ng-click="logout()" class="logout button button-light button-icon button-block button-small"style="margin: 0;"> <img src="img/log-out.png" class="logout-icon"  style="height:2rem; height: 7vw;"></a>
     </ion-content>
 </ion-view>

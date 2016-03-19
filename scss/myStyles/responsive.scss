@@ -40,8 +40,15 @@
 }
 
 .bonus.points {
-  font-size: ($font-size + $diff) * 4;
-  font-size: 25vw;
+  @media (orientation:portrait) {
+    font-size: ($font-size + $diff) * 4;
+    font-size: 35vw;
+  }
+
+  @media (orientation:landscape) {
+    font-size: ($font-size + $diff) * 2;
+    font-size: 25vh;
+  }
 }
 
 .variant .item {

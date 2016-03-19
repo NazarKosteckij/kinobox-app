@@ -31,7 +31,7 @@ angular.module('app.routes', [])
 
   .state('login', {
     url: '/login',
-    templateUrl: function() { return isPortraitOrientation() ? 'templates/login.html' : 'templates/login_landscape.html'},
+    templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
   .state('bonus', {
