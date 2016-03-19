@@ -18,14 +18,16 @@
              style=" display:block ; float: left;  height: 100%;">
         <div class="" style="width: 50%; margin: 0 auto;  text-align: left; padding-left: 4%;  float: left;">
           <h1 class="username ng-binding">{{user.name}}</h1>
-          <h1 class="balance-block"><span class="title balance ng-binding">{{user.balance}}</span> балів</h1>
+          <h1 class="balance-block"><span class="title balance ng-binding">{{user.balance}}</span> бали</h1>
         </div>
-        <a ng-click="playBtn()" class="center play-btn"><img class="play-btn-img" src="img/play-btn.png" style=" width: 15%;  width: 15vw;"></a>
+        <a ng-click="playBtn()" class="center play-btn button button-icon button-small  "><img class="play-btn-img" src="img/play-btn.png" style=" width: 15%;  width: 15vw;"></a>
 
       </div>
 
       <div class="spacer" style=" height: 10%;"></div>
-      <a ng-click="logout()" class="logout button button-light button-icon button-block button-small icon ion-android-exit"></a>
+      <a ng-click="logout()" class="logout " style="    position: absolute;    top: 90%;
+      left: 95%;">
+        <img src="img/log-out.png" class="logout-icon " style="height:2rem; height: 7vh;"></a>
 
     </ion-content>
 </ion-view>

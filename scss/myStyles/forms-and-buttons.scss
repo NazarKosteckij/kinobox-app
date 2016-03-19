@@ -48,10 +48,10 @@ input.form{
   border-radius: 50%;
   width: 20%;
   @media (orientation: portrait) {
-    width: $avatar-size vw;
+    width: $avatar-size * 1vw;
   }
   @media (orientation: landscape) {
-    width: $avatar-size vh;
+    width: $avatar-size * 1vh;
   }
 }
 
