@@ -3,7 +3,7 @@ angular.module('app.controllers', [])
 .controller('appCtrl',function($scope, $ionicHistory, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
   $scope.username = AuthService.username();
   if(AuthService.isAuthenticated()){
-    $state.go('page1', {reload: true});
+    $state.go('main', {reload: true});
   } else {
     $state.go('login', {reload: true});
   }
@@ -38,26 +38,7 @@ angular.module('app.controllers', [])
  *                                  *
  ************************************
  */
-.controller('page1Ctrl', function ($rootScope, $stateParams, $window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
-
-  function reloadThisStateOnly() {
-    $window.location.reload(true);
-    $state.transitionTo($state.current, $stateParams, {
-      reload: true,
-      inherit: false,
-      notify: true
-    });
-  }
-
-  $scope.reload = reloadThisStateOnly;
-
-  function doOnOrientationChange()
-  {
-    reloadThisStateOnly();
-  }
-
-  window.addEventListener('orientationchange', doOnOrientationChange);
-
+.controller('mainCtrl', function ($rootScope, $stateParams, $window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
   $scope.playBtn = function(){
     GameService.isGameAllowed()
       .then(function (gameStatus) {
@@ -203,7 +184,7 @@ angular.module('app.controllers', [])
       title: 'Гра закінчена!',
       template: 'Результат '
     });
-    $state.go('page1', {reload: false});
+    $state.go('main', {reload: false});
   };
 
   $scope.init = function () {
@@ -230,7 +211,7 @@ angular.module('app.controllers', [])
  */
 .controller('loginCtrl', function($scope, $state, $ionicPopup, AuthService) {
   if(AuthService.isAuthenticated()){
-    $state.go('page1');
+    $state.go('main');
   }
 
   $scope.processingRequest = false;
@@ -240,7 +221,7 @@ angular.module('app.controllers', [])
       $scope.processingRequest = true;
       AuthService.login(data.username, data.password)
       .then(function(authenticated) {
-        $state.go('page1', {}, {reload: true, historyRoot: true});
+        $state.go('main', {}, {reload: true, historyRoot: true});
         $scope.setCurrentUsername(data.username);
         $scope.processingRequest = false;
       }, function(errorMessage) {
@@ -268,6 +249,6 @@ angular.module('app.controllers', [])
 
 .controller('bonusCtrl', function($scope, $state){
   $scope.ok = function () {
-    $state.go('page1');
+    $state.go('main');
   }
 });

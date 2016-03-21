@@ -17,10 +17,10 @@ angular.module('app.routes', [])
 
 
 
-.state('page1', {
+.state('main', {
     url: '/main',
-    templateUrl: function() { return isPortraitOrientation() ? 'templates/page1.html' : 'templates/main_landscape.html'},
-    controller: 'page1Ctrl'
+    templateUrl: 'templates/main.html',
+    controller: 'mainCtrl'
   })
 
   .state('game', {
