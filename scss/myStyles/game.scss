@@ -2,6 +2,7 @@ $timer-height: 4%;
 $image-bloc-bg-color: #14191b;
 $correct-color:       #01ff8d;
 $incorrect-color:     $MAIN_COLOR;
+
 .countdown-timer {
   height: $timer-height;
   background: $MAIN_COLOR;
@@ -10,7 +11,15 @@ $incorrect-color:     $MAIN_COLOR;
   height: 94%;
 }
 
+.buttons-bar.landscape {
+  float: left;
+  margin: 0 auto;
+  width: 25%;
+  overflow: hidden;
+}
+
 .game .image-block {
+  margin: 0 auto;
   background-color: $image-bloc-bg-color;
 }
 
@@ -34,6 +43,14 @@ $incorrect-color:     $MAIN_COLOR;
   min-font-size: 13px;
   line-height: 1px;
 }
+.landscape .form.small {
+  background-color: $image-bloc-bg-color;
+  padding: 0px;
+
+  min-height: 15px;
+  min-font-size: 8px;
+  font-size: $font-size;
+}
 
 .buttons-bar {
   margin: 3px 0;
@@ -53,10 +70,27 @@ $incorrect-color:     $MAIN_COLOR;
   height: auto;
 }
 
+.landscape .progress-bar {
+  width: 25%;
+  float: right;
+  height: auto;
+}
+
 .progress-bar .progress {
   text-align: center;
   width: 100%;
   height: 10%;
+}
+
+
+.landscape .progress-bar .progress {
+  text-align: center;
+  margin: 0.5vh;
+  padding: 0px;
+}
+
+.landscape .progress-bar .progress .landscape-point {
+
 }
 
 .progress-bar .progress .point {

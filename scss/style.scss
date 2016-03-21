@@ -165,7 +165,7 @@ input.ng-invalid{
   }
 }
 
-@media (max-width: $SCREEN-MEDIUM) {
+@media (max-width: $SCREEN-MEDIUM - 10) {
   .hide-on-small {
     display: none;
   }

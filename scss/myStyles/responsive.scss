@@ -5,6 +5,7 @@
     margin: $form-margin + $diff * 0.5 auto;
     font-size: $font-size + $diff * 0.5;
     height: $form-height + $diff * 0.5;
+    height: 10vh;
     padding-left: 2px + $diff * 0.5;
     padding-right: 2px + $diff * 0.5;
     border-radius: $form-height + $diff * 0.5;
@@ -21,16 +22,21 @@
 }
 
 .form.small {
-  background-color: $image-bloc-bg-color;
   height: ($form-height + $diff)*0.65;
   height: 10vw;
   font-size:  ($font-size + $diff)*0.65;
   font-size: 5vw;
 }
+.landscape .form.small {
+  height: ($form-height + $diff)*0.65;
+  height: 9vh;
+  font-size:  ($font-size + $diff)*0.65;
+  font-size: 2.5vw;
+}
 
 .title{
   @media (orientation:landscape) {
-    font-size: ($font-size + $diff)/2;
+    font-size: ($font-size + $diff*2)/2;
     font-size: 4.5vw;
   }
   font-size: $font-size + $diff;

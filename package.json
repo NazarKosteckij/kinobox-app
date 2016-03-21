@@ -1,6 +1,6 @@
 {
   "name": "kinobox",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "description": "KinoBox: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
@@ -43,5 +43,11 @@
   "bugs": {
     "url": "https://github.com/NazarKosteckij/kinobox-app/issues"
   },
-  "homepage": "https://github.com/NazarKosteckij/kinobox-app#readme"
+  "homepage": "https://github.com/NazarKosteckij/kinobox-app#readme",
+  "keywords": [
+    "kinobox",
+    "kino",
+    "box",
+    "kinbox-application"
+  ]
 }
