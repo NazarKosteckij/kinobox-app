@@ -95,10 +95,11 @@ angular.module('app.controllers', [])
     submit: false,
     correct: false
   };
-
   var _currentSlideIndex = 0;
   var _remainingTimeMs = 0;
   var _intervalId = 0;
+
+  $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
 
   $scope.submit = function () {
     if (_currentSlideIndex <= 10 && !$scope.slides[_currentSlideIndex - 1].submit  ) {
@@ -157,12 +158,15 @@ angular.module('app.controllers', [])
     return _currentSlideIndex > 9;
   };
   var _render = function() {
-    document.getElementsByClassName("countdown-timer")[0].style = "width:" + (_remainingTimeMs/(SECONDS_PER_SLIDE * 10) ) + "%";
+    $scope.timeRemainPercents.width =  _remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%";
+    document.getElementsByClassName("countdown-timer")[0].style = "width:" + $scope.timeRemainPercents.width;
+    document.getElementsByClassName("countdown-timer")[1].style = "width:" + $scope.timeRemainPercents.width;
+
   };
 
   var _loadNextSlide = function () {
     _prepareNextSlide();
-    $scope.slides[_currentSlideIndex].image = Math.random() * 10 % 2 < 1 ? 'http://lorempixel.com/530/300/' : 'http://lorempixel.com/530/300/people';
+    $scope.slides[_currentSlideIndex].image = Math.random() * 10 % 2 < 1 ? 'https://lorempixel.com/530/300/' : 'https://lorempixel.com/530/300/people';
     $scope.slides[_currentSlideIndex].variants[0] = Math.random();
     $scope.slides[_currentSlideIndex].variants[1] = Math.random();
     $scope.slides[_currentSlideIndex].variants[2] = Math.random();
@@ -188,6 +192,7 @@ angular.module('app.controllers', [])
   };
 
   $scope.init = function () {
+    document.getElementsByClassName("countdown-timer").async = true;
     $scope.curentSlide = _slideData;
     $scope.slides = [];
     _initProgressBar();
@@ -196,7 +201,7 @@ angular.module('app.controllers', [])
     _loadNextSlide();
 
   };
-
+  $scope.init();
   $ionicPlatform.onHardwareBackButton(function () {
     _endGame();
   })
