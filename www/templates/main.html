@@ -19,7 +19,15 @@
       <div class="spacer" style="width: 283px; height: 2%;"></div>
       <div class="center">
         <h1 class="username">{{user.name}}</h1>
-        <h1 class="balance-block"><span class="title balance">{{user.balance}}</span> бали</h1>
+        <h1 class="balance-block"><span class="title balance">{{user.balance}}</span>
+          <!--TODO add all cases-->
+          <ng-pluralize count="user.balance"
+                        when=
+                          "{0: 'балів',
+                            1: 'бал',
+                           'other': 'бали'}">
+          </ng-pluralize>
+        </h1>
       </div>
       <div class="spacer" style="width: 283px; height: 5%;"></div>
       <div class="center"><a ng-click="playBtn()" class="center play-btn button button-icon button-small"><img
