@@ -5,7 +5,7 @@
         <div class="game">
           <div class="image-block">
             <div class="center main-image">
-              <img ng-src="{{curentSlide.image}}" width="100%" height="auto">
+              <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}" width="100%" height="auto">
             </div>
             <table class="buttons-bar">
               <tr>
@@ -18,7 +18,7 @@
               <table class="progress">
                 <tbody>
                 <tr>
-                  <td ng-repeat="slideData in slides track by $index" class="point"
+                  <td ng-repeat="slideData in progress track by $index" class="point"
                       ng-class="slideData.submit ?
                       {'correct' : slideData.correct,
                        'incorrect' : !slideData.correct} : {}">•</td>
@@ -28,10 +28,10 @@
             </div>
           </div>
           <div class="answers center">
-            <div ng-repeat="variant in curentSlide.variants track by $index" class="variant" ng-click="submit()">
-              <a ng-class="curentSlide.submit ?
-                      {'correct' : curentSlide.correct,
-                       'incorrect' : !curentSlide.correct} : {}" class="item balance-block">{{variant}}</a></div>
+            <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant" ng-click="submit(variant.id)">
+              <a ng-class="getCurrentSlide().submit ?
+                      {'correct' : getCurrentSlide().correct,
+                       'incorrect' : !getCurrentSlide().correct} : {}" class="item balance-block">{{variant.title_ua}}</a></div>
           </div>
         </div>
       </div>
@@ -46,9 +46,9 @@
                 <li><input type="button" class="form small disabled " value="ще кадр"/></li>
                 <li><input type="button" class="form small" value="пропустити"/></li>
               </ul>
-              <img ng-src="{{curentSlide.image}}" width="50%" height="auto" style="max-height: 100%">
+              <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}" width="50%" height="auto" style="max-height: 100%">
               <div class="progress-bar" style="height: 100%">
-                <div class="progress" style="height: 4%; width: 50%; margin: 6%  auto" ng-repeat="slideData in slides track by $index" class="landscape-point"
+                <div class="progress" style="height: 4%; width: 50%; margin: 6%  auto" ng-repeat="slideData in progress track by $index" class="landscape-point"
                      ng-class="slideData.submit ?
                       {'correct' : slideData.correct,
                        'incorrect' : !slideData.correct} : {}" class="landscape-point-image" >
@@ -61,10 +61,10 @@
             </div>
           </div>
           <div class="answers center" style="height: 45%">
-            <div ng-repeat="variant in curentSlide.variants track by $index" style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit()" >
-              <a ng-class="curentSlide.submit ?
-                      {'correct' : curentSlide.correct,
-                       'incorrect' : !curentSlide.correct} : {}" class="item balance-block">{{variant}}</a>
+            <div ng-repeat="variant in getCurrentSlide().options track by $index" style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
+              <a ng-class="getCurrentSlide().submit ?
+                      {'correct' : getCurrentSlide().correct,
+                       'incorrect' : !getCurrentSlide().correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
             </div>
           </div>
         </div>

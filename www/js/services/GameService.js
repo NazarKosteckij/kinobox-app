@@ -49,8 +49,37 @@ angular.module('app.services')
   };
 
 
+    var _loadSlide = function(frameNumber){
+      console.log
+      return $q(function(resolve, reject) {
+        $http({
+          method: 'POST',
+          url: "https://kinobox.in.ua/api/game" ,
+          data: {game_relay: frameNumber},
+          headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' },
 
-  return {
-    isGameAllowed: _isGameAllowed
-  }
+          transformRequest: function(obj) {
+            var str = [];
+            for(var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          }
+        })
+          .then(function(response){
+            console.log(response);
+              response.data.status === "success" ?  resolve(response.data.data) : reject(response.data.data);
+            },
+            function(error){
+              console.log(error);
+              reject(error);
+            });
+      });
+    };
+
+
+    return {
+      isGameAllowed: _isGameAllowed,
+      loadSlide: _loadSlide
+
+    }
 });
