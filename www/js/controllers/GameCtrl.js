@@ -8,7 +8,6 @@ angular.module('app.controllers')
   .controller('gameCtrl', function ($document, $ionicPopup, $ionicPlatform, $log, $scope, $state, GameService) {
 
     // TIMER logic
-
     const SECONDS_PER_SLIDE = 15;
     const TIMER_UPDATE_INTERVAL = 10;
     var _remainingTimeMs = 0;
@@ -28,7 +27,8 @@ angular.module('app.controllers')
     var _updateTimer = function () {
         if (_remainingTimeMs > TIMER_UPDATE_INTERVAL) {
           _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
-          _renderTimer();
+
+          $scope.$applyAsync(_renderTimer);
         } else {
           _loadNextSlide();
           console.log("Time limit reached");
@@ -60,12 +60,16 @@ angular.module('app.controllers')
 
 
     $scope.submit = function (id) {
-       //TODO add checking
-      $scope.progress[_currentSlideNumber - 1].submit = true;
+      _checkAnswer(id).then(function (data) {
+        console.log(data);
+        $scope.progress[_currentSlideNumber - 1].submit = true;
+        $scope.progress[_currentSlideNumber - 1].correct = ! (data.data.answer === 'wrong') ;
+        alert(_currentSlideNumber + " " + data.data.answer + id);
+        _loadNextSlide();
 
-      $scope.progress[_currentSlideNumber - 1].correct = _currentSlideNumber%2===1;
+      });
 
-      _loadNextSlide();
+
 
     };
 
@@ -97,14 +101,24 @@ angular.module('app.controllers')
           function(data) {
             $ionicPopup.alert({
               title: 'Упс',
-              template: 'Сталася помилка '
+              template:
+              data.errorStatus !== "internal error" ?
+                data.message === 'completed' ? 'Сталася помилка. Ви нещодавно закінчили гру!' : 'Сталася помилка.' :
+                'Немає зв\'язку із сервером.'
             });
+
+            console.log("Помилка завантаження слайду");
+            console.log(data);
             _endGame(true);
           });
 
       } else {
         _endGame();
       }
+    };
+
+    var _checkAnswer = function(answerId){
+      return GameService.checkAnswer(_currentSlideNumber, answerId);
     };
 
     var _clearGameFields = function () {
@@ -114,12 +128,23 @@ angular.module('app.controllers')
     };
 
     var _endGame = function(error) {
+      var result = 0;
+      $scope.progress.forEach(function(progress) {
+        if (progress.submit && progress.correct) {
+          result++;
+        }
+      });
       _clearGameFields();
-      if (!error) {
+      if (error) {
+        GameService.finishGame({finish_type: 'reset'});
+      } else {
+        GameService.finishGame({});
         $ionicPopup.alert({
           title: 'Гру закінчено!',
-          template: 'Результат '
+          template: 'Результат ' + result
         });
+        console.log("Гру закінчено")
+        console.log("Гру закінчено")
       }
       $state.go('main', {reload: false});
     };
@@ -131,6 +156,41 @@ angular.module('app.controllers')
     var _initProgressBar = function () {
       for (var i = 0; i < 10; i++) {
         $scope.progress.push(angular.copy(_progress));
+      }
+    };
+
+    // Help buttons
+
+    $scope.sckipButtonAllovew = true;
+    $scope.skipBtn = function () {
+      $scope.sckipButtonAllovew = false;
+      _loadNextSlide();
+    };
+
+    $scope.sckipButtonAllovew = true;
+    $scope.skipBtn = function () {
+      $scope.sckipButtonAllovew = false;
+      _loadNextSlide();
+    };
+
+    $scope.oneMoreImageAllovew = true;
+
+    $scope.getOneMoreImage = function () {
+      var slide = $scope.getCurrentSlide();
+      slide.frames[0] = slide.frames[1];
+      $scope.oneMoreImageAllovew = false;
+    };
+
+
+    $scope.shift2IncorrectOptionsAllowed = true;
+
+    $scope.shift2IncorrectOptions = function () {
+      var slide = $scope.getCurrentSlide();
+      $scope.shift2IncorrectOptionsAllowed = false;
+      for (var i = 0; i < 4; i++) {
+        if (md5(slide.options[i].id + 'kinobox') !== slide.game_value_id) {
+          slide.options.splice(i,1);
+        }
       }
     };
 

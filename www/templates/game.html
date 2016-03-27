@@ -9,9 +9,15 @@
             </div>
             <table class="buttons-bar">
               <tr>
-                <td><input type="button" class="form small" value="50/50"/></td>
-                <td><input type="button" class="form small disabled " value="ще кадр"/></td>
-                <td><input type="button" class="form small" value="пропустити"/></td>
+                <td>
+                  <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
+                </td>
+                <td>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                </td>
+                <td>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                </td>
               </tr>
             </table>
             <div class="progress-bar">
@@ -42,9 +48,15 @@
           <div class="image-block" style="height: 54%">
             <div class="main-image" style="height: 100%">
               <ul class="buttons-bar landscape"  style="width: 25%">
-                <li><input type="button" class="form small" value="50/50"/></li>
-                <li><input type="button" class="form small disabled " value="ще кадр"/></li>
-                <li><input type="button" class="form small" value="пропустити"/></li>
+                <li>
+                  <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
+                </li>
+                <li>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                </li>
+                <li>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                </li>
               </ul>
               <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}" width="50%" height="auto" style="max-height: 100%">
               <div class="progress-bar" style="height: 100%">

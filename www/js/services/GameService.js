@@ -50,7 +50,7 @@ angular.module('app.services')
 
 
     var _loadSlide = function(frameNumber){
-      console.log
+
       return $q(function(resolve, reject) {
         $http({
           method: 'POST',
@@ -66,20 +66,80 @@ angular.module('app.services')
           }
         })
           .then(function(response){
-            console.log(response);
               response.data.status === "success" ?  resolve(response.data.data) : reject(response.data.data);
             },
             function(error){
-              console.log(error);
+              error.errorStatus = "internal error";
               reject(error);
             });
       });
     };
 
+    var _checkAnswer = function (frameNumber, answerId) {
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'POST',
+          url: "https://kinobox.in.ua/api/check",
+          data: {
+            game_relay: frameNumber,
+            answer: answerId
+          },
+          headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+          transformRequest: function (obj) {
+            var str = [];
+            for (var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          }
+        })
+          .then(function (response) {
+            resolve(response.data)
+          },
+          function (error) {
+            reject(error);
+          })
+      });
+    };
+    var _finishGame = function (options) {
+      const frameNumber  = 10;
+
+      if(options){
+        if(!options.finish_type)
+          options.finish_type = 'completed';
+        if(!options.half)
+          options.half = '';
+        if(!options.another_frame)
+          options.another_frame = '';
+        if(!options.next)
+          options.next = ''
+      } else options.finish_type = 'completed';
+
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'POST',
+          url: "https://kinobox.in.ua/api/finish",
+          data: angular.extend({game_relay: frameNumber}, options),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+          transformRequest: function (obj) {
+            var str = [];
+            for (var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          }
+        })
+          .then(function (response) {
+              resolve(response.data)
+            },
+            function (error) {
+              reject(error);
+            })
+      });
+    };
 
     return {
       isGameAllowed: _isGameAllowed,
-      loadSlide: _loadSlide
-
+      loadSlide: _loadSlide,
+      checkAnswer: _checkAnswer,
+      finishGame: _finishGame
     }
 });
