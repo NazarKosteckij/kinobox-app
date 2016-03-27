@@ -8,6 +8,7 @@ angular.module('app.controllers')
  */
 .controller('loginCtrl', function($scope, $state, $ionicPopup, AuthService) {
   if(AuthService.isAuthenticated()){
+    //TODO add checking for bonus
     $state.go('main');
   }
 
