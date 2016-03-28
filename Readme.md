@@ -8,6 +8,9 @@ This branch added for public testing of application.
 The application could be blocked from our servers! Also app can be updated with if user will confirm update. 
 Update linc could be changed!
 
+example of remote data
+{"version":"1b","apk":"http://nazar.webhop.me/kinobox-app/nightly/kinobox.apk"}
+
 Pre-requirements:
 ----------------
  - Java
