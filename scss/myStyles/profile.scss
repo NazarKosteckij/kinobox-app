@@ -26,8 +26,10 @@ $small-btn-diff : $diff/1.8;
 }
 
 .balance {
-  font-size: ($font-size + $diff) * 2;
+  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
 
+  font-size: ($font-size + $diff) * 2;
   @media screen and (orientation: portrait){
     font-size: 12vw;
   }

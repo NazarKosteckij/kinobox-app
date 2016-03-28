@@ -60,9 +60,19 @@
 .variant .item {
   line-height: 100%;
   font-size: $font-size * 0.65 + $diff;
+  font-size: 8vw;
   @media screen and (orientation: landscape){
     font-size: 8vh;
   }
+}
+
+.variant .subitem {
+  font-size: ($font-size * 0.65 + $diff)/2;
+  font-size: 4vw;
+  @media screen and (orientation: landscape){
+    font-size: 4vh;
+  }
+
 }
 
 @import "profile";

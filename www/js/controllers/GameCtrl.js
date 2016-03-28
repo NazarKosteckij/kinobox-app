@@ -60,12 +60,23 @@ angular.module('app.controllers')
 
 
     $scope.submit = function (id) {
+      const SLIDE_ID = id;
       _checkAnswer(id).then(function (data) {
         console.log(data);
         $scope.progress[_currentSlideNumber - 1].submit = true;
         $scope.progress[_currentSlideNumber - 1].correct = ! (data.data.answer === 'wrong') ;
-        alert(_currentSlideNumber + " " + data.data.answer + id);
-        _loadNextSlide();
+
+        $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
+          if (option.id === SLIDE_ID) {
+            option.submit = true;
+            option.correct = ! (data.data.answer === 'wrong') ;
+
+          }
+        });
+
+        //Delay to see results
+        //TODO clarify with PO remove this delay
+        setTimeout(_loadNextSlide, 0);
 
       });
 
@@ -134,6 +145,7 @@ angular.module('app.controllers')
           result++;
         }
       });
+
       _clearGameFields();
       if (error) {
         GameService.finishGame({finish_type: 'reset'});
@@ -154,6 +166,7 @@ angular.module('app.controllers')
     var _progress = {submit: false, correct: false}
 
     var _initProgressBar = function () {
+      $scope.progress = [];
       for (var i = 0; i < 10; i++) {
         $scope.progress.push(angular.copy(_progress));
       }

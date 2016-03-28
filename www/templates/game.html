@@ -37,7 +37,9 @@
             <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant" ng-click="submit(variant.id)">
               <a ng-class="getCurrentSlide().submit ?
                       {'correct' : getCurrentSlide().correct,
-                       'incorrect' : !getCurrentSlide().correct} : {}" class="item balance-block">{{variant.title_ua}}</a></div>
+                       'incorrect' : !getCurrentSlide().correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+              <div class="subitem">{{variant.title_en}} ({{variant.year}})</div>
+            </div>
           </div>
         </div>
       </div>
@@ -45,9 +47,9 @@
       <div style="height: 100%; width: 100%" class="hide-on-portrait">
         <div class="countdown-timer" style="height: 7%;"></div>
         <div class="game landscape" style="height: 93%; overflow: hidden; ">
-          <div class="image-block" style="height: 54%">
+          <div class="image-block" style="height: 60%">
             <div class="main-image" style="height: 100%">
-              <ul class="buttons-bar landscape"  style="width: 25%">
+              <ul class="buttons-bar landscape">
                 <li>
                   <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
                 </li>
@@ -58,7 +60,7 @@
                   <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
                 </li>
               </ul>
-              <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}" width="50%" height="auto" style="max-height: 100%">
+              <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="width:60%;max-height: 100%">
               <div class="progress-bar" style="height: 100%">
                 <div class="progress" style="height: 4%; width: 50%; margin: 6%  auto" ng-repeat="slideData in progress track by $index" class="landscape-point"
                      ng-class="slideData.submit ?
@@ -72,11 +74,13 @@
               </div>
             </div>
           </div>
-          <div class="answers center" style="height: 45%">
-            <div ng-repeat="variant in getCurrentSlide().options track by $index" style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
-              <a ng-class="getCurrentSlide().submit ?
+          <div class="answers center" style="height: 35%">
+            <div ng-class="getCurrentSlide().submit ?
                       {'correct' : getCurrentSlide().correct,
-                       'incorrect' : !getCurrentSlide().correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !getCurrentSlide().correct} : {}"
+                 ng-repeat="variant in getCurrentSlide().options track by $index" style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
+              <a class="item balance-block">{{variant.title_ua}}</a>
+              <div class="subitem">{{variant.title_en}} ({{variant.year}})</div>
             </div>
           </div>
         </div>

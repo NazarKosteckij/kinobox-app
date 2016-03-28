@@ -14,8 +14,9 @@ $incorrect-color:     $MAIN_COLOR;
 .buttons-bar.landscape {
   float: left;
   margin: 0 auto;
-  width: 25%;
+  width: 20%;
   overflow: hidden;
+  padding-top: 1%;
 }
 
 .game .image-block {
@@ -42,14 +43,16 @@ $incorrect-color:     $MAIN_COLOR;
   min-height: 25px;
   min-font-size: 13px;
   line-height: 1px;
+  border: 1px solid;
 }
+
 .landscape .form.small {
   background-color: $image-bloc-bg-color;
   padding: 0px;
-
+  border: 1px solid;
   min-height: 15px;
   min-font-size: 8px;
-  font-size: $font-size;
+  font-size: $font-size - 1;
 }
 
 .buttons-bar {
@@ -71,7 +74,8 @@ $incorrect-color:     $MAIN_COLOR;
 }
 
 .landscape .progress-bar {
-  width: 25%;
+  width: 20%;
+  padding: 1.5% auto;
   float: right;
   height: auto;
 }
@@ -133,18 +137,30 @@ $incorrect-color:     $MAIN_COLOR;
 }
 
 /********* VARIANTS  *********/
+.answers {
+  height: 53%;
+}
+
 .variant {
-  height: 50%;
+  height: 25%;
+  padding: 1% 5%;
   background: $MAIN_BACKGROUND_COLOR;
 }
 
 .variant .item {
-  padding: 0;
-  margin: 2% 0;
-  height: 100%;
+  height: auto;
+  margin: 0;
+  padding: 1px 2px;
   color: #fff;
   background-color: $MAIN_BACKGROUND_COLOR;
   border-style: none;
+}
+
+.variant .subitem {
+  color: #fff;
+  padding: 0;
+  margin: 0px;
+  margin-top: 1.1vh;
 }
 
 

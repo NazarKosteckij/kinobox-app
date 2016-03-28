@@ -10,11 +10,11 @@ input.form{
   border: $form-border-size solid white;
 
   @media  (max-width: $SCREEN-MEDIUM) and (min-width: $SCREEN-SMALL + 1) {
-    border: $form-border-size - 1 solid white;
+    border: $form-border-size solid white;
   }
 
   @media  (max-width: $SCREEN-SMALL) {
-    border: $form-border-size - 2 solid white;
+    border: $form-border-size - 1 solid white;
   }
 }
 
