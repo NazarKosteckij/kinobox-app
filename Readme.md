@@ -2,6 +2,12 @@
 **KinoBox application v1.0.0**
 ------------------------------
 
+*Nightly branch*
+
+This branch added for public testing of application.
+The application could be blocked from our servers! Also app can be updated with if user will confirm update. 
+Update linc could be changed!
+
 Pre-requirements:
 ----------------
  - Java
