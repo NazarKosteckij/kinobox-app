@@ -5,7 +5,7 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $log, $scope, $state, GameService) {
+  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, GameService) {
 
     // TIMER logic
     const SECONDS_PER_SLIDE = 15;
@@ -68,6 +68,15 @@ angular.module('app.controllers')
         $scope.progress[_currentSlideNumber - 1].correct = ! (data.data.answer === 'wrong') ;
 
         $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
+
+          //Commented because we don't show correct answer if user didn't check it
+          /*
+          if (md5(option.id + 'kinobox') === $scope.slides[_currentSlideNumber - 1].game_value_id) {
+            option.submit = true;
+            option.correct = true;
+          }
+          */
+
           if (option.id === SLIDE_ID) {
             option.submit = true;
             option.correct = ! (data.data.answer === 'wrong') ;
@@ -80,7 +89,6 @@ angular.module('app.controllers')
 
       });
     };
-
 
     /**
      *
@@ -100,6 +108,9 @@ angular.module('app.controllers')
     var _loadNextSlide = function () {
      if(!_inputLocked)
       if (!_isEndOfGame()) {
+        $ionicLoading.show({
+          template:"Завантаження..."
+        });
         _inputLocked = true;
         GameService.loadSlide(_currentSlideNumber + 1).then(
           function (data) {
@@ -111,7 +122,7 @@ angular.module('app.controllers')
               _inputLocked = false;
               _resetTimer();
               _currentSlideNumber++;
-
+              $ionicLoading.hide();
             };
             console.log("Отримано дані слайду");
             console.log(data);
