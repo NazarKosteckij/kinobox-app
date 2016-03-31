@@ -5,14 +5,14 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('gameCtrl', function ($document, $ionicPopup, $ionicPlatform, $log, $scope, $state, GameService) {
+  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $log, $scope, $state, GameService) {
 
     // TIMER logic
     const SECONDS_PER_SLIDE = 15;
     const TIMER_UPDATE_INTERVAL = 10;
     var _remainingTimeMs = 0;
     var _intervalId = 0;
-
+    var _inputLocked =false;
     $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
 
     /**
@@ -26,8 +26,9 @@ angular.module('app.controllers')
 
     var _updateTimer = function () {
         if (_remainingTimeMs > TIMER_UPDATE_INTERVAL) {
-          _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
-
+          if(!_inputLocked) {
+            _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
+          }
           $scope.$applyAsync(_renderTimer);
         } else {
           _loadNextSlide();
@@ -75,13 +76,9 @@ angular.module('app.controllers')
         });
 
         //Delay to see results
-        //TODO clarify with PO remove this delay
-        setTimeout(_loadNextSlide, 0);
+        _loadNextSlide();
 
       });
-
-
-
     };
 
 
@@ -101,12 +98,22 @@ angular.module('app.controllers')
     };
 
     var _loadNextSlide = function () {
+     if(!_inputLocked)
       if (!_isEndOfGame()) {
-        _currentSlideNumber++;
-        _resetTimer();
-        GameService.loadSlide(_currentSlideNumber).then(
-          function(data) {
-            $scope.slides.push(data);
+        _inputLocked = true;
+        GameService.loadSlide(_currentSlideNumber + 1).then(
+          function (data) {
+            var img = new Image();
+            img.src = "https://kinobox.in.ua/frames/" + data.frames[0].image;
+            img.onload = function () {
+              $scope.slides.push(data);
+              console.log("Слайд завантажено");
+              _inputLocked = false;
+              _resetTimer();
+              _currentSlideNumber++;
+
+            };
+            console.log("Отримано дані слайду");
             console.log(data);
           },
           function(data) {
@@ -146,19 +153,32 @@ angular.module('app.controllers')
         }
       });
 
-      _clearGameFields();
+
       if (error) {
         GameService.finishGame({finish_type: 'reset'});
       } else {
-        GameService.finishGame({});
+        GameService.finishGame({
+          next: !$scope.sckipButtonAllovew,
+          half: !$scope.shift2IncorrectOptionsAllowed,
+          another_frame: !$scope.oneMoreImageAllovew
+        });
+
         $ionicPopup.alert({
           title: 'Гру закінчено!',
           template: 'Результат ' + result
         });
-        console.log("Гру закінчено")
-        console.log("Гру закінчено")
+        console.log("Гру закінчено");
       }
-      $state.go('main', {reload: false});
+
+      setTimeout(function () {
+        _clearGameFields();
+        $ionicHistory.clearCache();
+        $ionicHistory.clearHistory();
+        $ionicHistory.nextViewOptions({
+          historyRoot: true
+        });
+        $state.go('main', {reload: false});
+      }, 1000);
     };
 
     // Progress Bar
