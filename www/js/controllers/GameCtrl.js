@@ -12,7 +12,7 @@ angular.module('app.controllers')
     const TIMER_UPDATE_INTERVAL = 10;
     var _remainingTimeMs = 0;
     var _intervalId = 0;
-    var _inputLocked =false;
+    var _inputLocked = false;
     $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
 
     /**
