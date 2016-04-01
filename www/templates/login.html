@@ -8,7 +8,7 @@
         </div>
         <div class="spacer" style="height: 10%; height: 10vh;"></div>
         <form class="center list"  ng-submit="login(data)" novalidate>
-          <h3 class="title">Авторизація</h3>
+          <h3 class="title">{{translation.login.authorization}}</h3>
           <div>
             <label>
               <input ng-model="data.username" key-focus class="form" type="email" placeholder="Логін" required>
@@ -19,7 +19,7 @@
             </label>
           </div>
           <a ng-click="login(data)" class="form btn">
-            <ion-process-spinner processing="processingRequest" css-class="spinner-calm" spinner="crescent">Увійти
+            <ion-process-spinner processing="processingRequest" css-class="spinner-calm" spinner="crescent">{{translation.login.signin}}
             </ion-process-spinner>
           </a>
         </form>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <form class="center list" style="width: 50%; display: block" ng-submit="login(data)" novalidate>
-          <h3 class="title">Авторизація</h3>
+          <h3 class="title">{{translation.login.authorization}}</h3>
           <div>
             <label>
               <input ng-model="data.username" key-focus  class="form" type="email" placeholder="Логін" required>
@@ -41,7 +41,7 @@
               <input ng-model="data.password" key-focus class="form" ng-minlength="6" type="password" placeholder="Пароль" required>
             </label>
           </div>
-          <a ng-click="login(data)" class="form btn"><ion-process-spinner processing="processingRequest" css-class="spinner-calm" spinner="crescent">Увійти</ion-process-spinner></a>
+          <a ng-click="login(data)" class="form btn"><ion-process-spinner processing="processingRequest" css-class="spinner-calm" spinner="crescent">{{translation.login.signin}}</ion-process-spinner></a>
         </form>
       </div>
     </ion-content>

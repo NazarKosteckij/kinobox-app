@@ -6,7 +6,14 @@ angular.module('app.controllers')
  *
  ************************************
  */
-.controller('loginCtrl', function($scope, $state, $ionicPopup, AuthService) {
+.controller('loginCtrl', function($scope, $state, $ionicPopup, AuthService, translationService){
+
+  $scope.translate = function(){
+    translationService.getTranslation($scope, $scope.selectedLanguage);
+  };
+
+  $scope.translate();
+
   if(AuthService.isAuthenticated()){
     //TODO add checking for bonus
     $state.go('main');

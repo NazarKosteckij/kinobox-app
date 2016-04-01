@@ -6,7 +6,16 @@ angular.module('app.controllers')
  *                                  *
  ************************************
  */
-.controller('mainCtrl', function ($rootScope, $stateParams, $window, $scope, $state, $http, $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService) {
+.controller('mainCtrl',
+  function ($rootScope, $stateParams, $window, $scope, $state, $http,
+            $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService, translationService) {
+
+  $scope.translate = function(){
+    translationService.getTranslation($scope, $scope.selectedLanguage);
+  };
+
+  $scope.translate();
+
   $scope.playBtn = function(){
     GameService.isGameAllowed()
       .then(function (gameStatus) {
@@ -46,4 +55,19 @@ angular.module('app.controllers')
     console.log("loggedOut");
     $state.go('login', {reload: true});
   };
+
+  var _setLanguage = function (lang) {
+    console.log("Language changed " + lang);
+    if (lang) {
+      window.localStorage['language'] = lang;
+    }
+  }
+
+  $scope.setLangUk = function () {
+    _setLanguage("uk");
+  }
+  $scope.setLangRu = function () {
+    _setLanguage("ru");
+  }
+
 })

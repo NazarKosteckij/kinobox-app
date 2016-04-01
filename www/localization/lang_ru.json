@@ -1,0 +1,9 @@
+{
+  "login" : {
+    "authorization" : "Авторизацыя",
+    "signin":"Вход"
+  },
+  "game" : {
+
+  }
+}

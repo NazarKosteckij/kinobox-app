@@ -5,7 +5,15 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, GameService) {
+  .controller('gameCtrl',
+    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state,
+              GameService, translationService) {
+
+      $scope.translate = function(){
+        translationService.getTranslation($scope, $scope.selectedLanguage);
+      };
+
+      $scope.translate();
 
     // TIMER logic
     const SECONDS_PER_SLIDE = 15;
