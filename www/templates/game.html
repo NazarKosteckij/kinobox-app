@@ -35,10 +35,12 @@
           </div>
           <div class="answers center">
             <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant" ng-click="submit(variant.id)">
-              <a ng-class="getCurrentSlide().submit ?
-                      {'correct' : getCurrentSlide().correct,
-                       'incorrect' : !getCurrentSlide().correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
-              <div class="subitem">{{variant.title_en}} ({{variant.year}})</div>
+              <a ng-class="variant.submit ?
+                      {'correct' : variant.correct,
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+              <div class="subitem" ng-class="variant.submit ?
+                      {'correct' : variant.correct,
+                       'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>
             </div>
           </div>
         </div>
@@ -75,12 +77,14 @@
             </div>
           </div>
           <div class="answers center" style="height: 35%">
-            <div ng-class="getCurrentSlide().submit ?
-                      {'correct' : getCurrentSlide().correct,
-                       'incorrect' : !getCurrentSlide().correct} : {}"
-                 ng-repeat="variant in getCurrentSlide().options track by $index" style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
-              <a class="item balance-block">{{variant.title_ua}}</a>
-              <div class="subitem">{{variant.title_en}} ({{variant.year}})</div>
+            <div  ng-repeat="variant in getCurrentSlide().options track by $index"
+                    style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
+              <a ng-class="variant.submit ?
+                      {'correct' : variant.correct,
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+              <div class="subitem" ng-class="variant.submit ?
+                      {'correct' : variant.correct,
+                       'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>
             </div>
           </div>
         </div>

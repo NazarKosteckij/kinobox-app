@@ -5,14 +5,14 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('gameCtrl', function ($document, $ionicPopup, $ionicPlatform, $log, $scope, $state, GameService) {
+  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, GameService) {
 
     // TIMER logic
     const SECONDS_PER_SLIDE = 15;
     const TIMER_UPDATE_INTERVAL = 10;
     var _remainingTimeMs = 0;
     var _intervalId = 0;
-
+    var _inputLocked = false;
     $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
 
     /**
@@ -26,8 +26,9 @@ angular.module('app.controllers')
 
     var _updateTimer = function () {
         if (_remainingTimeMs > TIMER_UPDATE_INTERVAL) {
-          _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
-
+          if(!_inputLocked) {
+            _remainingTimeMs -= TIMER_UPDATE_INTERVAL;
+          }
           $scope.$applyAsync(_renderTimer);
         } else {
           _loadNextSlide();
@@ -60,6 +61,9 @@ angular.module('app.controllers')
 
 
     $scope.submit = function (id) {
+      if(_inputLocked) {
+        return;
+      }
       const SLIDE_ID = id;
       _checkAnswer(id).then(function (data) {
         console.log(data);
@@ -67,6 +71,15 @@ angular.module('app.controllers')
         $scope.progress[_currentSlideNumber - 1].correct = ! (data.data.answer === 'wrong') ;
 
         $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
+
+          //Commented because we don't show correct answer if user didn't check it
+          /*
+          if (md5(option.id + 'kinobox') === $scope.slides[_currentSlideNumber - 1].game_value_id) {
+            option.submit = true;
+            option.correct = true;
+          }
+          */
+
           if (option.id === SLIDE_ID) {
             option.submit = true;
             option.correct = ! (data.data.answer === 'wrong') ;
@@ -75,15 +88,10 @@ angular.module('app.controllers')
         });
 
         //Delay to see results
-        //TODO clarify with PO remove this delay
-        setTimeout(_loadNextSlide, 0);
+        _loadNextSlide();
 
       });
-
-
-
     };
-
 
     /**
      *
@@ -101,12 +109,25 @@ angular.module('app.controllers')
     };
 
     var _loadNextSlide = function () {
+     if(!_inputLocked)
       if (!_isEndOfGame()) {
-        _currentSlideNumber++;
-        _resetTimer();
-        GameService.loadSlide(_currentSlideNumber).then(
-          function(data) {
-            $scope.slides.push(data);
+        $ionicLoading.show({
+          template:"Завантаження..."
+        });
+        _inputLocked = true;
+        GameService.loadSlide(_currentSlideNumber + 1).then(
+          function (data) {
+            var img = new Image();
+            img.src = "https://kinobox.in.ua/frames/" + data.frames[0].image;
+            img.onload = function () {
+              $scope.slides.push(data);
+              console.log("Слайд завантажено");
+              _inputLocked = false;
+              _resetTimer();
+              _currentSlideNumber++;
+              $ionicLoading.hide();
+            };
+            console.log("Отримано дані слайду");
             console.log(data);
           },
           function(data) {
@@ -139,6 +160,7 @@ angular.module('app.controllers')
     };
 
     var _endGame = function(error) {
+      $ionicLoading.hide();
       var result = 0;
       $scope.progress.forEach(function(progress) {
         if (progress.submit && progress.correct) {
@@ -146,19 +168,28 @@ angular.module('app.controllers')
         }
       });
 
-      _clearGameFields();
+
       if (error) {
         GameService.finishGame({finish_type: 'reset'});
       } else {
-        GameService.finishGame({});
-        $ionicPopup.alert({
-          title: 'Гру закінчено!',
-          template: 'Результат ' + result
+        GameService.finishGame({
+          next: !$scope.sckipButtonAllovew,
+          half: !$scope.shift2IncorrectOptionsAllowed,
+          another_frame: !$scope.oneMoreImageAllovew
         });
-        console.log("Гру закінчено")
-        console.log("Гру закінчено")
+        console.log("Гру закінчено");
       }
-      $state.go('main', {reload: false});
+
+      setTimeout(function () {
+        _clearGameFields();
+        $ionicHistory.clearCache();
+        $ionicHistory.clearHistory();
+        $ionicHistory.nextViewOptions({
+          historyRoot: true
+        });
+
+        $state.go('results', { result : result });
+      }, 1000);
     };
 
     // Progress Bar

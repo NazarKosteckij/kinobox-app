@@ -137,10 +137,10 @@ td .form.small {
   margin: 0px;
   margin-top: 1.1vh; }
 
-.variant .item.correct {
+.variant .correct {
   color: #05c66f; }
 
-.variant .item.incorrect {
+.variant .incorrect {
   color: #f45454; }
 
 .btn {
@@ -227,6 +227,9 @@ a.play-btn {
 
 .bonus.points {
   color: #fff; }
+
+.text {
+  color: #fff !important; }
 
 .bonus.text {
   color: #fff !important; }

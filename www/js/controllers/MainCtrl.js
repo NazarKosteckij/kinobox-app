@@ -10,18 +10,27 @@ angular.module('app.controllers')
   $scope.playBtn = function(){
     GameService.isGameAllowed()
       .then(function (gameStatus) {
+        console.log(gameStatus);
           if (gameStatus.allowed) {
             $state.go("game", {reload: true});
           } else {
-            //TODO maybe it will be better when move this transforming logic into service
-            var hours = gameStatus.timeToStart.hours;
-            var minutes = gameStatus.timeToStart.minutes < 10 ? '0' + gameStatus.timeToStart.minutes : gameStatus.timeToStart.minutes;
-            var seconds = gameStatus.timeToStart.seconds < 10 ? '0' + gameStatus.timeToStart.seconds : gameStatus.timeToStart.seconds;
-            $ionicPopup.alert({
-              title: 'Упс!',
-              template: 'Гра буде доступна через ' + hours + ':'
-              + minutes + ':' + seconds
-            });
+            if (gameStatus.timeToStart.minutes === 0 && gameStatus.timeToStart.hours === 0 && gameStatus.timeToStart.seconds === 0) {
+              GameService.finishGame({finish_type: 'reset'});
+              $ionicPopup.alert({
+                title: 'Упс!',
+                template: 'Остання гра була некоректно завершена!'
+              });
+            } else {
+              //TODO maybe it will be better when move this transforming logic into service
+              var hours = gameStatus.timeToStart.hours;
+              var minutes = gameStatus.timeToStart.minutes < 10 ? '0' + gameStatus.timeToStart.minutes : gameStatus.timeToStart.minutes;
+              var seconds = gameStatus.timeToStart.seconds < 10 ? '0' + gameStatus.timeToStart.seconds : gameStatus.timeToStart.seconds;
+              $ionicPopup.alert({
+                title: 'Упс!',
+                template: 'Гра буде доступна через ' + hours + ':'
+                + minutes + ':' + seconds
+              });
+            }
           }
         },
         function (error) {
@@ -32,6 +41,7 @@ angular.module('app.controllers')
         });
   };
 
+  //TODO add ionic users here
   ProfileService.loadUser();
   $scope.user = ProfileService.user;
   console.log($scope.user);
