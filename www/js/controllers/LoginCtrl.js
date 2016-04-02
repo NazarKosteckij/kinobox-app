@@ -19,7 +19,7 @@ angular.module('app.controllers')
           console.log(data);
           if (data.data) {
             data.data = JSON.parse(data.data);
-            if (data.data.version !== "1b") {
+            if (data.data.version !== "0.8.3a") {
 
               if (data.data.apk) {
                 $ionicPopup.confirm({
