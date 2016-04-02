@@ -1,0 +1,18 @@
+<ion-view title="Результат">
+  <ion-content  overflow-scroll="true" padding="true" class="has-header">
+     <div class="bonus text center" style="font-size: 4vh; padding-bottom: 5vw; padding-top: 1vw">
+      Гру завершено!
+    </div>
+    <div class="bonus text center">
+      Результат:
+    </div>
+    <div class="spacer hide-on-landscape hide-on-small" style="width: 100%; height: 10%;"></div>
+    <div class="center" style="height: 60%;">
+      <h1 class="bonus points">{{result}}</h1>
+      <div class="bonus text">балів</div>
+      <h2 class="text" style="font-size: 4vh;">Правельних відповідей: {{result}} <br/>Неравельних відповідей: {{10 - result}}</h2>
+      <div class="spacer hide-on-landscape" style="width: 100%; height: 10%;"></div>
+        <input type="button" class="form" value="Круто" ng-click="ok()" style=""/>
+    </div>
+  </ion-content>
+</ion-view>

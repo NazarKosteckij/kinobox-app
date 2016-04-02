@@ -14,8 +14,12 @@ angular.module('app.controllers')
           if (gameStatus.allowed) {
             $state.go("game", {reload: true});
           } else {
-            if (gameStatus.timeToStart.minutes === gameStatus.timeToStart.hours === gameStatus.timeToStart.seconds === 0) {
-              GameService.finishGame({finish_type: 'reset'})
+            if (gameStatus.timeToStart.minutes === 0 && gameStatus.timeToStart.hours === 0 && gameStatus.timeToStart.seconds === 0) {
+              GameService.finishGame({finish_type: 'reset'});
+              $ionicPopup.alert({
+                title: 'Упс!',
+                template: 'Остання гра була некоректно завершена!'
+              });
             } else {
               //TODO maybe it will be better when move this transforming logic into service
               var hours = gameStatus.timeToStart.hours;
