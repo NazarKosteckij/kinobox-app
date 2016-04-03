@@ -3,17 +3,37 @@
     "authorization" : "Авторизация",
     "signin" : "Вход",
     "login" : "Почта",
-    "password" : "Пароль"
+    "password" : "Пароль",
+    "unauthError" : "Не авторизованы",
+    "unauthErrorText" : "Вы не имеете доступа к этому ресурсу!",
+    "upps" : "Упс!"
   },
   "game" : {
     "oneMore": "еще кадр",
     "skip" : "пропустить",
-    "cool" : "Круто :)"
+    "cool" : "Круто :)",
+    "recentlyGameEndedError" : "Вы недавно закончили игру!",
+    "anError" : "Случилась ошибка! ",
+    "netError" : "Нет связи с сервером.",
+    "upps" : "Упс!",
+    "loading" : "Загрузка..."
+  },
+  "results" : {
+    "trueAnswers" : "Верных ответов",
+    "falseAnswers" : "Ложных ответов",
+    "points" : "баллов",
+    "cool" : "Круто :)",
+    "gameFinished" : "Игру окончено!",
+    "textResult" : "Результат"
   },
   "main" : {
     "marks" : "баллов",
     "points" : "баллы",
-    "point" : "бал"
+    "point" : "бал",
+    "gameUncorrectlyText" : "Последняя игра была некорректно завершена!",
+    "gameStartAfter" : "Игра будет доступна через ",
+    "upps" : "Упс!",
+    "netError" : "Нет связи с сервером."
   },
   "bonus" : {
     "bonus" : "БОНУС!",
