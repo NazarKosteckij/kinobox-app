@@ -4,13 +4,19 @@
 angular.module('app.services')
 
 .service('translationService', function($resource) {
+  var language = window.localStorage['language'];
+
+  this.getSelectedLanguage = function () {
+    return language;
+  };
+
   this.getTranslation = function($scope) {
-    var language = window.localStorage['language'];
+    language = window.localStorage['language'];
 
     if (language !== 'ru' && language !== 'uk') {
       language ='uk';
+      window.localStorage['language'] = language;
     }
-
     var languageFilePath = 'localization/lang_' + language + '.json';
     console.log(languageFilePath);
     $resource(languageFilePath).get(function (data) {

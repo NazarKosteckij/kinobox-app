@@ -37,7 +37,7 @@
             <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant" ng-click="submit(variant.id)">
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
-                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>
               <div class="subitem" ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>
@@ -81,7 +81,7 @@
                     style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
-                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>
               <div class="subitem" ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>

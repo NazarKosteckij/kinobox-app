@@ -9,6 +9,10 @@ angular.module('app.controllers')
     function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state,
               GameService, translationService) {
 
+      $scope.selectedLanguage = translationService.getSelectedLanguage();
+
+      $scope.isUkrainianLang = $scope.selectedLanguage === 'uk';
+
       $scope.translate = function(){
         translationService.getTranslation($scope, $scope.selectedLanguage);
       };
