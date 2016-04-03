@@ -1,16 +1,16 @@
-<ion-view title="Бонус">
+<ion-view title="{{translation.bonus.bonus}}">
     <ion-content  ng-class="'red'" overflow-scroll="true" padding="true" class="has-header">
         <div class="spacer hide-on-landscape" style="width: 100%; height: 10%;"></div>
         <div class="title bonus center">
-           БОНУС!
+           {{translation.bonus.bonus}}
         </div>
         <div class="spacer hide-on-landscape hide-on-small" style="width: 100%; height: 10%;"></div>
         <div class="center" style="height: 60%;">
           <h1 class="bonus points">+10</h1>
-          <div class="bonus text">балів</div>
-          <h2 class="alternative text" style="font-size: 4vh;">за щоденне <br> використання додатку</h2>
+          <div class="bonus text">{{translation.bonus.points}}</div>
+          <h2 class="alternative text" style="font-size: 4vh;">{{translation.bonus.forDaily}} <br>{{translation.bonus.usageApp}}</h2>
           <div class="spacer hide-on-landscape" style="width: 100%; height: 10%;"></div>
-          <input type="button" class="form red" value="Круто ;)" ng-click="ok()" style="height: 13vh; width: 50vw; "/>
+          <input type="button" class="form red" value="OK" ng-click="ok()" style="height: 13vh; width: 50vw; "/>
         </div>
     </ion-content>
 </ion-view>

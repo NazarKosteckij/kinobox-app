@@ -5,7 +5,19 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, GameService) {
+  .controller('gameCtrl',
+    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state,
+              GameService, translationService) {
+
+      $scope.selectedLanguage = translationService.getSelectedLanguage();
+
+      $scope.isUkrainianLang = $scope.selectedLanguage === 'uk';
+
+      $scope.translate = function(){
+        translationService.getTranslation($scope, $scope.selectedLanguage);
+      };
+
+      $scope.translate();
 
     // TIMER logic
     const SECONDS_PER_SLIDE = 15;
@@ -80,9 +92,9 @@ angular.module('app.controllers')
           }
           */
 
-          if (option.id === SLIDE_ID) {
-            option.submit = true;
-            option.correct = ! (data.data.answer === 'wrong') ;
+            if (option.id === SLIDE_ID) {
+              option.submit = true;
+              option.correct = ! (data.data.answer === 'wrong') ;
 
           }
         });
@@ -106,36 +118,36 @@ angular.module('app.controllers')
       $scope.timeRemainPercents =  _remainingTimeMs/(SECONDS_PER_SLIDE * 10);
     };
 
-    var _loadNextSlide = function () {
-     if(!_inputLocked)
-      if (!_isEndOfGame()) {
-        $ionicLoading.show({
-          template:"Завантаження..."
-        });
-        _inputLocked = true;
-        GameService.loadSlide(_currentSlideNumber + 1).then(
-          function (data) {
-            var img = new Image();
-            img.src = "https://kinobox.in.ua/frames/" + data.frames[0].image;
-            img.onload = function () {
-              $scope.slides.push(data);
-              console.log("Слайд завантажено");
-              _inputLocked = false;
-              _resetTimer();
-              _currentSlideNumber++;
-              $ionicLoading.hide();
-            };
-            console.log("Отримано дані слайду");
-            console.log(data);
-          },
-          function(data) {
-            $ionicPopup.alert({
-              title: 'Упс',
-              template:
-              data.errorStatus !== "internal error" ?
-                data.message === 'completed' ? 'Сталася помилка. Ви нещодавно закінчили гру!' : 'Сталася помилка.' :
-                'Немає зв\'язку із сервером.'
+      var _loadNextSlide = function () {
+        if(!_inputLocked)
+          if (!_isEndOfGame()) {
+            $ionicLoading.show({
+              template: $scope.translation.game.loading
             });
+            _inputLocked = true;
+            GameService.loadSlide(_currentSlideNumber + 1).then(
+              function (data) {
+                var img = new Image();
+                img.src = "https://kinobox.in.ua/frames/" + data.frames[0].image;
+                img.onload = function () {
+                  $scope.slides.push(data);
+                  console.log("Слайд завантажено");
+                  _inputLocked = false;
+                  _resetTimer();
+                  _currentSlideNumber++;
+                  $ionicLoading.hide();
+                };
+                console.log("Отримано дані слайду");
+                console.log(data);
+              },
+              function(data) {
+                $ionicPopup.alert({
+                  title: $scope.translation.game.upps,
+                  template:
+                    data.errorStatus !== "internal error" ?
+                      data.message === 'completed' ? $scope.translation.game.anError + $scope.translation.game.recentlyGameEndedError : $scope.translation.game.anError :
+                      $scope.translation.game.netError
+                });
 
             console.log("Помилка завантаження слайду");
             console.log(data);

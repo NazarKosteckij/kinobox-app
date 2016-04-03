@@ -13,10 +13,10 @@
                   <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
                 </td>
                 <td>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
                 </td>
                 <td>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
                 </td>
               </tr>
             </table>
@@ -37,7 +37,7 @@
             <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant" ng-click="submit(variant.id)">
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
-                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>
               <div class="subitem" ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>
@@ -56,10 +56,10 @@
                   <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
                 </li>
                 <li>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
                 </li>
                 <li>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
                 </li>
               </ul>
               <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="width:60%;max-height: 100%">
@@ -81,7 +81,7 @@
                     style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
-                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>
               <div class="subitem" ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>
