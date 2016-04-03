@@ -13,10 +13,10 @@
                   <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
                 </td>
                 <td>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
                 </td>
                 <td>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
                 </td>
               </tr>
             </table>
@@ -56,10 +56,10 @@
                   <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
                 </li>
                 <li>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
                 </li>
                 <li>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
                 </li>
               </ul>
               <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="width:60%;max-height: 100%">

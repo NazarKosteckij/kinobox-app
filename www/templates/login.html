@@ -11,10 +11,10 @@
           <h3 class="title">{{translation.login.authorization}}</h3>
           <div>
             <label>
-              <input ng-model="data.username" key-focus class="form" type="email" placeholder="Логін" required>
+              <input ng-model="data.username" key-focus class="form" type="email" placeholder="{{translation.login.login}}" required>
             </label>
             <label>
-              <input ng-model="data.password" key-focus class="form" type="password" ng-minlength="6" placeholder="Пароль"
+              <input ng-model="data.password" key-focus class="form" type="password" ng-minlength="6" placeholder="{{translation.login.password}}"
                      required>
             </label>
           </div>
@@ -35,10 +35,10 @@
           <h3 class="title">{{translation.login.authorization}}</h3>
           <div>
             <label>
-              <input ng-model="data.username" key-focus  class="form" type="email" placeholder="Логін" required>
+              <input ng-model="data.username" key-focus  class="form" type="email" placeholder="{{translation.login.login}}" required>
             </label>
             <label>
-              <input ng-model="data.password" key-focus class="form" ng-minlength="6" type="password" placeholder="Пароль" required>
+              <input ng-model="data.password" key-focus class="form" ng-minlength="6" type="password" placeholder="{{translation.login.password}}" required>
             </label>
           </div>
           <a ng-click="login(data)" class="form btn"><ion-process-spinner processing="processingRequest" css-class="spinner-calm" spinner="crescent">{{translation.login.signin}}</ion-process-spinner></a>

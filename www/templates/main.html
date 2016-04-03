@@ -23,9 +23,9 @@
           <!--TODO add all cases-->
           <ng-pluralize count="user.balance"
                         when=
-                          "{0: 'балів',
-                            1: 'бал',
-                           'other': 'бали'}">
+                          "{0: '{{translation.main.marks}}',
+                            1: '{{translation.main.point}}',
+                           'other': '{{translation.main.points}}'}">
           </ng-pluralize>
         </h1>
       </div>
@@ -57,7 +57,7 @@
              style=" display:block ; float: left;  height: 100%;">
         <div class="" style="width: 50%; margin: 0 auto;  text-align: left; padding-left: 4%;  float: left;">
           <h1 class="username ng-binding">{{user.name}}</h1>
-          <h1 class="balance-block"><span class="title balance ng-binding">{{user.balance}}</span> бали</h1>
+          <h1 class="balance-block"><span class="title balance ng-binding">{{user.balance}}</span> {{translation.main.points}}</h1>
         </div>
         <a ng-click="playBtn()" class="center play-btn button button-icon button-small  ">
           <img class="play-btn-img" src="img/play-btn.png" style=" width: 10em; width: 15vw;"></a>

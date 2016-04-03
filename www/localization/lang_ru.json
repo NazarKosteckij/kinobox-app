@@ -1,9 +1,23 @@
 {
   "login" : {
-    "authorization" : "Авторизацыя",
-    "signin":"Вход"
+    "authorization" : "Авторизация",
+    "signin" : "Вход",
+    "login" : "Почта",
+    "password" : "Пароль"
   },
   "game" : {
-
+    "oneMore": "еще кадр",
+    "skip" : "пропустить",
+    "cool" : "Круто :)"
+  },
+  "main" : {
+    "marks" : "баллов",
+    "points" : "баллы",
+    "point" : "бал"
+  },
+  "bonus" : {
+    "bonus" : "БОНУС!",
+    "forDaily" : "за ежедневное <br> использования приложения",
+    "points" : "баллов"
   }
 }
