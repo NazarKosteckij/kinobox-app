@@ -20,7 +20,7 @@ angular.module('app.controllers')
     const TIMER_UPDATE_INTERVAL = 10;
     var _remainingTimeMs = 0;
     var _intervalId = 0;
-    var _inputLocked =false;
+    var _inputLocked = false;
     $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
 
     /**
@@ -69,6 +69,9 @@ angular.module('app.controllers')
 
 
     $scope.submit = function (id) {
+      if(_inputLocked) {
+        return;
+      }
       const SLIDE_ID = id;
       _checkAnswer(id).then(function (data) {
         console.log(data);
@@ -165,6 +168,7 @@ angular.module('app.controllers')
     };
 
     var _endGame = function(error) {
+      $ionicLoading.hide();
       var result = 0;
       $scope.progress.forEach(function(progress) {
         if (progress.submit && progress.correct) {
@@ -181,11 +185,6 @@ angular.module('app.controllers')
           half: !$scope.shift2IncorrectOptionsAllowed,
           another_frame: !$scope.oneMoreImageAllovew
         });
-
-        $ionicPopup.alert({
-          title: 'Гру закінчено!',
-          template: 'Результат ' + result
-        });
         console.log("Гру закінчено");
       }
 
@@ -196,7 +195,8 @@ angular.module('app.controllers')
         $ionicHistory.nextViewOptions({
           historyRoot: true
         });
-        $state.go('main', {reload: false});
+
+        $state.go('results', { result : result });
       }, 1000);
     };
 

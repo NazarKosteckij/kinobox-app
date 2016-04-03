@@ -1,10 +1,3 @@
-function isPortraitOrientation(){
-  return Math.abs(window.innerWidth) < Math.abs(window.innerHeight);
-  //TODO (DEBUG ONLY) remove it
-  //return  !(Math.random() + .5 | 0);
-}
-
-
 angular.module('app.routes', [])
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -27,6 +20,12 @@ angular.module('app.routes', [])
     url: '/game',
     templateUrl: 'templates/game.html',
     controller: 'gameCtrl'
+  })
+
+  .state('results', {
+    url: '/results/:result',
+    templateUrl: 'templates/game-results.html',
+    controller: 'gameResultsCtrl'
   })
 
   .state('login', {

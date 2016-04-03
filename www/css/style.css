@@ -228,6 +228,9 @@ a.play-btn {
 .bonus.points {
   color: #fff; }
 
+.text {
+  color: #fff !important; }
+
 .bonus.text {
   color: #fff !important; }
   @media (orientation: landscape) {
