@@ -1,6 +1,13 @@
 angular.module('app.controllers', [])
 
-.controller('appCtrl',function($scope, $ionicHistory, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+.controller('appCtrl',function($scope, $ionicHistory, $state, $ionicPopup, AuthService, AUTH_EVENTS, translationService) {
+
+  $scope.translate = function(){
+    translationService.getTranslation($scope, $scope.selectedLanguage);
+  };
+
+  $scope.translate();
+
   $scope.username = AuthService.username();
   if(AuthService.isAuthenticated()){
     $state.go('main', {reload: true});
