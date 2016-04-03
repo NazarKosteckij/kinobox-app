@@ -13,7 +13,7 @@ angular.module('app.controllers')
     var _remainingTimeMs = 0;
     var _intervalId = 0;
     var _inputLocked = false;
-    $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
+    $scope.timeRemainPercents = _remainingTimeMs/(SECONDS_PER_SLIDE * 10);
 
     /**
      * Resets countdown timer to SECONDS_PER_SLIDE seconds.
@@ -103,9 +103,7 @@ angular.module('app.controllers')
     };
 
     var _renderTimer = function() {
-      $scope.timeRemainPercents.width =  _remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%";
-      document.getElementsByClassName("countdown-timer")[0].style = "width:" + $scope.timeRemainPercents.width;
-      document.getElementsByClassName("countdown-timer")[1].style = "width:" + $scope.timeRemainPercents.width;
+      $scope.timeRemainPercents =  _remainingTimeMs/(SECONDS_PER_SLIDE * 10);
     };
 
     var _loadNextSlide = function () {

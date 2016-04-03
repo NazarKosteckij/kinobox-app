@@ -1,7 +1,7 @@
 <ion-view title="Гра"">
     <ion-content overflow-scroll="true" padding="false" class="has-header">
       <div style="height: 100%; width: 100%" class="hide-on-landscape">
-        <div class="countdown-timer"></div>
+        <div class="countdown-timer"  ng-model="timeRemainPercents" ng-style="{width:timeRemainPercents + '%'}"></div>
         <div class="game">
           <div class="image-block">
             <div class="center main-image">
@@ -47,7 +47,7 @@
       </div>
 
       <div style="height: 100%; width: 100%" class="hide-on-portrait">
-        <div class="countdown-timer" style="height: 7%;"></div>
+        <div class="countdown-timer" style="height: 7%;" ng-style="{width:timeRemainPercents + '%'}"></div>
         <div class="game landscape" style="height: 93%; overflow: hidden; ">
           <div class="image-block" style="height: 60%">
             <div class="main-image" style="height: 100%">
