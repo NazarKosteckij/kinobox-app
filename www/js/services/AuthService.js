@@ -1,6 +1,6 @@
 angular.module('app.services')
 
-.service('AuthService', function($q, $http, USER_ROLES) {
+.service('AuthService', function($q, $http) {
   var LOCAL_TOKEN_KEY = 'tTokenKey';
   var username = '';
   var isAuthenticated = false;
@@ -26,8 +26,6 @@ angular.module('app.services')
   function useCredentials(token) {
     isAuthenticated = true;
     authToken = token;
-
-    role = USER_ROLES.public;
 
     // Set the token as header for your requests!
     $http.defaults.headers.common['X-Auth-Token'] = token;
