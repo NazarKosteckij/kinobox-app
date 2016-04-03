@@ -11,10 +11,9 @@ angular.module('app.controllers')
             $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService, translationService) {
 
   $scope.translate = function(){
-    translationService.getTranslation($scope, $scope.selectedLanguage);
+    translationService.getTranslation($scope);
+    $scope.isUkrainianLang = translationService.getSelectedLanguage() === 'uk';
   };
-
-  $scope.translate();
 
   $scope.playBtn = function(){
     GameService.isGameAllowed()
@@ -71,13 +70,18 @@ angular.module('app.controllers')
     if (lang) {
       window.localStorage['language'] = lang;
     }
-  }
+    $scope.translate();
+
+  };
+
+  $scope.translate();
 
   $scope.setLangUk = function () {
     _setLanguage("uk");
-  }
+  };
   $scope.setLangRu = function () {
     _setLanguage("ru");
-  }
+
+  };
 
 })
