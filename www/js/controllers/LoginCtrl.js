@@ -6,7 +6,7 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('loginCtrl', function($scope, $state, $ionicPopup, AuthService, translationService){
+  .controller('loginCtrl', function($scope, $state, $ionicPopup, $cordovaKeyboard, $cordovaStatusbar, AuthService, translationService){
 
     $scope.translate = function(){
       translationService.getTranslation($scope, $scope.selectedLanguage);
@@ -22,6 +22,8 @@ angular.module('app.controllers')
     $scope.processingRequest = false;
 
     $scope.login = function(data) {
+
+      ionic.Platform.fullScreen(true, false);
       if (data.username !== '' && data.password !== '') {
         $scope.processingRequest = true;
         AuthService.login(data.username, data.password)
