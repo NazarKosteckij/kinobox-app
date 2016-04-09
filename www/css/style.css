@@ -75,9 +75,10 @@ td .form.small {
   height: auto; }
 
 .landscape .progress-bar {
-  padding-top: 2%;
+  padding: 2% 0;
   float: right;
-  height: auto; }
+  height: 100%;
+  width: 25%; }
 
 .progress-bar .progress {
   text-align: center;
@@ -127,8 +128,10 @@ td .form.small {
   height: 53%; }
 
 .variant {
-  margin: 10px 0;
   background: #1a2125; }
+  @media screen and (min-width: 719px) {
+    .variant {
+      margin: 10px 0; } }
 
 .variant .item {
   height: auto;
