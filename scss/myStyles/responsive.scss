@@ -5,7 +5,6 @@
     margin: $form-margin + $diff * 0.5 auto;
     font-size: $font-size + $diff * 0.5;
     height: $form-height + $diff * 0.5;
-    height: 10vh;
     padding-left: 2px + $diff * 0.5;
     padding-right: 2px + $diff * 0.5;
     border-radius: $form-height + $diff * 0.5;
@@ -14,7 +13,7 @@
   line-height: $form-line-height + $diff;
   margin: $form-margin + $diff auto;
 
-  font-size: $font-size + $diff;
+  font-size: $font-size + $diff ;
   height: $form-height + $diff;
   padding-left: 2px + $diff;
   padding-right: 2px + $diff;
@@ -22,16 +21,12 @@
 }
 
 .form.small {
-  height: ($form-height + $diff)*0.65;
-  height: 10vw;
+  height: ($form-height + $diff)*0.85;
   font-size:  ($font-size + $diff)*0.65;
-  font-size: 5vw;
 }
 .landscape .form.small {
   height: ($form-height + $diff)*0.65;
-  height: 9vh;
-  font-size:  ($font-size + $diff)*0.65;
-  font-size: 2.5vw;
+  font-size:  ($font-size + $diff)*0.40;
 }
 
 .title{
@@ -60,17 +55,17 @@
 .variant .item {
   line-height: 100%;
   font-size: $font-size * 0.65 + $diff;
-  font-size: 8vw;
+  font-size: 3.5vh;
   @media screen and (orientation: landscape){
-    font-size: 8vh;
+    font-size: 3.5vw;
   }
 }
 
 .variant .subitem {
   font-size: ($font-size * 0.65 + $diff)/2;
-  font-size: 4vw;
+  font-size: 2vh;
   @media screen and (orientation: landscape){
-    font-size: 4vh;
+    font-size: 2vw;
   }
 
 }

@@ -44,6 +44,15 @@ td .form.small {
   line-height: 1px;
   border: 1px solid; }
 
+.landscape .progress img {
+  height: auto;
+  width: 100%; }
+
+.landscape .progress {
+  height: 7%;
+  width: 50%;
+  margin: 3%  auto; }
+
 .landscape .form.small {
   background-color: #14191b;
   padding: 0px;
@@ -66,8 +75,7 @@ td .form.small {
   height: auto; }
 
 .landscape .progress-bar {
-  width: 20%;
-  padding: 1.5% auto;
+  padding-top: 2%;
   float: right;
   height: auto; }
 
@@ -77,9 +85,9 @@ td .form.small {
   height: 10%; }
 
 .landscape .progress-bar .progress {
-  text-align: center;
-  margin: 0.5vh;
-  padding: 0px; }
+  margin: 0 auto;
+  padding: 0px;
+  width: 50%; }
 
 .progress-bar .progress .point {
   color: #1a2125; }
@@ -119,8 +127,7 @@ td .form.small {
   height: 53%; }
 
 .variant {
-  height: 25%;
-  padding: 1% 5%;
+  margin: 10px 0;
   background: #1a2125; }
 
 .variant .item {
@@ -289,22 +296,17 @@ a.play-btn {
       margin: 10.5px auto;
       font-size: 15.5px;
       height: 35.5px;
-      height: 10vh;
       padding-left: 2.5px;
       padding-right: 2.5px;
       border-radius: 35.5px; } }
 
 @media (max-width: 319px) {
   .form.small {
-    height: 23.4px;
-    height: 10vw;
-    font-size: 10.4px;
-    font-size: 5vw; }
+    height: 30.6px;
+    font-size: 10.4px; }
   .landscape .form.small {
     height: 23.4px;
-    height: 9vh;
-    font-size: 10.4px;
-    font-size: 2.5vw; }
+    font-size: 6.4px; }
   .title, .bonus.text {
     font-size: 16px;
     font-size: 9vw;
@@ -329,18 +331,18 @@ a.play-btn {
   .variant .item {
     line-height: 100%;
     font-size: 10.75px;
-    font-size: 8vw; } }
+    font-size: 3.5vh; } }
   @media screen and (max-width: 319px) and (orientation: landscape) {
     .variant .item {
-      font-size: 8vh; } }
+      font-size: 3.5vw; } }
 
 @media (max-width: 319px) {
   .variant .subitem {
     font-size: 5.375px;
-    font-size: 4vw; } }
+    font-size: 2vh; } }
   @media screen and (max-width: 319px) and (orientation: landscape) {
     .variant .subitem {
-      font-size: 4vh; } }
+      font-size: 2vw; } }
 
 @media (max-width: 319px) and (orientation: portrait) {
   .btn.lag-button {
@@ -358,12 +360,9 @@ a.play-btn {
   .btn.lag-button {
     width: auto;
     height: 18.05556px;
-    height: auto;
     font-size: 8.05556px;
-    font-size: 5vh;
     margin: 5px auto;
-    line-height: 15.55556px;
-    padding: 1% 3%; } }
+    line-height: 15.55556px; } }
 
 @media (max-width: 319px) {
   .balance {
@@ -408,22 +407,17 @@ a.play-btn {
       margin: 15px auto;
       font-size: 20px;
       height: 40px;
-      height: 10vh;
       padding-left: 7px;
       padding-right: 7px;
       border-radius: 40px; } }
 
 @media (max-width: 479px) and (min-width: 320px) {
   .form.small {
-    height: 29.25px;
-    height: 10vw;
-    font-size: 16.25px;
-    font-size: 5vw; }
+    height: 38.25px;
+    font-size: 16.25px; }
   .landscape .form.small {
     height: 29.25px;
-    height: 9vh;
-    font-size: 16.25px;
-    font-size: 2.5vw; }
+    font-size: 10px; }
   .title, .bonus.text {
     font-size: 25px;
     font-size: 9vw;
@@ -448,18 +442,18 @@ a.play-btn {
   .variant .item {
     line-height: 100%;
     font-size: 19.75px;
-    font-size: 8vw; } }
+    font-size: 3.5vh; } }
   @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
     .variant .item {
-      font-size: 8vh; } }
+      font-size: 3.5vw; } }
 
 @media (max-width: 479px) and (min-width: 320px) {
   .variant .subitem {
     font-size: 9.875px;
-    font-size: 4vw; } }
+    font-size: 2vh; } }
   @media screen and (max-width: 479px) and (min-width: 320px) and (orientation: landscape) {
     .variant .subitem {
-      font-size: 4vh; } }
+      font-size: 2vw; } }
 
 @media (max-width: 479px) and (min-width: 320px) and (orientation: portrait) {
   .btn.lag-button {
@@ -477,12 +471,9 @@ a.play-btn {
   .btn.lag-button {
     width: auto;
     height: 23.05556px;
-    height: auto;
     font-size: 13.05556px;
-    font-size: 5vh;
     margin: 5px auto;
-    line-height: 20.55556px;
-    padding: 1% 3%; } }
+    line-height: 20.55556px; } }
 
 @media (max-width: 479px) and (min-width: 320px) {
   .balance {
@@ -527,22 +518,17 @@ a.play-btn {
       margin: 17.5px auto;
       font-size: 22.5px;
       height: 42.5px;
-      height: 10vh;
       padding-left: 9.5px;
       padding-right: 9.5px;
       border-radius: 42.5px; } }
 
 @media (max-width: 719px) and (min-width: 480px) {
   .form.small {
-    height: 32.5px;
-    height: 10vw;
-    font-size: 19.5px;
-    font-size: 5vw; }
+    height: 42.5px;
+    font-size: 19.5px; }
   .landscape .form.small {
     height: 32.5px;
-    height: 9vh;
-    font-size: 19.5px;
-    font-size: 2.5vw; }
+    font-size: 12px; }
   .title, .bonus.text {
     font-size: 30px;
     font-size: 9vw;
@@ -567,18 +553,18 @@ a.play-btn {
   .variant .item {
     line-height: 100%;
     font-size: 24.75px;
-    font-size: 8vw; } }
+    font-size: 3.5vh; } }
   @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
     .variant .item {
-      font-size: 8vh; } }
+      font-size: 3.5vw; } }
 
 @media (max-width: 719px) and (min-width: 480px) {
   .variant .subitem {
     font-size: 12.375px;
-    font-size: 4vw; } }
+    font-size: 2vh; } }
   @media screen and (max-width: 719px) and (min-width: 480px) and (orientation: landscape) {
     .variant .subitem {
-      font-size: 4vh; } }
+      font-size: 2vw; } }
 
 @media (max-width: 719px) and (min-width: 480px) and (orientation: portrait) {
   .btn.lag-button {
@@ -596,12 +582,9 @@ a.play-btn {
   .btn.lag-button {
     width: auto;
     height: 25.83333px;
-    height: auto;
     font-size: 15.83333px;
-    font-size: 5vh;
     margin: 5px auto;
-    line-height: 23.33333px;
-    padding: 1% 3%; } }
+    line-height: 23.33333px; } }
 
 @media (max-width: 719px) and (min-width: 480px) {
   .balance {
@@ -645,22 +628,17 @@ a.play-btn {
       margin: 30px auto;
       font-size: 35px;
       height: 55px;
-      height: 10vh;
       padding-left: 22px;
       padding-right: 22px;
       border-radius: 55px; } }
 
 @media (max-width: 1200px) and (min-width: 720px) {
   .form.small {
-    height: 48.75px;
-    height: 10vw;
-    font-size: 35.75px;
-    font-size: 5vw; }
+    height: 63.75px;
+    font-size: 35.75px; }
   .landscape .form.small {
     height: 48.75px;
-    height: 9vh;
-    font-size: 35.75px;
-    font-size: 2.5vw; }
+    font-size: 22px; }
   .title, .bonus.text {
     font-size: 55px;
     font-size: 9vw;
@@ -685,18 +663,18 @@ a.play-btn {
   .variant .item {
     line-height: 100%;
     font-size: 49.75px;
-    font-size: 8vw; } }
+    font-size: 3.5vh; } }
   @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
     .variant .item {
-      font-size: 8vh; } }
+      font-size: 3.5vw; } }
 
 @media (max-width: 1200px) and (min-width: 720px) {
   .variant .subitem {
     font-size: 24.875px;
-    font-size: 4vw; } }
+    font-size: 2vh; } }
   @media screen and (max-width: 1200px) and (min-width: 720px) and (orientation: landscape) {
     .variant .subitem {
-      font-size: 4vh; } }
+      font-size: 2vw; } }
 
 @media (max-width: 1200px) and (min-width: 720px) and (orientation: portrait) {
   .btn.lag-button {
@@ -714,12 +692,9 @@ a.play-btn {
   .btn.lag-button {
     width: auto;
     height: 39.72222px;
-    height: auto;
     font-size: 29.72222px;
-    font-size: 5vh;
     margin: 5px auto;
-    line-height: 37.22222px;
-    padding: 1% 3%; } }
+    line-height: 37.22222px; } }
 
 @media (max-width: 1200px) and (min-width: 720px) {
   .balance {
@@ -763,22 +738,17 @@ a.play-btn {
       margin: 40px auto;
       font-size: 35px;
       height: 65px;
-      height: 10vh;
       padding-left: 32px;
       padding-right: 32px;
       border-radius: 65px; } }
 
 @media (min-width: 1201px) {
   .form.small {
-    height: 61.75px;
-    height: 10vw;
-    font-size: 42.25px;
-    font-size: 5vw; }
+    height: 80.75px;
+    font-size: 42.25px; }
   .landscape .form.small {
     height: 61.75px;
-    height: 9vh;
-    font-size: 42.25px;
-    font-size: 2.5vw; }
+    font-size: 26px; }
   .title, .bonus.text {
     font-size: 65px;
     font-size: 9vw;
@@ -803,18 +773,18 @@ a.play-btn {
   .variant .item {
     line-height: 100%;
     font-size: 63.25px;
-    font-size: 8vw; } }
+    font-size: 3.5vh; } }
   @media screen and (min-width: 1201px) and (orientation: landscape) {
     .variant .item {
-      font-size: 8vh; } }
+      font-size: 3.5vw; } }
 
 @media (min-width: 1201px) {
   .variant .subitem {
     font-size: 31.625px;
-    font-size: 4vw; } }
+    font-size: 2vh; } }
   @media screen and (min-width: 1201px) and (orientation: landscape) {
     .variant .subitem {
-      font-size: 4vh; } }
+      font-size: 2vw; } }
 
 @media (min-width: 1201px) and (orientation: portrait) {
   .btn.lag-button {
@@ -832,12 +802,9 @@ a.play-btn {
   .btn.lag-button {
     width: auto;
     height: 50.83333px;
-    height: auto;
     font-size: 35.83333px;
-    font-size: 5vh;
     margin: 5px auto;
-    line-height: 38.33333px;
-    padding: 1% 3%; } }
+    line-height: 38.33333px; } }
 
 @media (min-width: 1201px) {
   .balance {
@@ -884,4 +851,5 @@ a.play-btn {
 .btn.lag-button.landscape {
   display: initial;
   float: right;
-  margin: 0 3%; }
+  margin: 0 1%;
+  line-height: 100%; }

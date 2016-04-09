@@ -14,10 +14,16 @@
     translationService.getTranslation($scope);
     $scope.isUkrainianLang = translationService.getSelectedLanguage() === 'uk';
   };
-
+  var _processingRequest = false;
       $scope.playBtn = function(){
+        if (_processingRequest) {
+          return;
+        }
+
+        _processingRequest = true;
         GameService.isGameAllowed()
           .then(function (gameStatus) {
+              _processingRequest = false;
               console.log(gameStatus);
               if (gameStatus.allowed) {
                 $state.go("game", {reload: true});
@@ -42,6 +48,7 @@
               }
             },
             function (error) {
+              _processingRequest = false;
               $ionicPopup.alert({
                 title: $scope.translation.main.upps,
                 template: $scope.translation.main.netError

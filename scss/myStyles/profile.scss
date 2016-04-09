@@ -15,13 +15,12 @@ $small-btn-diff : $diff/1.8;
 @media (orientation: landscape) {
   .btn.lag-button {
     width: auto;
+
     height: $form-height/2 + $small-btn-diff;
-    height: auto;
     font-size: $font-size/2 + $small-btn-diff;
-    font-size: 5vh;
     margin: $form-margin/2 auto;
     line-height: $font-size + $small-btn-diff;
-    padding: 1% 3%;
+
   }
 }
 

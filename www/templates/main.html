@@ -6,7 +6,7 @@
         <img src="img/KlPrhNSGQYe5wqMKljIN_0t3nct5gQOiHuYYSZKmy_logo.png" width="70%" height="auto">
       </div>
 
-      <div class="spacer hide-on-small" style="width: 100%; height: 10%;"></div>
+      <div class="spacer" style="width: 100%; height: 10%;"></div>
       <div class="lang-bar">
         <a class="form btn lag-button" ng-class="{selected  : isUkrainianLang}" ng-click="setLangUk()">УКР</a>
         <a class="form btn lag-button" ng-class="{selected  : !isUkrainianLang}" ng-click="setLangRu()">РУС</a>
@@ -29,16 +29,14 @@
           </ng-pluralize>
         </h1>
       </div>
-      <div class="spacer" style="width: 283px; height: 5%;"></div>
-      <div class="center"><a ng-click="playBtn()" class="center play-btn button button-icon button-small"><img
-        class="play-btn-img" ng-src="{{isUkrainianLang? 'img/play-btn.png' : 'img/play-btn-ru.png'}}"></a></div>
+      <div class="center"><a ng-click="playBtn()" class="   button-icon button-small"><img
+        class="  col col-25" ng-src="{{isUkrainianLang? 'img/play-btn.png' : 'img/play-btn-ru.png'}}" style="margin:  0 auto"></a></div>
 
       <div class="spacer hide-on-small" style="width: 283px; height: 4%;"></div>
       <a ng-click="logout()" class="logout button button-light button-icon button-block button-small"
          style="position: absolute; margin: 0; top: 90%; left: 45%;"> <img src="img/log-out.png" class="logout-icon"
                                                                            style="height:2rem; height: 7vw;"></a>
     </div>
-
     <div overflow-scroll="true" padding="true" class="has-header hide-on-portrait" style="height: 100%;padding: 2% 5%;">
       <div class="spacer" style="    height: 10px;    height: 3%;"></div>
       <div style="overflow: auto;">
@@ -60,8 +58,9 @@
           <h1 class="balance-block"><span class="title balance ng-binding">{{user.balance}}</span> {{translation.main.points}}</h1>
         </div>
         <a ng-click="playBtn()" class="center play-btn button button-icon button-small  ">
-          <img class="play-btn-img" ng-src="{{isUkrainianLang? 'img/play-btn.png' : 'img/play-btn-ru.png'}}" style=" width: 10em; width: 15vw;"></a>
 
+            <img class="play-btn-img" ng-src="{{isUkrainianLang? 'img/play-btn.png' : 'img/play-btn-ru.png'}}" style=" width: 10em; width: 15vw;">
+         </a>
       </div>
 
       <div class="spacer" style=" height: 10%;"></div>
