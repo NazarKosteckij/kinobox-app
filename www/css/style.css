@@ -224,6 +224,9 @@ a.play-btn {
 .red {
   background-color: #f45454; }
 
+.red-text {
+  color: #f45454 !important; }
+
 .alternative.text {
   color: #993737; }
 
@@ -843,6 +846,10 @@ a.play-btn {
 
 @media (max-width: 469px) {
   .hide-on-small {
+    display: none; } }
+
+@media (min-width: 479px) and (max-width: 719px) {
+  .hide-on-medium {
     display: none; } }
 
 .btn.lag-button {

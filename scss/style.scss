@@ -53,6 +53,9 @@ td .form.small{
 .red {
   background-color: $MAIN_COLOR;
 }
+.red-text {
+  color: $MAIN_COLOR !important;
+}
 .alternative.text{
   color: $MAIN_ALTERNATIVE_COLOR;
 }
@@ -171,6 +174,11 @@ input.ng-invalid{
 
 @media (max-width: $SCREEN-MEDIUM - 10) {
   .hide-on-small {
+    display: none;
+  }
+
+}@media (min-width: $SCREEN-MEDIUM) and (max-width: $SCREEN-LARGE){
+  .hide-on-medium {
     display: none;
   }
 }
