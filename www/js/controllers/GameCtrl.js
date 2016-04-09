@@ -43,6 +43,7 @@ angular.module('app.controllers')
           }
           $scope.$applyAsync(_renderTimer);
         } else {
+          _renderIsCorrectVariant(-1, false);
           _loadNextSlide();
           console.log("Time limit reached");
         }
@@ -71,6 +72,27 @@ angular.module('app.controllers')
 
     var _currentSlideNumber = 0;
 
+    var _renderIsCorrectVariant = function (id, correct) {
+      $scope.progress[_currentSlideNumber - 1].submit = true;
+      $scope.progress[_currentSlideNumber - 1].correct = correct ;
+
+      $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
+
+        //Commented because we don't show correct answer if user didn't check it
+        /*
+         if (md5(option.id + 'kinobox') === $scope.slides[_currentSlideNumber - 1].game_value_id) {
+         option.submit = true;
+         option.correct = true;
+         }
+         */
+
+        if (option.id === id) {
+          option.submit = true;
+          option.correct = correct ;
+
+        }
+      });
+    }
 
     $scope.submit = function (id) {
       if(_inputLocked) {
@@ -79,26 +101,7 @@ angular.module('app.controllers')
       const SLIDE_ID = id;
       _checkAnswer(id).then(function (data) {
         console.log(data);
-        $scope.progress[_currentSlideNumber - 1].submit = true;
-        $scope.progress[_currentSlideNumber - 1].correct = ! (data.data.answer === 'wrong') ;
-
-        $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
-
-          //Commented because we don't show correct answer if user didn't check it
-          /*
-          if (md5(option.id + 'kinobox') === $scope.slides[_currentSlideNumber - 1].game_value_id) {
-            option.submit = true;
-            option.correct = true;
-          }
-          */
-
-            if (option.id === SLIDE_ID) {
-              option.submit = true;
-              option.correct = ! (data.data.answer === 'wrong') ;
-
-          }
-        });
-
+      _renderIsCorrectVariant(SLIDE_ID, (data.data.answer !== 'wrong'));
         //Delay to see results
         _loadNextSlide();
 
