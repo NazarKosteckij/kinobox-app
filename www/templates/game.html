@@ -50,20 +50,15 @@
         <div class="countdown-timer" style="height: 7%;" ng-style="{width:timeRemainPercents + '%'}"></div>
         <div class="game landscape" style="height: 93%; overflow: hidden; ">
           <div class=" image-block" style="height: 60%">
-            <div class="row main-image" style="height: 100%; padding: 0">
-              <ul class="buttons-bar landscape col">
-                <li>
-                  <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
-                </li>
-                <li>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
-                </li>
-                <li>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
-                </li>
-              </ul>
-              <img class="col" ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="width:60%;max-height: 100%">
-              <div class="progress-bar col" style="height: 100%">
+
+            <div class="main-image" style="height: 100%; padding: 0">
+              <div class="buttons-bar landscape" style="width: 19%; z-index: 100">
+                <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
+                <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
+                <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
+              </div>
+                <img class="" ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="margin: 0 auto; width:60%;max-height: 100%">
+              <div class="progress-bar" style="width: 19%; height: 100%">
                 <div class="landscape progress "  ng-repeat="slideData in progress track by $index" class="landscape-point"
                      ng-class="slideData.submit ?
                       {'correct' : slideData.correct,
@@ -73,8 +68,11 @@
 
                 </div>
               </div>
+
+              </div>
+
             </div>
-          </div>
+
           <div class="answers center" style="height: 35%">
             <div  ng-repeat="variant in getCurrentSlide().options track by $index"
                     style="float: left "  class="variant col col-50" ng-click="submit(variant.id)" >

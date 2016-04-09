@@ -46,7 +46,7 @@ $incorrect-color:     $MAIN_COLOR;
   border: 1px solid;
 }
 .landscape .progress img{
-   height: auto;
+  height: 41%;
   width:100%
 }
 .landscape .progress {
@@ -83,9 +83,10 @@ $incorrect-color:     $MAIN_COLOR;
 }
 
 .landscape .progress-bar {
-  padding-top: 2%;
+  padding: 2% 0;
   float: right;
-  height: auto;
+  height: 100%;
+  width: 25%;
 }
 
 .progress-bar .progress {
@@ -150,7 +151,9 @@ $incorrect-color:     $MAIN_COLOR;
 }
 
 .variant {
-  margin: 10px 0;
+  @media screen and (min-width: $SCREEN-LARGE){
+    margin: 10px 0;
+  }
   background: $MAIN_BACKGROUND_COLOR;
 }
 
