@@ -29,6 +29,7 @@ angular.module('app.controllers')
         AuthService.login(data.username, data.password)
           .then(function(authenticated) {
             ga('set', 'userId',  data.username);
+            $ionicAnalytics.track('User Logged in',{user: {username: data.username}});
             $state.go('main', {}, {reload: true, historyRoot: true});
             $scope.setCurrentUsername(data.username);
             $scope.processingRequest = false;

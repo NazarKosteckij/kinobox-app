@@ -6,8 +6,11 @@ angular.module('app.controllers')
    ************************************
    */
   .controller('gameCtrl',
-    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state,
+    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, $ionicAnalytics,
               GameService, translationService) {
+      var _gameStartTime = new Date();
+      var _gameEndTime = 0;
+      $ionicAnalytics.track('Game started', {with_error: error});
 
       $scope.selectedLanguage = translationService.getSelectedLanguage();
 
@@ -173,6 +176,10 @@ angular.module('app.controllers')
     };
 
     var _endGame = function(error) {
+      _gameEndTime = new Date();
+      $ionicAnalytics.track('Game ended', {withError: error});
+      $ionicAnalytics.track('Game duration in seconds', { gameDuration: (_gameEndTime - _gameStartTime)/1000});
+
       $ionicLoading.hide();
       var result = 0;
       $scope.progress.forEach(function(progress) {

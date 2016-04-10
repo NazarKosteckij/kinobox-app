@@ -46,6 +46,7 @@
 
   $scope.hiHarold = function() {
     if(_avatarTaps++ === 15) {
+      $ionicAnalytics.track('Users saw Harold',{user: $scope.user});
       _haroldIntervalId = setInterval(_moveHarold, 10);
       _avatarTaps = 0;
     }
@@ -96,24 +97,29 @@
     $scope.user = ProfileService.user;
     console.log($scope.user);
 
+      $ionicAnalytics.track('User runed app',{user: $scope.user});
+
     $scope.logout = function () {
+      $ionicAnalytics.track('User Logged out',{user: $scope.user});
+
       AuthService.logout();
       $ionicHistory.clearCache();
       $ionicHistory.clearHistory();
       $ionicHistory.nextViewOptions({
         historyRoot: true
       });
+
       console.log("loggedOut");
       $state.go('login', {reload: true});
     };
 
   var _setLanguage = function (lang) {
+    $ionicAnalytics.track('Language changed',{language: lang});
     console.log("Language changed " + lang);
     if (lang) {
       window.localStorage['language'] = lang;
     }
     $scope.translate();
-
   };
 
   $scope.translate();

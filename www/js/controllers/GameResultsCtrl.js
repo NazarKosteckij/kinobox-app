@@ -7,7 +7,8 @@ angular.module('app.controllers')
    ************************************
    */
 
-  .controller('gameResultsCtrl', function($scope, $state, $stateParams, translationService) {
+  .controller('gameResultsCtrl', function($scope, $state, $stateParams, $ionicAnalytics, translationService) {
+
 
   $scope.translate = function(){
     translationService.getTranslation($scope, $scope.selectedLanguage);
@@ -21,4 +22,7 @@ angular.module('app.controllers')
     };
 
   console.log($scope);
+  $ionicAnalytics.track('Correct and incorrect answers', { correct : $scope.result, wrong: 10 - $scope.result});
+
   });
+
