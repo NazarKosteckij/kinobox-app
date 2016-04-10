@@ -10,7 +10,7 @@ angular.module('app.controllers')
               GameService, translationService) {
       var _gameStartTime = new Date();
       var _gameEndTime = 0;
-      $ionicAnalytics.track('Game started', {with_error: error});
+      $ionicAnalytics.track('Game started');
 
       $scope.selectedLanguage = translationService.getSelectedLanguage();
 
@@ -227,12 +227,8 @@ angular.module('app.controllers')
 
     $scope.sckipButtonAllovew = true;
     $scope.skipBtn = function () {
-      $scope.sckipButtonAllovew = false;
-      _loadNextSlide();
-    };
 
-    $scope.sckipButtonAllovew = true;
-    $scope.skipBtn = function () {
+      $ionicAnalytics.track('Button Skip Slide');
       $scope.sckipButtonAllovew = false;
       _loadNextSlide();
     };
@@ -240,6 +236,8 @@ angular.module('app.controllers')
     $scope.oneMoreImageAllovew = true;
 
     $scope.getOneMoreImage = function () {
+
+      $ionicAnalytics.track('Button One More Slide');
       var slide = $scope.getCurrentSlide();
       slide.frames[0] = slide.frames[1];
       $scope.oneMoreImageAllovew = false;
@@ -250,6 +248,7 @@ angular.module('app.controllers')
 
     $scope.shift2IncorrectOptions = function () {
       var slide = $scope.getCurrentSlide();
+      $ionicAnalytics.track('Button 50/50');
       $scope.shift2IncorrectOptionsAllowed = false;
       for (var i = 0; i < 4; i++) {
         if (md5(slide.options[i].id + 'kinobox') !== slide.game_value_id) {
