@@ -13,7 +13,7 @@
       </div>
       <div class="spacer" style="width: 283px; height: 2%;"></div>
       <div style="text-align:center;">
-        <img class="avatar"
+        <img ng-click="hiHarold()" class="avatar"
              ng-src="{{ user.avatar.medium ? ('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) : 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}">
       </div>
       <div class="spacer" style="width: 283px; height: 2%;"></div>
@@ -51,7 +51,7 @@
       </div>
       <div class="spacer" style="height: 140px; height: 20%;"></div>
       <div class="center" style="width: 100%; display: inline-grid;">
-        <img class="avatar"   style="height: auto; float: left; margin: 0"  ng-src="{{ user.avatar.medium ? ('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) : 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}"
+        <img ng-click="hiHarold()" class="avatar"   style="height: auto; float: left; margin: 0" ng-src="{{ user.avatar.medium ? ('https://kinobox.in.ua/userdata/avatars/' + user.avatar.medium) : 'img/YqfvwO9qTwGYoppEdRad_VlFZD4ddQWm7Dbhe0o3f_no_avatar.jpg'}}"
              style=" display:block ; float: left;  height: 100%;">
         <div class="" style="width: 50%; margin: 0 auto;  text-align: left; padding-left: 4%;  float: left;">
           <h1 class="username ng-binding">{{user.name}}</h1>
@@ -70,5 +70,10 @@
 
     </div>
 
+    <div class="harold" style="position: fixed; padding-top: 33%; height: 100%; margin: 0 auto; margin-left: -2%; width: 103%; text-align: center; "   ng-style="{top:haroldPosition + '%'}">
+      <img src="img/1447516248_6.png" style="width: 30%; margin: 0 auto "/>
+      <div class="username ng-binding" style="line-height: initial; color: #fff">
+        We are very enjoyed you licked our app!</div>
+    </div>
   </ion-content>
 </ion-view>

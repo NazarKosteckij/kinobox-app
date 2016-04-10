@@ -15,6 +15,41 @@
     $scope.isUkrainianLang = translationService.getSelectedLanguage() === 'uk';
   };
   var _processingRequest = false;
+  var _avatarTaps = 0;
+  var _haroldIntervalId;
+  $scope.haroldPosition = 200;
+
+  var _moveHarold = function () {
+    if ($scope.haroldPosition === -100) {
+      clearInterval(_haroldIntervalId);
+      $scope.haroldPosition = 200;
+    }
+
+    if ($scope.haroldPosition !== 0) {
+      $scope.$apply(function () {
+        _calculateHaroldPosition();
+      });
+    } else {
+      clearInterval(_haroldIntervalId);
+      setTimeout(function () {
+        $scope.$apply(function () {
+          $scope.haroldPosition = 200;
+        })
+      }, 3000);
+    }
+
+  };
+
+  var _calculateHaroldPosition = function() {
+   $scope.haroldPosition-- ;
+  }
+
+  $scope.hiHarold = function() {
+    if(_avatarTaps++ === 15) {
+      _haroldIntervalId = setInterval(_moveHarold, 10);
+      _avatarTaps = 0;
+    }
+  };
       $scope.playBtn = function(){
         if (_processingRequest) {
           return;
