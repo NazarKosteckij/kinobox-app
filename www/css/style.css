@@ -863,3 +863,6 @@ a.play-btn {
   float: right;
   margin: 0 1%;
   line-height: 100%; }
+
+.harold {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.36), rgba(255, 0, 0, 0.11), transparent); }
