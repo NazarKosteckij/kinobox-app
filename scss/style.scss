@@ -53,6 +53,9 @@ td .form.small{
 .red {
   background-color: $MAIN_COLOR;
 }
+.red-text {
+  color: $MAIN_COLOR !important;
+}
 .alternative.text{
   color: $MAIN_ALTERNATIVE_COLOR;
 }
@@ -173,6 +176,11 @@ input.ng-invalid{
   .hide-on-small {
     display: none;
   }
+
+}@media (min-width: $SCREEN-MEDIUM) and (max-width: $SCREEN-LARGE){
+  .hide-on-medium {
+    display: none;
+  }
 }
 
 .btn.lag-button{
@@ -182,5 +190,10 @@ input.ng-invalid{
 .btn.lag-button.landscape {
   display: initial;
   float: right;
-  margin: 0 3%;
+  margin: 0 1%;
+  line-height: 100%;
+}
+
+.harold {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.36), rgba(255, 0, 0, 0.11), rgba(0, 0, 0, 0));
 }

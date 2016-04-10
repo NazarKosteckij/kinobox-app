@@ -1,7 +1,7 @@
 <ion-view title="Гра"">
     <ion-content overflow-scroll="true" padding="false" class="has-header">
       <div style="height: 100%; width: 100%" class="hide-on-landscape">
-        <div class="countdown-timer"></div>
+        <div class="countdown-timer"  ng-model="timeRemainPercents" ng-style="{width:timeRemainPercents + '%'}"></div>
         <div class="game">
           <div class="image-block">
             <div class="center main-image">
@@ -13,10 +13,10 @@
                   <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
                 </td>
                 <td>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
+                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
                 </td>
                 <td>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
+                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
                 </td>
               </tr>
             </table>
@@ -34,10 +34,10 @@
             </div>
           </div>
           <div class="answers center">
-            <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant" ng-click="submit(variant.id)">
+            <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant col col-center" ng-click="submit(variant.id)">
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
-                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>
               <div class="subitem" ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>
@@ -47,41 +47,38 @@
       </div>
 
       <div style="height: 100%; width: 100%" class="hide-on-portrait">
-        <div class="countdown-timer" style="height: 7%;"></div>
+        <div class="countdown-timer" style="height: 7%;" ng-style="{width:timeRemainPercents + '%'}"></div>
         <div class="game landscape" style="height: 93%; overflow: hidden; ">
-          <div class="image-block" style="height: 60%">
-            <div class="main-image" style="height: 100%">
-              <ul class="buttons-bar landscape">
-                <li>
-                  <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
-                </li>
-                <li>
-                  <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="ще кадр"/>
-                </li>
-                <li>
-                  <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="пропустити"/>
-                </li>
-              </ul>
-              <img ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="width:60%;max-height: 100%">
-              <div class="progress-bar" style="height: 100%">
-                <div class="progress" style="height: 4%; width: 50%; margin: 6%  auto" ng-repeat="slideData in progress track by $index" class="landscape-point"
+          <div class=" image-block" style="height: 60%">
+
+            <div class="main-image" style="height: 100%; padding: 0">
+              <div class="buttons-bar landscape" style="width: 19%; z-index: 100">
+                <input type="button" class="form small" ng-disabled="!shift2IncorrectOptionsAllowed" ng-click="shift2IncorrectOptions()" ng-class="{disabled:!shift2IncorrectOptionsAllowed}" value="50/50"/>
+                <input type="button" class="form small" ng-disabled="!oneMoreImageAllovew" ng-click="getOneMoreImage()" ng-class="{disabled:!oneMoreImageAllovew}" value="{{translation.game.oneMore}}"/>
+                <input type="button" class="form small" ng-disabled="!sckipButtonAllovew" ng-click="skipBtn()" ng-class="{disabled:!sckipButtonAllovew}" value="{{translation.game.skip}}"/>
+              </div>
+                <img class="" ng-src="https://kinobox.in.ua/frames/{{getCurrentSlide().frames[0].image}}"  height="auto" style="margin: 0 auto; width:60%;max-height: 100%">
+              <div class="progress-bar" style="width: 19%; height: 100%">
+                <div class="landscape progress "  ng-repeat="slideData in progress track by $index" class="landscape-point"
                      ng-class="slideData.submit ?
                       {'correct' : slideData.correct,
                        'incorrect' : !slideData.correct} : {}" class="landscape-point-image" >
-                  <img style="height: 100%;width:100% "
-                       ng-src="{{
+                  <img  ng-src="{{
                      slideData.submit ?  slideData.correct ? 'img/point-correct.png' : 'img/point-incorrect.png' : 'img/point.png'}}">
 
                 </div>
               </div>
+
+              </div>
+
             </div>
-          </div>
+
           <div class="answers center" style="height: 35%">
             <div  ng-repeat="variant in getCurrentSlide().options track by $index"
-                    style="width: 50%; height:39%; float: left; margin: 1% auto"  class="variant" ng-click="submit(variant.id)" >
+                    style="float: left "  class="variant col col-50" ng-click="submit(variant.id)" >
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
-                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{variant.title_ua}}</a>
+                       'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>
               <div class="subitem" ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}">{{variant.title_en}} ({{variant.year}})</div>

@@ -5,7 +5,19 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('gameCtrl', function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, GameService) {
+  .controller('gameCtrl',
+    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state,
+              GameService, translationService) {
+
+      $scope.selectedLanguage = translationService.getSelectedLanguage();
+
+      $scope.isUkrainianLang = $scope.selectedLanguage === 'uk';
+
+      $scope.translate = function(){
+        translationService.getTranslation($scope, $scope.selectedLanguage);
+      };
+
+      $scope.translate();
 
     // TIMER logic
     const SECONDS_PER_SLIDE = 15;
@@ -13,7 +25,7 @@ angular.module('app.controllers')
     var _remainingTimeMs = 0;
     var _intervalId = 0;
     var _inputLocked = false;
-    $scope.timeRemainPercents = {"width":_remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%"};
+    $scope.timeRemainPercents = _remainingTimeMs/(SECONDS_PER_SLIDE * 10);
 
     /**
      * Resets countdown timer to SECONDS_PER_SLIDE seconds.
@@ -31,6 +43,7 @@ angular.module('app.controllers')
           }
           $scope.$applyAsync(_renderTimer);
         } else {
+          _renderIsCorrectVariant(-1, false);
           _loadNextSlide();
           console.log("Time limit reached");
         }
@@ -59,6 +72,27 @@ angular.module('app.controllers')
 
     var _currentSlideNumber = 0;
 
+    var _renderIsCorrectVariant = function (id, correct) {
+      $scope.progress[_currentSlideNumber - 1].submit = true;
+      $scope.progress[_currentSlideNumber - 1].correct = correct ;
+
+      $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
+
+        //Commented because we don't show correct answer if user didn't check it
+        /*
+         if (md5(option.id + 'kinobox') === $scope.slides[_currentSlideNumber - 1].game_value_id) {
+         option.submit = true;
+         option.correct = true;
+         }
+         */
+
+        if (option.id === id) {
+          option.submit = true;
+          option.correct = correct ;
+
+        }
+      });
+    }
 
     $scope.submit = function (id) {
       if(_inputLocked) {
@@ -67,26 +101,7 @@ angular.module('app.controllers')
       const SLIDE_ID = id;
       _checkAnswer(id).then(function (data) {
         console.log(data);
-        $scope.progress[_currentSlideNumber - 1].submit = true;
-        $scope.progress[_currentSlideNumber - 1].correct = ! (data.data.answer === 'wrong') ;
-
-        $scope.slides[_currentSlideNumber - 1].options.forEach(function (option) {
-
-          //Commented because we don't show correct answer if user didn't check it
-          /*
-          if (md5(option.id + 'kinobox') === $scope.slides[_currentSlideNumber - 1].game_value_id) {
-            option.submit = true;
-            option.correct = true;
-          }
-          */
-
-          if (option.id === SLIDE_ID) {
-            option.submit = true;
-            option.correct = ! (data.data.answer === 'wrong') ;
-
-          }
-        });
-
+      _renderIsCorrectVariant(SLIDE_ID, (data.data.answer !== 'wrong'));
         //Delay to see results
         _loadNextSlide();
 
@@ -103,41 +118,39 @@ angular.module('app.controllers')
     };
 
     var _renderTimer = function() {
-      $scope.timeRemainPercents.width =  _remainingTimeMs/(SECONDS_PER_SLIDE * 10) + "%";
-      document.getElementsByClassName("countdown-timer")[0].style = "width:" + $scope.timeRemainPercents.width;
-      document.getElementsByClassName("countdown-timer")[1].style = "width:" + $scope.timeRemainPercents.width;
+      $scope.timeRemainPercents =  _remainingTimeMs/(SECONDS_PER_SLIDE * 10);
     };
 
-    var _loadNextSlide = function () {
-     if(!_inputLocked)
-      if (!_isEndOfGame()) {
-        $ionicLoading.show({
-          template:"Завантаження..."
-        });
-        _inputLocked = true;
-        GameService.loadSlide(_currentSlideNumber + 1).then(
-          function (data) {
-            var img = new Image();
-            img.src = "https://kinobox.in.ua/frames/" + data.frames[0].image;
-            img.onload = function () {
-              $scope.slides.push(data);
-              console.log("Слайд завантажено");
-              _inputLocked = false;
-              _resetTimer();
-              _currentSlideNumber++;
-              $ionicLoading.hide();
-            };
-            console.log("Отримано дані слайду");
-            console.log(data);
-          },
-          function(data) {
-            $ionicPopup.alert({
-              title: 'Упс',
-              template:
-              data.errorStatus !== "internal error" ?
-                data.message === 'completed' ? 'Сталася помилка. Ви нещодавно закінчили гру!' : 'Сталася помилка.' :
-                'Немає зв\'язку із сервером.'
+      var _loadNextSlide = function () {
+        if(!_inputLocked)
+          if (!_isEndOfGame()) {
+            $ionicLoading.show({
+              template: $scope.translation.game.loading
             });
+            _inputLocked = true;
+            GameService.loadSlide(_currentSlideNumber + 1).then(
+              function (data) {
+                var img = new Image();
+                img.src = "https://kinobox.in.ua/frames/" + data.frames[0].image;
+                img.onload = function () {
+                  $scope.slides.push(data);
+                  console.log("Слайд завантажено");
+                  _inputLocked = false;
+                  _resetTimer();
+                  _currentSlideNumber++;
+                  $ionicLoading.hide();
+                };
+                console.log("Отримано дані слайду");
+                console.log(data);
+              },
+              function(data) {
+                $ionicPopup.alert({
+                  title: $scope.translation.game.upps,
+                  template:
+                    data.errorStatus !== "internal error" ?
+                      data.message === 'completed' ? $scope.translation.game.anError + $scope.translation.game.recentlyGameEndedError : $scope.translation.game.anError :
+                      $scope.translation.game.netError
+                });
 
             console.log("Помилка завантаження слайду");
             console.log(data);

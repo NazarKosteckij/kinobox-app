@@ -1,0 +1,45 @@
+{
+  "login" : {
+    "authorization" : "Авторизація",
+    "signin" : "Вхід",
+    "login" : "Пошта",
+    "password" : "Пароль",
+    "unauthError" : "Не авторизовані",
+    "unauthErrorText" : "Ви не маєте доступу до цього ресурсу!",
+    "upps" : "Упс!"
+  },
+  "game" : {
+    "oneMore": "ще кадр",
+    "skip" : "пропустити",
+    "cool" : "Круто :)",
+    "recentlyGameEndedError" : "Ви нещодавно закінчили гру!",
+    "anError" : "Сталася помилка. ",
+    "netError" : "Немає зв'язку із сервером.",
+    "upps" : "Упс!",
+    "loading" : "Завантаження..."
+  },
+  "results" : {
+    "trueAnswers" : "Вірних відповідей",
+    "falseAnswers" : "Хибних відповідей",
+    "points" : "балів",
+    "cool" : "Круто :)",
+    "gameFinished" : "Гру завершено!",
+    "textResult" : "Результат"
+  },
+  "main" : {
+    "marks" : "балів",
+    "points" : "бали",
+    "point" : "бал",
+    "gameUncorrectlyText" : "Остання гра була некоректно завершена!",
+    "gameStartAfter" : "Гра буде доступна через ",
+    "upps" : "Упс!",
+    "netError" : "Немає з'вязку з сервером."
+  },
+  "bonus" : {
+    "bonus" : "БОНУС!",
+    "forDaily" : "за щоденне",
+    "usageApp" : "використання додатку",
+    "points" : "балів",
+    "cool" : "Круто :)"
+  }
+}

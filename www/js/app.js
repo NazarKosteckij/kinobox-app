@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ionicProcessSpinner', 'ngCordova'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngResource', 'ionicProcessSpinner', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -13,11 +13,14 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScrollingInShrinkView(false);
     }
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $cordovaStatusbar.overlaysWebView(true);
+    $cordovaStatusbar.hide()
   });
 })
 .run(function($cordovaSplashscreen) {
@@ -37,7 +40,3 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   notAuthenticated: 'auth-not-authenticated',
   notAuthorized: 'auth-not-authorized'
 })
-
-.constant('USER_ROLES', {
-  public: 'public_role'
-});

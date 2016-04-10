@@ -45,6 +45,15 @@ $incorrect-color:     $MAIN_COLOR;
   line-height: 1px;
   border: 1px solid;
 }
+.landscape .progress img{
+  height: 41%;
+  width:100%
+}
+.landscape .progress {
+  height: 7%;
+  width: 50%;
+  margin: 3%  auto;
+}
 
 .landscape .form.small {
   background-color: $image-bloc-bg-color;
@@ -74,10 +83,10 @@ $incorrect-color:     $MAIN_COLOR;
 }
 
 .landscape .progress-bar {
-  width: 20%;
-  padding: 1.5% auto;
+  padding: 2% 0;
   float: right;
-  height: auto;
+  height: 100%;
+  width: 25%;
 }
 
 .progress-bar .progress {
@@ -88,9 +97,9 @@ $incorrect-color:     $MAIN_COLOR;
 
 
 .landscape .progress-bar .progress {
-  text-align: center;
-  margin: 0.5vh;
+  margin: 0 auto;
   padding: 0px;
+  width: 50%;
 }
 
 .landscape .progress-bar .progress .landscape-point {
@@ -142,8 +151,9 @@ $incorrect-color:     $MAIN_COLOR;
 }
 
 .variant {
-  height: 25%;
-  padding: 1% 5%;
+  @media screen and (min-width: $SCREEN-LARGE){
+    margin: 10px 0;
+  }
   background: $MAIN_BACKGROUND_COLOR;
 }
 
