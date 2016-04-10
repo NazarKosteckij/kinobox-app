@@ -8,7 +8,8 @@
    */
   .controller('mainCtrl',
     function ($rootScope, $stateParams, $window, $scope, $state, $http,
-              $ionicPopup, $ionicHistory, AuthService, ProfileService, GameService, translationService) {
+              $ionicAnalytics, $ionicPopup, $ionicHistory,
+              AuthService, ProfileService, GameService, translationService) {
 
   $scope.translate = function(){
     translationService.getTranslation($scope);
