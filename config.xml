@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="ua.in.kinobox.android" version="0.2.0b" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ua.in.kinobox.android" version="0.13.1b" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>kinobox.in.ua - PLAY and  WIN!</name>
   <description>
     kinobox.in.ua представляє мобільний додаток гри &quot;Вгадай фільм по кадру&quot;!

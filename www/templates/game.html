@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="answers center">
-            <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant col col-center" ng-click="submit(variant.id)">
+            <div ng-repeat="variant in getCurrentSlide().options track by $index" class="variant portrait col col-center" ng-click="submit(variant.id)">
               <a ng-class="variant.submit ?
                       {'correct' : variant.correct,
                        'incorrect' : !variant.correct} : {}" class="item balance-block">{{isUkrainianLang? variant.title_ua : variant.title_ru}}</a>

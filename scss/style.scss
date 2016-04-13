@@ -24,9 +24,9 @@ $border-size-small:                     $form-border-size;
 $font-size-small:                       $font-size;
 
 /****** screen sizes ******/
-$SCREEN-SMALL:                          319px;
-$SCREEN-MEDIUM:                         479px;
-$SCREEN-LARGE:                          719px;
+$SCREEN-SMALL:                          320px;
+$SCREEN-MEDIUM:                         480px;
+$SCREEN-LARGE:                          720px;
 $SCREEN-LARGEST:                        1200px;
 
 
@@ -139,23 +139,23 @@ input.ng-invalid{
 }
 
 /****** MEDIUM SCREEN ******/
-@media  (max-width: $SCREEN-MEDIUM) and (min-width: $SCREEN-SMALL + 1) {
+@media  (max-width: $SCREEN-MEDIUM) and (min-width: $SCREEN-SMALL - 1) {
   $diff: $small-diff;
   @import "./myStyles/responsive";
 }
 
 /****** MEDIUM SCREEN ******/
-@media  (max-width: $SCREEN-LARGE) and (min-width: $SCREEN-MEDIUM + 1) {
+@media  (max-width: $SCREEN-LARGE) and (min-width: $SCREEN-MEDIUM - 1) {
   $diff: $medium-diff;
   @import "./myStyles/responsive";
 }
 
-@media  (max-width: $SCREEN-LARGEST) and (min-width: $SCREEN-LARGE + 1) {
+@media  (max-width: $SCREEN-LARGEST) and (min-width: $SCREEN-LARGE - 1) {
   $diff: $large-diff;
   @import "./myStyles/responsive";
 }
 
-@media  (min-width: $SCREEN-LARGEST + 1){
+@media  (min-width: $SCREEN-LARGEST - 1){
   $diff: $largest-diff;
   $font-size: $font-size - 10;
   @import "./myStyles/responsive";
