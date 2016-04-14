@@ -134,7 +134,7 @@
   };
 
   $scope.pluralize = function (number) {
-    return PluralizationService.pluralize(number, $scope.translation.game.points1,  $scope.translation.game.points2, $scope.translation.game.points5)
+    return PluralizationService.pluralize(number, $scope.translation.main.points1,  $scope.translation.main.points2, $scope.translation.main.points5)
   };
 
 })
