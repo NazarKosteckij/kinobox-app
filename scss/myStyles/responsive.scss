@@ -22,11 +22,11 @@
 
 .form.small {
   height: ($form-height + $diff)*0.85;
-  font-size:  ($font-size + $diff*0.65)*0.65;
+  font-size:  ($font-size + $diff)*0.65;
 }
 .landscape .form.small {
   height: ($form-height + $diff)*0.45;
-  font-size:  ($font-size + $diff)*0.25;
+  font-size:  ($font-size + $diff)*0.24;
 }
 
 .title{

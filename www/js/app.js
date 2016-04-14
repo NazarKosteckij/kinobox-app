@@ -5,12 +5,31 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngResource', 'ionicProcessSpinner', 'ngCordova'])
+angular.module('app', ['ionic', 'ionic.service.core', 'ionic.service.analytics', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngResource', 'ionicProcessSpinner', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicAnalytics, $window) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    $ionicAnalytics.register();
+    $ionicAnalytics.track('App runed',
+      {
+        device : ionic.Platform.device(),
+        platform : ionic.Platform.platform(),
+        version : ionic.Platform.version(),
+        width: $window.innerWidth,
+        height: $window.innerHeight
+      });
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','lib/analytics.js','ga');
+
+    ga('create', 'UA-48884370-1', 'auto');
+    ga('send', 'androidApp');
+
+
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScrollingInShrinkView(false);

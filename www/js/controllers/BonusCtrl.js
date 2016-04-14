@@ -7,7 +7,8 @@ angular.module('app.controllers')
  ************************************
  */
 
-.controller('bonusCtrl', function($scope, $state, translationService) {
+.controller('bonusCtrl', function($scope, $state, translationService, $ionicAnalytics) {
+  $ionicAnalytics.track('User got bonus');
 
   $scope.translate = function(){
     translationService.getTranslation($scope, $scope.selectedLanguage);

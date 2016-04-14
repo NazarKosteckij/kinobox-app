@@ -8,10 +8,11 @@ $incorrect-color:     $MAIN_COLOR;
   background: $MAIN_COLOR;
 }
 .game {
-  height: 94%;
+  height: 95%;
 }
 
 .buttons-bar.landscape {
+  height: 100%;
   float: left;
   margin: 0 auto;
   width: 20%;
@@ -147,12 +148,20 @@ $incorrect-color:     $MAIN_COLOR;
 
 /********* VARIANTS  *********/
 .answers {
-  height: 53%;
+  height: 48%;
+}
+
+.variant.portrait {
+  padding: 0 4%;
+  height: 21%;
 }
 
 .variant {
-  @media screen and (min-width: $SCREEN-LARGE){
-    margin: 10px 0;
+  @media screen and (orientation: landscape){
+    margin: 1% 0;
+  }
+  @media screen and (orientation: portrait){
+    margin: 2% 0;
   }
   background: $MAIN_BACKGROUND_COLOR;
 }

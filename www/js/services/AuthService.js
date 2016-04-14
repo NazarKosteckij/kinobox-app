@@ -70,6 +70,13 @@ angular.module('app.services')
             resolve('Вхід виконано.');
             storeUserCredentials(respose.data.data.access_token);
             console.log(respose.data);
+            var credentials = {
+              'email': name,
+              'password': password
+            }
+            Ionic.Auth.signup(credentials).then(signupSuccess, signupFailure);
+            var options = { 'remember': true };
+            Ionic.Auth.login('basic', options, credentials).then(authSuccess, authFailure);
           }
         }, function(error){
           reject('Немає зв\'язку із сервером.');
