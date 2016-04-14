@@ -21,15 +21,17 @@
   "results" : {
     "trueAnswers" : "Вірних відповідей",
     "falseAnswers" : "Хибних відповідей",
-    "points" : "балів",
+    "points1" : "бал",
+    "points2" : "бали",
+    "points5" : "балів",
     "cool" : "Круто :)",
     "gameFinished" : "Гру завершено!",
     "textResult" : "Результат"
   },
   "main" : {
-    "marks" : "балів",
-    "points" : "бали",
-    "point" : "бал",
+    "points1" : "бал",
+    "points2" : "бали",
+    "points5" : "балів",
     "gameUncorrectlyText" : "Остання гра була некоректно завершена!",
     "gameStartAfter" : "Гра буде доступна через ",
     "upps" : "Упс!",

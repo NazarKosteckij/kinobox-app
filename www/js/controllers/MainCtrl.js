@@ -9,7 +9,8 @@
   .controller('mainCtrl',
     function ($rootScope, $stateParams, $window, $scope, $state, $http,
               $ionicAnalytics, $ionicPopup, $ionicHistory,
-              AuthService, ProfileService, GameService, translationService) {
+              AuthService, ProfileService, GameService, translationService,
+              PluralizationService) {
 
   $scope.translate = function(){
     translationService.getTranslation($scope);
@@ -130,6 +131,10 @@
   };
   $scope.setLangRu = function () {
     _setLanguage("ru");
+  };
+
+  $scope.pluralize = function (number) {
+    return PluralizationService.pluralize(number, $scope.translation.game.points1,  $scope.translation.game.points2, $scope.translation.game.points5)
   };
 
 })

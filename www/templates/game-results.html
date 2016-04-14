@@ -10,7 +10,7 @@
     <div class="spacer hide-on-landscape hide-on-small" style="width: 100%; height: 10%;"></div>
     <div class="center" style="height: 60%;">
       <h1 class="bonus points red-text">{{result}}</h1>
-      <div class="bonus text">{{translation.results.points}}</div>
+      <div class="bonus text">{{pluralize(result)}}</div>
       <h2 class="text" style="font-size: 4vh;">{{translation.results.trueAnswers}} : {{result}} <br/>{{translation.results.falseAnswers}}: {{10 - result}}</h2>
       <div class="spacer hide-on-landscape" style="width: 100%; height: 10%;"></div>
         <input type="button" class="form" value="{{translation.results.cool}}" ng-click="ok()" style=""/>

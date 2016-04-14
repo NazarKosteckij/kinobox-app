@@ -7,7 +7,7 @@ angular.module('app.controllers')
    ************************************
    */
 
-  .controller('gameResultsCtrl', function($scope, $state, $stateParams, $ionicAnalytics, translationService) {
+  .controller('gameResultsCtrl', function($scope, $state, $stateParams, $ionicAnalytics, translationService, PluralizationService) {
 
 
   $scope.translate = function(){
@@ -20,6 +20,10 @@ angular.module('app.controllers')
     $scope.ok = function () {
       $state.go('main');
     };
+
+  $scope.pluralize = function (number) {
+    return PluralizationService.pluralize(number, $scope.translation.results.points1,  $scope.translation.results.points2, $scope.translation.results.points5)
+  };
 
   console.log($scope);
   $ionicAnalytics.track('Correct and incorrect answers', { correct : $scope.result, wrong: 10 - $scope.result});
