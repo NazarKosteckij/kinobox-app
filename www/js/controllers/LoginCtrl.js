@@ -6,7 +6,7 @@ angular.module('app.controllers')
    *
    ************************************
    */
-  .controller('loginCtrl', function($scope, $state, $ionicPopup, $cordovaKeyboard, $cordovaStatusbar, AuthService, translationService){
+  .controller('loginCtrl', function($scope, $ionicAnalytics, $state, $ionicPopup, $cordovaKeyboard, $cordovaStatusbar, AuthService, translationService){
 
     $scope.translate = function(){
       translationService.getTranslation($scope, $scope.selectedLanguage);
