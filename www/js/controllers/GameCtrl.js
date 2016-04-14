@@ -46,10 +46,13 @@ angular.module('app.controllers')
           }
           $scope.$applyAsync(_renderTimer);
         } else {
-          //$ionicAnalytics.track('Slide time limit reached');
-          _renderIsCorrectVariant(-1, false);
-          _loadNextSlide();
-          console.log("Time limit reached");
+          if(_remainingTimeMs !== -1) {
+            $ionicAnalytics.track('Slide time limit reached');
+            _renderIsCorrectVariant(-1, false);
+            _loadNextSlide();
+            console.log("Time limit reached");
+          }
+          _remainingTimeMs = -1;
         }
     };
 
