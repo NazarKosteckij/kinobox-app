@@ -8,7 +8,7 @@
       Nazar Kostetskiy
     </author>
   <content src="index.html"/>
-  <access origin="kinobox.in.ua"/>
+  <access origin="*"/>
   <preference name="websecurity" value="disable"/>
   <preference name="StatusBarOverlaysWebView" value="true"/>
   <preference name="Fullscreen" value="true"/>

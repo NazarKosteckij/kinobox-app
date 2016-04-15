@@ -7,8 +7,11 @@ angular.module('app.controllers')
    ************************************
    */
 
-  .controller('gameResultsCtrl', function($scope, $state, $stateParams, $ionicAnalytics, translationService, PluralizationService) {
+  .controller('gameResultsCtrl', function($scope, $state, $stateParams, $ionicAnalytics,
+                                          $window, $location,
+                                          translationService, PluralizationService) {
 
+    $window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
 
   $scope.translate = function(){
     translationService.getTranslation($scope, $scope.selectedLanguage);

@@ -6,8 +6,9 @@ angular.module('app.controllers')
    ************************************
    */
   .controller('gameCtrl',
-    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $scope, $state, $ionicAnalytics,
-              GameService, translationService) {
+    function ($document, $ionicPopup, $ionicHistory, $ionicPlatform, $ionicLoading, $log, $window, $scope, $state, $ionicAnalytics,
+              $location,GameService, translationService) {
+      $window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
       var _gameStartTime = new Date();
       var _gameEndTime = 0;
       $ionicAnalytics.track('Game started');

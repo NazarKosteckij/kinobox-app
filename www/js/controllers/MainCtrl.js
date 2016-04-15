@@ -10,9 +10,11 @@
     function ($rootScope, $stateParams, $window, $scope, $state, $http,
               $ionicAnalytics, $ionicPopup, $ionicHistory,
               AuthService, ProfileService, GameService, translationService,
+              $location,
               PluralizationService) {
+  $window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
 
-  $scope.translate = function(){
+    $scope.translate = function(){
     translationService.getTranslation($scope);
     $scope.isUkrainianLang = translationService.getSelectedLanguage() === 'uk';
   };

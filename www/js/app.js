@@ -29,6 +29,10 @@ angular.module('app', ['ionic', 'ionic.service.core', 'ionic.service.analytics',
     ga('create', 'UA-48884370-1', 'auto');
     ga('send', 'androidApp');
 
+    ga('send', 'event', {
+      'eventCategory': 'MobileApplication',
+      'eventAction': 'Runned'
+    });
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
