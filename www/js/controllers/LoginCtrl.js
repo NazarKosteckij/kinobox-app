@@ -10,8 +10,7 @@ angular.module('app.controllers')
                                     $cordovaKeyboard, $cordovaStatusbar,
                                     AuthService, translationService,
                                     $window, $location){
-    $window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
-    $scope.translate = function(){
+   $scope.translate = function(){
       translationService.getTranslation($scope, $scope.selectedLanguage);
     };
 
@@ -48,5 +47,12 @@ angular.module('app.controllers')
         //TODO add validation error message
       }
     };
+    //FIXME
+    try {
+      ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
+    } catch (e) {
+      setTimeout(function () {ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() })})
+    }
+
   })
 
