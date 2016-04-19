@@ -11,7 +11,7 @@ angular.module('app.controllers')
                                           $window, $location,
                                           translationService, PluralizationService) {
 
-    $window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
+    //$window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
 
   $scope.translate = function(){
     translationService.getTranslation($scope, $scope.selectedLanguage);

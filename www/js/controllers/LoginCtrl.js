@@ -30,7 +30,7 @@ angular.module('app.controllers')
         $scope.processingRequest = true;
         AuthService.login(data.username, data.password)
           .then(function(authenticated) {
-            ga('set', 'userId',  data.username);
+            //ga('set', 'userId',  data.username);
             $ionicAnalytics.track('User Logged in',{user: {username: data.username}});
             $state.go('main', {}, {reload: true, historyRoot: true});
             $scope.setCurrentUsername(data.username);
@@ -48,11 +48,11 @@ angular.module('app.controllers')
       }
     };
     //FIXME
-    try {
-      ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
-    } catch (e) {
-      setTimeout(function () {ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() })})
-    }
+    //try {
+    //  ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
+    //} catch (e) {
+    //  setTimeout(function () {ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() })})
+    //}
 
   })
 

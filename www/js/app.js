@@ -20,19 +20,19 @@ angular.module('app', ['ionic', 'ionic.service.core', 'ionic.service.analytics',
         width: $window.innerWidth,
         height: $window.innerHeight
       });
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','lib/analytics.js','ga');
-
-    ga('create', 'UA-48884370-1', 'auto');
-    ga('send', 'androidApp');
-
-    ga('send', 'event', {
-      'eventCategory': 'MobileApplication',
-      'eventAction': 'Runned'
-    });
+    //
+    //(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    //    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    //  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    //})(window,document,'script','lib/analytics.js','ga');
+    //
+    //ga('create', 'UA-48884370-1', 'auto');
+    //ga('send', 'androidApp');
+    //
+    //ga('send', 'event', {
+    //  'eventCategory': 'MobileApplication',
+    //  'eventAction': 'Runned'
+    //});
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);

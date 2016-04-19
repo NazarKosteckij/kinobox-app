@@ -12,7 +12,7 @@
               AuthService, ProfileService, GameService, translationService,
               $location,
               PluralizationService) {
-  $window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
+  //$window.ga('send', 'pageview', { page: 'MOBILE-APP/#' + $location.url() });
 
     $scope.translate = function(){
     translationService.getTranslation($scope);
@@ -21,11 +21,13 @@
   var _processingRequest = false;
   var _avatarTaps = 0;
   var _haroldIntervalId;
+  $scope.showHarold = false;
   $scope.haroldPosition = 200;
 
   var _moveHarold = function () {
     if ($scope.haroldPosition === -100) {
       clearInterval(_haroldIntervalId);
+      $scope.showHarold = false;
       $scope.haroldPosition = 200;
     }
 
@@ -37,6 +39,7 @@
       clearInterval(_haroldIntervalId);
       setTimeout(function () {
         $scope.$apply(function () {
+          $scope.showHarold = false;
           $scope.haroldPosition = 200;
         })
       }, 3000);
@@ -50,6 +53,7 @@
 
   $scope.hiHarold = function() {
     if(_avatarTaps++ === 15) {
+      $scope.showHarold = true;
       $ionicAnalytics.track('Users saw Harold',{user: $scope.user});
       _haroldIntervalId = setInterval(_moveHarold, 10);
       _avatarTaps = 0;
@@ -101,7 +105,7 @@
     $scope.user = ProfileService.user;
     console.log($scope.user);
 
-      $ionicAnalytics.track('User runed app',{user: $scope.user});
+    $ionicAnalytics.track('User runed app',{user: $scope.user});
 
     $scope.logout = function () {
       $ionicAnalytics.track('User Logged out',{user: $scope.user});
